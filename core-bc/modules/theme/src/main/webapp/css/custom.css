@@ -489,22 +489,22 @@ img.dec {
 #navigation .nav-main li.nav-toolbar-item a.hide-header,
 #navigation .nav-main li.nav-toolbar-item a.hide-header:link,
 #navigation .nav-main li.nav-toolbar-item a.hide-header:visited {
-	background: transparent url(../images/arrows/white_bluematte/arrow-up.png) 100% 50% no-repeat;
-	padding-right: 22px;
+	background: transparent url(../images/arrows/white_bluematte/arrow-up.png) 50% 0 no-repeat;
+	padding-right: 20px;
 }
 
 #navigation .nav-main li.nav-toolbar-item a.hide-sidebar,
 #navigation .nav-main li.nav-toolbar-item a.hide-sidebar:link,
 #navigation .nav-main li.nav-toolbar-item a.hide-sidebar:visited {
-	background: transparent url(../images/arrows/white_bluematte/arrow-right.png) 100% 50% no-repeat;
-	padding-right: 22px;
+	background: transparent url(../images/arrows/white_bluematte/arrow-right.png) 50% 0 no-repeat;
+	padding-right: 20px;
 }
 
 #navigation .nav-main li.nav-toolbar-item a.show-sidebar,
 #navigation .nav-main li.nav-toolbar-item a.show-sidebar:link,
 #navigation .nav-main li.nav-toolbar-item a.show-sidebar:visited {
-	background: transparent url(../images/arrows/white_bluematte/arrow-left.png) 100% 50% no-repeat;
-	padding-right: 22px;
+	background: transparent url(../images/arrows/white_bluematte/arrow-left.png) 50% 0 no-repeat;
+	padding-right: 20px;
 }
 
 /*------- Sub navigation -------*/
