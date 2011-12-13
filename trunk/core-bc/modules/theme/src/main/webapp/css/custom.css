@@ -1791,17 +1791,24 @@ a:visited.link-button {
 }
 
 .portlet .portlet-topper {
+	background: #d7e4ee;
+	background: #e9f0f6;
+	background: #ebf2f8;
 	padding: 0 12px;
 }
 
 .portlet-topper {
 	background: transparent url(../images/portlet/portlet_topper_bg.png) repeat-x 0 0;
 	border: none;
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	border-radius: 0px;
 	font-size: 1.1em;
 }
 
 .portlet-title {
 	border-bottom: 1px solid #82abcd;
+	border-bottom: none;
 	color: #06579c;
 	float: none;
 	font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
@@ -2610,7 +2617,7 @@ a:visited.link-button {
 
 /* There are still styles left in the rss portlet (style.css). These styling rules should be moved to theme */
 
-.news-title {
+a.news-title {
     font-size: 1em;
 }
 
@@ -2626,13 +2633,3 @@ a:visited.link-button {
 =Sandbox
 ----------------------------------------------------------------------*/
 
-body.alt1 .portlet-topper {
-	background: #d7e4ee;
-	padding: 0 12px 0 0;
-}
-
-body.alt1 .portlet-title {
-    border-bottom: none;
-	min-width: 0;
-	padding-left: 5px;
-}
