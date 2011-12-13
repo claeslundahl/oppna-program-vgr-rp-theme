@@ -2606,7 +2606,13 @@ a:visited.link-button {
     vertical-align: top; 
 }
 
+/* ---------------- RSS portlet ------------------------- */
 
+/* There are still styles left in the rss portlet (style.css). These styling rules should be moved to theme */
+
+.news-title {
+    font-size: 1em;
+}
 
 /*----------------------------------------------------------------------
 =Articles
@@ -2620,22 +2626,13 @@ a:visited.link-button {
 =Sandbox
 ----------------------------------------------------------------------*/
 
-/* portlet topper Clearfix style clearing */
-body.alt2 .portlet-topper:after{clear:both;content:'.';display:block;visibility:hidden;height:0}
-body.alt2 .portlet-topper{display:inline-block}
-* html body.alt2 .portlet-topper{height:1%}
-body.alt2 .portlet-topper{display:block}
-
-body.alt2 .portlet-topper {
+body.alt1 .portlet-topper {
+	background: #d7e4ee;
 	padding: 0 12px 0 0;
 }
 
-body.alt2 .portlet-title {
-    background: #2C6FA7;
+body.alt1 .portlet-title {
     border-bottom: none;
-    color: #fff;
-    float: left;
 	min-width: 0;
-    padding: 5px 12px;
+	padding-left: 5px;
 }
-

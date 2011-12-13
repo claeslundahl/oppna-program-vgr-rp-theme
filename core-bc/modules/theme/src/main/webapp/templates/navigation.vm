@@ -32,3 +32,9 @@
         #end
     #end
 </nav>
+#*
+<div style="background: #fff; text-align:right; padding: 5px 0; margin: 0 -40px">
+<div style="padding: 0 40px;">
+<a href="">G&ouml;m notifieringar</a>
+</div>
+*#

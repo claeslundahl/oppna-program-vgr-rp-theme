@@ -28,10 +28,10 @@ AUI().add('vgr-novus-main',function(A) {
 		NS = 'vgr-novus-main'
 	;
 	
-	var	TPL_HIDE_HEADER 	= '<li class="nav-toolbar-item"><a class="hide-header" href="#">{linkText}</a></li>',
+	var	TPL_HIDE_HEADER 	= '<li class="nav-toolbar-item"><a class="hide-header" href="#" title="{titleText}">{linkText}</a></li>',
 		TPL_SHOW_HEADER 	= '<div class="show-header-wrap"><a href="#" class="show-header">{linkText}</a></div>',
-		TPL_HIDE_SIDEBAR 	= '<li class="nav-toolbar-item"><a class="hide-sidebar" href="#">{linkText}</a></li>',
-		TPL_SHOW_SIDEBAR 	= '<li class="nav-toolbar-item"><a class="show-sidebar" href="#">{linkText}</a></li>'
+		TPL_HIDE_SIDEBAR 	= '<li class="nav-toolbar-item"><a class="hide-sidebar" href="#" title="{titleText}">{linkText}</a></li>',
+		TPL_SHOW_SIDEBAR 	= '<li class="nav-toolbar-item"><a class="show-sidebar" href="#" title="{titleText}">{linkText}</a></li>'
 	;
 
 	var VgrNovusMain = A.Component.create(
@@ -79,9 +79,13 @@ AUI().add('vgr-novus-main',function(A) {
 						
 						instance.messages = {};
 						instance.messages.hideHeader = 'D&ouml;lj sidhuvud';
-						instance.messages.hideSidebar = 'D&ouml;lj sidokolumn';
+						instance.messages.hideSidebar = 'D&ouml;lj notifieringar';
 						instance.messages.showHeader = 'Visa sidhuvud';
-						instance.messages.showSidebar = 'Visa sidokolumn';
+						instance.messages.showSidebar = 'Visa notifieringar';
+						
+						instance.messages.hideHeaderTitle = 'Klicka h&auml;r f&ouml;r att d&ouml;lja sidhuvudet och ge mer plats till applikationer och information p&aring; sidan.';
+						instance.messages.hideSidebarTitle = 'D&ouml;lj notifieringar.';
+						instance.messages.showSidebarTitle = 'Visa notifieringar';
 						
 					},
 					
@@ -153,7 +157,8 @@ AUI().add('vgr-novus-main',function(A) {
 
 						// Create and insert hideHeader node in nav						
 						var hideHeaderHtml = A.substitute(TPL_HIDE_HEADER, {
-							linkText: instance.messages.hideHeader
+							linkText: instance.messages.hideHeader,
+							titleText: instance.messages.hideHeaderTitle
 						});
 						
 						mainNavList.append(hideHeaderHtml);
@@ -183,6 +188,14 @@ AUI().add('vgr-novus-main',function(A) {
 						// Bind click events for show and hide links
 						instance.hideHeaderLink.on('click', instance._onClickHideHeader, instance);
 						instance.showHeaderLink.on('click', instance._onClickShowHeader, instance);
+						
+						// Init tooltip
+						var t1 = new A.Tooltip({
+							trigger: 'a.hide-header',
+							align: { points: [ 'tr', 'bc' ] },
+							title: true
+						})
+						.render();
 					},
 					
 					_initToggleSidebar: function() {
@@ -203,10 +216,12 @@ AUI().add('vgr-novus-main',function(A) {
 						
 						// Create and insert hideSidebar and showSidebar nodes in nav
 						var hideSidebarHtml = A.substitute(TPL_HIDE_SIDEBAR, {
-							linkText: instance.messages.hideSidebar
+							linkText: instance.messages.hideSidebar,
+							titleText: instance.messages.hideSidebarTitle
 						});
 						var showSidebarHtml = A.substitute(TPL_SHOW_SIDEBAR, {
-							linkText: instance.messages.showSidebar
+							linkText: instance.messages.showSidebar,
+							titleText: instance.messages.showSidebarTitle
 						});
 						
 						if(instance.hideHeaderLink) {
@@ -221,6 +236,23 @@ AUI().add('vgr-novus-main',function(A) {
 						
 						instance.hideSidebarLink = mainNavList.one('a.hide-sidebar');
 						instance.showSidebarLink = mainNavList.one('a.show-sidebar');
+						
+						// Init tooltip
+						var t1 = new A.Tooltip({
+							trigger: 'a.hide-sidebar',
+							align: { points: [ 'tr', 'bc' ] },
+							title: true
+						})
+						.render();
+
+						// Init tooltip
+						var t2 = new A.Tooltip({
+							trigger: 'a.show-sidebar',
+							align: { points: [ 'tr', 'bc' ] },
+							title: true
+						})
+						.render();
+						
 						
 						// Hide/show sidebar controls
 						if(hideSidebar) {
@@ -446,6 +478,7 @@ AUI().add('vgr-novus-main',function(A) {
 	},1, {
 		requires: [
 			'aui-base',
+			'aui-tooltip',
 			'anim',
 			'cookie',
 			'substitute'
