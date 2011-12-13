@@ -22,7 +22,7 @@
 	
 </head>
 
-<body class="$css_class">
+<body class="$css_class alt1">
 
 <div id="wrapper">
 	<a href="#main-content" id="skip-to-content">#language("skip-to-content")</a>
@@ -88,6 +88,7 @@
 
 			$theme.wrapPortlet("portlet.vm", $content_include)
 		#end
+		
 	</div>
 
 </div>
