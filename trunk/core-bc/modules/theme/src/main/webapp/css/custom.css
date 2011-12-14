@@ -178,6 +178,7 @@ body:before {
 #footer {
 	background: #276ca5;
 	color: #fff;
+	z-index: 1;
 }
 
 #footer .footer-inner {
@@ -2629,4 +2630,9 @@ a.news-title {
 /*----------------------------------------------------------------------
 =Sandbox
 ----------------------------------------------------------------------*/
+
+.manage-layouts .aui-widget-bd {
+	height: 400px;
+	overflow-y: auto;	
+}
 
