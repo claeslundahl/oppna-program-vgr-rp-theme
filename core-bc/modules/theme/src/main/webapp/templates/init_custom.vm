@@ -1,3 +1,13 @@
+#* ------ Theme settings ------------------------------------- *#
+
+#set($hide_sidebar_active = true)
+
+#if ($theme.getSetting("hide-sidebar-active") == "true")
+	#set($hide_sidebar_active = true)
+#else
+	#set($hide_sidebar_active = false)
+#end
+
 #* ------ Enable JS debug ------------------------------------- *#
 	
 #set ($enableDebug = false )

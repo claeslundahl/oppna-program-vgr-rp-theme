@@ -103,7 +103,7 @@ AUI().add('vgr-novus-main',function(A) {
 						instance._initDockbarFixes();
 						instance._initToggleHeader();
 						
-						if(instance.get(SIDEBAR_NODE)) {
+						if(instance.get(SIDEBAR_NODE) && vgrGlobal.hideSidbar) {
 							instance._initToggleSidebar();
 						}
 					},
