@@ -19,6 +19,7 @@ AUI().add('vgr-novus-main',function(A) {
 		
 		DOCKBAR_NODE = 'dockbarNode',
 		HEADER_NODE = 'headerNode',
+		LAYOUT_GRID_NODE = 'layoutGridNode',
 		MAIN_CONTENT_NODE = 'mainContentNode',
 		SIDEBAR_NODE = 'sidebarNode',
 		WRAPPER_NODE = 'wrapperNode',
@@ -30,8 +31,10 @@ AUI().add('vgr-novus-main',function(A) {
 	
 	var	TPL_HIDE_HEADER 	= '<li class="nav-toolbar-item"><a class="hide-header" href="#" title="{titleText}">{linkText}</a></li>',
 		TPL_SHOW_HEADER 	= '<div class="show-header-wrap"><a href="#" class="show-header">{linkText}</a></div>',
-		TPL_HIDE_SIDEBAR 	= '<li class="nav-toolbar-item"><a class="hide-sidebar" href="#" title="{titleText}">{linkText}</a></li>',
-		TPL_SHOW_SIDEBAR 	= '<li class="nav-toolbar-item"><a class="show-sidebar" href="#" title="{titleText}">{linkText}</a></li>'
+		TPL_SIDEBAR_TOOLS = '<ul id="sidebarTools" class="sidebar-tools"></ul>',
+		TPL_HIDE_SIDEBAR 	= '<li><a class="hide-sidebar" href="#" title="{titleText}">{linkText}</a></li>',
+		TPL_SHOW_SIDEBAR 	= '<li><a class="show-sidebar" href="#" title="{titleText}">{linkText}</a></li>'
+		
 	;
 
 	var VgrNovusMain = A.Component.create(
@@ -45,6 +48,11 @@ AUI().add('vgr-novus-main',function(A) {
 					
 					headerNode: {
 						value: '#banner',
+						setter: A.one
+					},
+					
+					layoutGridNode: {
+						value: '#layout-grid',
 						setter: A.one
 					},
 					
@@ -86,7 +94,6 @@ AUI().add('vgr-novus-main',function(A) {
 						instance.messages.hideHeaderTitle = 'Klicka h&auml;r f&ouml;r att d&ouml;lja sidhuvudet och ge mer plats till applikationer och information p&aring; sidan.';
 						instance.messages.hideSidebarTitle = 'D&ouml;lj notifieringar.';
 						instance.messages.showSidebarTitle = 'Visa notifieringar';
-						
 					},
 					
 					renderUI: function() {
@@ -204,6 +211,7 @@ AUI().add('vgr-novus-main',function(A) {
 						var headerNode = instance.get(HEADER_NODE);
 						var sidebarNode = instance.get(SIDEBAR_NODE);
 						var mainContentNode = instance.get(MAIN_CONTENT_NODE);
+						var layoutGridNode = instance.get(LAYOUT_GRID_NODE);
 						
 						var hideSidebar = instance._getHideSidebarCookie();
 						
@@ -224,18 +232,14 @@ AUI().add('vgr-novus-main',function(A) {
 							titleText: instance.messages.showSidebarTitle
 						});
 						
-						if(instance.hideHeaderLink) {
-							var showHeaderListItem = instance.hideHeaderLink.ancestor('li');
-							
-							showHeaderListItem.placeBefore(A.Node.create(hideSidebarHtml));
-							showHeaderListItem.placeBefore(A.Node.create(showSidebarHtml));
-						} else {
-							mainNavList.append(hideSidebarHtml);
-							mainNavList.append(showSidebarHtml);
-						}
+						var sidebarToolsNode = A.Node.create(TPL_SIDEBAR_TOOLS);
+						sidebarToolsNode.append(hideSidebarHtml);
+						sidebarToolsNode.append(showSidebarHtml);
 						
-						instance.hideSidebarLink = mainNavList.one('a.hide-sidebar');
-						instance.showSidebarLink = mainNavList.one('a.show-sidebar');
+						layoutGridNode.prepend(sidebarToolsNode);
+						
+						instance.hideSidebarLink = layoutGridNode.one('a.hide-sidebar');
+						instance.showSidebarLink = layoutGridNode.one('a.show-sidebar');
 						
 						// Init tooltip
 						var t1 = new A.Tooltip({
@@ -256,11 +260,11 @@ AUI().add('vgr-novus-main',function(A) {
 						
 						// Hide/show sidebar controls
 						if(hideSidebar) {
-							instance.hideSidebarLink.hide();
-							instance.showSidebarLink.show();							
+							instance.hideSidebarLink.ancestor('li').hide();
+							instance.showSidebarLink.ancestor('li').show();							
 						} else {
-							instance.hideSidebarLink.show();
-							instance.showSidebarLink.hide();							
+							instance.hideSidebarLink.ancestor('li').show();
+							instance.showSidebarLink.ancestor('li').hide();
 						}
 						
 						// Init sidebar animation						
@@ -367,8 +371,8 @@ AUI().add('vgr-novus-main',function(A) {
 							instance.animMainContent.on('end', function(e) {
 								var instance = this;
 								
-								instance.showSidebarLink.show();
-								instance.hideSidebarLink.hide();
+								instance.showSidebarLink.ancestor('li').show();
+								instance.hideSidebarLink.ancestor('li').hide();
 							}, instance);
 							
 							instance.animMainContent.run();
@@ -454,8 +458,8 @@ AUI().add('vgr-novus-main',function(A) {
 							
 							// Define end callback for animSidebar
 							instance.animSidebar.on('end', function(e) {
-								instance.showSidebarLink.hide();
-								instance.hideSidebarLink.show();
+								instance.showSidebarLink.ancestor('li').hide();
+								instance.hideSidebarLink.ancestor('li').show();
 							}, instance);
 							
 							// Run sidebar animation
