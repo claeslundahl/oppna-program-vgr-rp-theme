@@ -2598,6 +2598,11 @@ a:visited.link-button {
 }
 
 
+.bfr-wrap table {
+	/* Test uncommenting this code for BFR (not yet tested 2011-12-14) */
+	/*table-layout: auto !important;*/
+}
+
 .bfr-wrap .yui-dt tr th {
 	background: #eee;
 }
