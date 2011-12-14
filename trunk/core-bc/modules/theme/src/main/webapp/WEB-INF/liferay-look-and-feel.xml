@@ -5,5 +5,16 @@
 	<compatibility>
 		<version>6.0.11+</version>
 	</compatibility>
-	<theme id="regionportalen-theme" name="Regionportalen Tema" />
+	<theme id="regionportalen-theme" name="Regionportalen Tema">
+		<settings>
+			<setting key="bullet-style-options" value="1,2" />
+			<setting key="hide-sidebar-active" value="true" />
+		</settings>
+	</theme>
+	<theme id="regionportalen-theme-no-hide" name="Regionportalen Tema (ej göm notifikationer)">
+		<settings>
+			<setting key="bullet-style-options" value="1,2" />
+			<setting key="hide-sidebar-active" value="false" />
+		</settings>
+	</theme>
 </look-and-feel>

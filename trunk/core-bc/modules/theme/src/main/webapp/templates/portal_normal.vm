@@ -18,7 +18,16 @@
     	<style type="text/css">
     		#wrapper {display:table;height:100%}
     	</style>
-    <![endif]-->	
+    <![endif]-->
+	
+    <script type="text/javascript">
+		
+		vgrGlobal = {};
+	
+		## Set global variable for sidebar hide
+		vgrGlobal.hideSidbar = $hide_sidebar_active;
+	
+	</script>
 	
 </head>
 
