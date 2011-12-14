@@ -197,12 +197,15 @@ AUI().add('vgr-novus-main',function(A) {
 						instance.showHeaderLink.on('click', instance._onClickShowHeader, instance);
 						
 						// Init tooltip
+						// Buggy in the current theme
+						/*
 						var t1 = new A.Tooltip({
 							trigger: 'a.hide-header',
 							align: { points: [ 'tr', 'bc' ] },
 							title: true
 						})
 						.render();
+						*/
 					},
 					
 					_initToggleSidebar: function() {
@@ -242,21 +245,26 @@ AUI().add('vgr-novus-main',function(A) {
 						instance.showSidebarLink = layoutGridNode.one('a.show-sidebar');
 						
 						// Init tooltip
+						// Buggy in the current theme
+						/*
 						var t1 = new A.Tooltip({
 							trigger: 'a.hide-sidebar',
 							align: { points: [ 'tr', 'bc' ] },
 							title: true
 						})
 						.render();
+						*/
 
 						// Init tooltip
+						// Buggy in the current theme
+						/*
 						var t2 = new A.Tooltip({
 							trigger: 'a.show-sidebar',
 							align: { points: [ 'tr', 'bc' ] },
 							title: true
 						})
 						.render();
-						
+						*/						
 						
 						// Hide/show sidebar controls
 						if(hideSidebar) {
@@ -402,9 +410,13 @@ AUI().add('vgr-novus-main',function(A) {
 						instance.animHeader.detach('start');
 						instance.animHeader.detach('end');
 						
+						// Define start callback for animHeader
+						instance.animHeader.on('start', function(e) {
+							instance.showHeaderWrap.hide();
+						}, instance);
+						
 						// Define end callback for animHeader
 						instance.animHeader.on('end', function(e) {
-							instance.showHeaderWrap.hide();
 							instance.get(HEADER_NODE).removeClass('overflow-hidden');
 						}, instance);
 						
