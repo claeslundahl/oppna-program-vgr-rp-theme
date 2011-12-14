@@ -2002,6 +2002,10 @@ a:visited.link-button {
 
 /*------- Portlet Alerts -------*/
 
+/* Not actually styling of portlet alerts, but the y-padding set to 0 is needed since portlet alerts will be in this column */
+.controls-hidden .portlet-layout .hundred .portlet-column-content {
+	padding: 0 15px;
+}
 
 .portlet-alerts .portlet-body .entry-content {
     padding: 2px;
