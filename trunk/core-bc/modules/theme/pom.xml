@@ -5,13 +5,13 @@
 	<parent>
 		<groupId>se.vgregion.vgr-rp-theme</groupId>
 		<artifactId>vgr-rp-theme-core-bc</artifactId>
-		<version>1.0</version>
+		<version>1.1-SNAPSHOT</version>
 	</parent>
 	<groupId>se.vgregion.vgr-rp-theme</groupId>
 	<artifactId>vgr-rp-theme-core-bc-module-theme</artifactId>
 	<packaging>war</packaging>
 	<name>Regionportalen Theme</name>
-	<version>1.0</version>
+	<version>1.1-SNAPSHOT</version>
 	<build>
 		<finalName>regionportalen-theme</finalName>
 		<plugins>
