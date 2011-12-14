@@ -1,0 +1,24 @@
+<div class="footer-inner aui-lay clearfix">
+	<div class="aui-column aui-w25 aui-column-first">
+		<div class="aui-column-content">
+			#language("powered-by") <a href="http://www.liferay.com" rel="external">Liferay EE</a>
+		</div>
+	</div>
+	<div class="aui-column aui-w25 aui-column-first">
+		<div class="aui-column-content">
+			&nbsp;
+		</div>
+	</div>
+	<div class="aui-column aui-w25 aui-column-first">
+		<div class="aui-column-content">
+			&nbsp;
+		</div>
+	</div>
+	<div class="aui-column aui-w25 aui-column-first">
+		<div class="aui-column-content">
+			<a class="logo" href="$company_url">
+				<span>$region_portal_name</span>
+			</a>
+		</div>
+	</div>
+</div>

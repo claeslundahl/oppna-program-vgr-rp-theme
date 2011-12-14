@@ -1,0 +1,2654 @@
+@import url(custom_common.css);
+@import url(http://fonts.googleapis.com/css?family=Ubuntu:500,400);
+
+/*
+@author:	Erik Andersson
+@date:		2011-04-05
+
+--------------------------------------
+Structure:
+--------------------------------------
+
+=Font faces
+=Base blocks
+=Common classes
+=Navigation
+=Layout
+=Forms
+=Modules and Content
+=Liferay Portlets
+=Custom Portlets
+=Articles
+=Sandbox
+
+--------------------------------------
+COLORS:
+--------------------------------------
+
+VGR Blue				#005095
+VGR Blue semi-light		#06579c
+VGR Blue light			#2e71a8
+--------------------------------------
+TODO
+--------------------------------------
+
+* Move booking portlet styling from sandbox to portlet category
+
+*/
+
+/*----------------------------------------------------------------------
+=Font faces
+----------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------
+=Base blocks
+----------------------------------------------------------------------*/
+
+/*------- html and body -------*/
+
+body {
+	background: #fff;
+	color: #333;
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 12px;
+	margin: 0;
+	padding: 0;
+}
+
+/*------- wrapper -------*/
+
+#wrapper {
+	background: none;
+	margin: 0 auto;
+	width: 100%;
+	position: relative;
+	/*overflow: auto;*/
+	overflow-x: hidden;
+}
+
+.ie6 #wrapper {
+}
+
+#banner,
+#content,
+#footer {
+	margin: 0;
+	padding: 0 40px;
+	min-width: 960px;
+}
+
+/*------- banner (header) -------*/
+
+#banner {
+	background: #2c6fa7 url(../images/common/top_dekor.gif) no-repeat 90% 0;
+	position: relative;
+	z-index: 10;
+}
+
+#banner.overflow-hidden {
+	overflow: hidden;
+}
+
+#banner .community-title,
+#banner .page-title {
+	font-size: 0;
+	margin: 0;
+	padding: 0;
+	text-indent: -9999em;
+}
+
+#banner #heading .logo {
+	background: none;
+	display: inline;
+	font-size: 26px;
+	height: auto;
+	text-indent: 0;
+	width: auto;
+}
+
+#banner .company-title {
+	display: none;
+	margin: 0;
+	text-align: left;
+}
+
+#banner .company-title a.logo {
+	text-decoration: none;
+}
+
+#banner .company-title a.logo:hover {
+	text-decoration: none;
+}
+
+#banner .company-title a.logo span {
+	color: #fff;
+	float: none;
+	font-size: 26px;
+	text-indent: 0;
+	text-decoration: none;
+}
+
+#sign-in {
+	background: transparent url(../images/common/key.png) no-repeat 3px 50%;
+	color: #eee;
+	font-weight: bold;
+	padding: 5px 5px 5px 25px;
+	position: absolute;
+	right: 40px;
+	top: 16px;
+}
+
+/*------- content -------*/
+
+#content {
+	min-height: 100px;
+	padding-top: 10px;
+}
+
+/*------- footer -------*/
+
+/* Sticky footer */
+
+html, body {height: 100%;}
+#wrapper {min-height: 100%;}
+
+#content {
+	overflow:auto;
+	padding-bottom: 100px; /* must be same height as the footer */
+}
+
+#footer {
+	clear:both;
+	height: 100px;
+	position: relative;
+	margin-top: -100px; /* negative value of footer height */
+} 
+
+/*Opera Fix*/
+body:before {
+	content:"";
+	height:100%;
+	float:left;
+	width:0;
+	margin-top:-32767px;/
+}
+
+/* Footer styling */
+
+#footer {
+	background: #276ca5;
+	color: #fff;
+	z-index: 1;
+}
+
+#footer .footer-inner {
+	padding: 20px 0;
+}
+
+#footer .aui-column {
+    float: left;
+}
+
+#footer .aui-column-content {
+    padding: 0 1.2em;
+}
+
+#footer a,
+#footer a:link,
+#footer a:visited {
+	color: #fff;
+	text-decoration: none;
+}
+
+#footer a:hover {
+	text-decoration: underline;
+}
+
+#footer a.logo {
+    background: url("../images/logo/vgr-logo-large-bluematte.png") no-repeat scroll 0 0 transparent;
+    display: block;
+	float: right;
+	fonts-size: 0;
+    height: 51px;
+    width: 252px;
+}
+
+#footer a.logo span {
+    font-size: 0;
+    text-indent: -9999em;
+}
+
+/*------- Common elements -------*/
+
+h1, h2, h3 {
+	font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
+	font-weight: normal;
+	margin: 1em 0 0.4em 0;
+}
+
+h1 {
+	color: #005095;
+	font-size: 2.5em;
+	margin: 0.4em 0 0.4em 0;
+}
+
+h2 {
+	color: #444;
+	font-size: 1.8em;	
+}
+
+h3 {
+	color: #666;
+}
+
+h4 {
+	font-size: 14px;
+}
+
+a,
+a:link,
+a:visited {
+	color: #06579C;
+	text-decoration: underline;
+}
+
+a:hover {
+	color: #06579C;
+	text-decoration: none;
+}
+
+/*------- System messages -------*/
+
+.system-info {
+	border: 2px solid;
+	margin: 1em 0;
+	padding: 0 12px;
+}
+
+.system-info h2, .system-info h3 {
+	font-size: 1.1em;
+	margin: 0 -12px !important;
+	padding: 4px !important;
+}
+
+.system-info p {
+	margin: 1em 0;
+}
+
+.error {
+	border-color: #900 !important;
+	color: #900;
+}
+
+.confirmation {
+	border-color: #060 !important;
+	color: #060;
+}
+
+.warning {
+	border-color: #ed0 !important;
+	color: #000;
+}
+
+.error h2,
+.error h3,
+.text.error label,
+.error legend {
+	background: #900 !important;
+	color: #fff !important;
+}
+
+.confirmation h2,
+.confirmation h3 {
+	background: #060 !important;
+	color: #fff !important;
+}
+
+.warning h2,
+.warning h3 {
+	background: #ed0 !important;
+	color: #000 !important;
+}
+
+.non-html strong {
+	font-weight: normal;
+}
+
+.read-more {
+	text-align: right;
+}
+
+.read-more a span {
+	left: -9999px;
+	position: absolute;
+}
+
+/*------- Structural elements, not visible when CSS is enabled -------*/
+
+.structural {
+    position: absolute;
+    left: -9999px;
+}
+
+/*------- Images -------*/
+
+img.left, img.right {
+    float: left;
+    width: auto;
+    margin: 3px 9px 3px 0;
+}
+
+img.right {
+    float: right;
+    margin: 3px 0 3px 9px;
+}
+
+img.dec {
+    padding: 3px;
+    border: 1px solid #ccc;
+}
+
+
+/*----------------------------------------------------------------------
+=Common classes
+----------------------------------------------------------------------*/
+
+.clear {
+	clear: both;
+}
+
+.hidden {
+	display: none;
+	visibility: hidden;
+}
+
+.el-hide {
+    display: none;
+}
+
+.dummy-box {
+    background: #ccc;
+    height: 100px;
+    width: 100%;
+}
+
+.spacer-box {
+    height: 20px;
+    width: 100%;
+}
+
+/* Clearfix style clearing */
+.clearfix:after{clear:both;content:'.';display:block;visibility:hidden;height:0}
+.clearfix{display:inline-block}
+* html .clearfix{height:1%}
+.clearfix{display:block}
+
+.opens-new-window-accessible {
+	background: url(../images/icons/icon-popup.png) 0 0 no-repeat;
+	font-size: 0;
+	overflow: hidden;
+	text-indent: -5000px;
+}
+
+/*----------------------------------------------------------------------
+=Navigation
+----------------------------------------------------------------------*/
+
+/*------- Main navigation -------*/
+
+#navigation {
+	margin: 10px 0 0 0;
+}
+
+#navigation .nav-main {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#navigation .nav-main li {
+	background: transparent;
+    display: block;
+    float: left;
+    list-style: none;
+    margin: 0 1px;
+    padding: 0;
+}
+
+#navigation .nav-main li a {
+	background: #06579c;
+	border: 1px solid #75a1c6;
+	border-bottom: 0;
+	-moz-border-radius-topleft: 4px;
+	-moz-border-radius-topright: 4px;
+	-moz-border-radius-bottomright: 0px;
+	-moz-border-radius-bottomleft: 0px;
+	-webkit-border-radius: 4px 4px 0px 0px;
+	/* Needs an absolute path */
+	behavior: url(/regionportalen-theme/htc/css3pie.htc);	
+	border-radius: 4px 4px 0px 0px;
+    color: #fff;
+    display: block;
+    float: left;
+	font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
+	font-size: 16px;
+    font-weight: normal;
+    padding: 2px 10px;
+	/* Position relative needed for css3pie.htc to work properly */
+	position: relative;
+    text-decoration: none;
+}
+
+#navigation .nav-main li a:hover {
+	background: #fff;
+	color: #06579c;
+    text-decoration: none;
+}
+
+#navigation .nav-main li.selected a,
+#navigation .nav-main li.selected a:hover {
+	background: #fff;
+	color: #06579c;
+	font-weight: normal;
+}
+
+/*-  Nav toolbar items ---*/
+
+#navigation .nav-main li.nav-toolbar-item {
+	float: right;
+}
+
+#navigation .nav-main li.nav-toolbar-item a,
+#navigation .nav-main li.nav-toolbar-item a:link,
+#navigation .nav-main li.nav-toolbar-item a:visited {
+	background: transparent;
+	border: none;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	behavior: none;
+	font-size: 13px;
+	
+	display: block;
+    font-size: 0;
+	height: 16px;
+    text-indent: -9999em;
+	
+}
+
+#navigation .nav-main li.nav-toolbar-item a:hover {
+	color: #fff;
+	text-decoration: underline;
+}
+
+#navigation .nav-main li.nav-toolbar-item a.hide-header,
+#navigation .nav-main li.nav-toolbar-item a.hide-header:link,
+#navigation .nav-main li.nav-toolbar-item a.hide-header:visited {
+	background: transparent url(../images/arrows/white_bluematte/arrow-up.png) 50% 0 no-repeat;
+	padding-right: 20px;
+}
+
+/*------- Sidbar navigation (toggle) -------*/
+
+.sidebar-tools {
+	list-style-type: none;
+	margin: 5px 0;
+	padding: 0 15px;
+	text-align: right;
+}
+
+.sidebar-tools li {
+	display: inline;
+}
+
+.sidebar-tools li a {}
+
+/*------- Sub navigation -------*/
+
+#navigation .nav-sub-wrap {
+	margin: 0 -40px;
+}
+
+#navigation .nav-sub-wrap-inner {
+	background: #fff;
+	width: 100%;	
+}
+
+#navigation ul.nav-sub {
+	border: 1px solid #005095;
+	border-width: 0 0 1px 0;
+    list-style: none;
+	margin: 0;
+    margin: 0 40px;
+    padding: 5px 0;
+}
+
+#navigation ul.nav-sub li {
+	background: transparent;
+    display: block;
+    float: left;
+    list-style: none;
+    margin: 0 3px;
+    padding: 0;
+}
+
+#navigation ul.nav-sub li a,
+#navigation ul.nav-sub li a:link {
+	background: #fff;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	/* Needs an absolute path */
+	behavior: url(/regionportalen-theme/htc/css3pie.htc);	
+    color: #06579c;
+    display: block;
+    float: left;
+	font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
+	font-size: 12px;
+    font-weight: normal;
+    margin: 0;
+    padding: 3px 5px;
+	/* Position relative needed for css3pie.htc to work properly */
+	position: relative;
+    text-decoration: none;
+}
+
+#navigation ul.nav-sub li a:hover,
+#navigation ul.nav-sub li.selected a,
+#navigation ul.nav-sub li.selected a:link,
+#navigation ul.nav-sub li.selected a:hover {
+	background: #06579c;
+	border: none;
+	border-bottom: none;
+	color: #fff;
+	font-weight: bold;
+}
+
+#navigation ul.nav-sub li a:hover {
+	font-weight: normal;
+}
+
+/* ---------- Breadcrumbs ---------- */
+
+.breadcrumbs {
+	margin-bottom: 1.5em;
+}
+
+.breadcrumbs li {
+}
+
+.breadcrumbs .last {
+}
+
+.breadcrumbs .last a {
+}
+
+/*------- Navigation - Show header -------*/
+
+.show-header-wrap {
+	border-top: 3px solid #06579c;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.show-header-wrap a,
+.show-header-wrap a:link,
+.show-header-wrap a:visited {
+	background: #06579c url("../images/arrows/white_bluematte/arrow-down.png") no-repeat 96% 50%;
+	border: 1px solid #06579c;
+	border-top-width: 0;
+	-moz-border-radius-topleft: 0px;
+	-moz-border-radius-topright: 0px;
+	-moz-border-radius-bottomright: 6px;
+	-moz-border-radius-bottomleft: 6px;
+	-webkit-border-radius: 0px 0px 6px 6px;
+	/* Needs an absolute path */
+	behavior: url(/regionportalen-theme/htc/css3pie.htc);	
+	border-radius: 0px 0px 6px 6px;
+	color: #fff;
+	display: block;
+	font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
+	font-size: 14px;
+	left: 50%;
+	margin: 0 auto;
+	padding: 3px 6px;
+	padding-right: 30px;
+	position: absolute;
+	text-align: center;
+	text-decoration: none;
+	top: 0;
+	width: 90px;
+	z-index: 100;
+}
+
+.show-header-wrap a:hover {
+	background-color: #4682b6;
+	color: #fff;
+	text-decoration: none;
+}
+
+/*----------------------------------------------------------------------
+=Layout
+----------------------------------------------------------------------*/
+
+.columns-max {
+	padding: 15px;
+}
+
+.portlet-layout .portlet-column-content {
+	padding: 15px;
+}
+
+.portlet-layout .portlet-column > .empty {
+	padding: 0;
+}
+
+.portlet-layout .aui-dd-drop-active-valid > .empty {
+	padding: 15px 0;
+}
+
+.portlet-layout .portlet-column-content-first,
+.portlet-layout .portlet-column-content-only {
+	padding-left: 0;
+}
+
+.portlet-layout .portlet-column-content-last,
+.portlet-layout .portlet-column-content-only {
+	padding-right: 0;
+}
+
+.grid-960 .aui-mod {
+	margin: 0 15px 0 15px;
+}
+
+.grid-960 .aui-col {
+	float: left;
+}
+
+
+/*------- Slide column styles -------*/
+
+#content-wrapper.slide * #column-1,
+#content-wrapper.slide * #column-2,
+#content-wrapper.slide * #column-3,
+#content-wrapper.slide * #column-4 {
+    float: left;
+}
+
+/*
+#content-wrapper.slide * .fifty {
+    width: 50%;
+}
+
+#content-wrapper.slide * .hundred {
+    width: 100%;
+}
+*/
+
+.twenty {
+    width: 19.8%;
+}
+
+.thirty {
+    width: 29.8%;
+}
+
+.fifty {
+    width: 49.8%;
+}
+
+.seventy {
+    width: 69.8%;
+}
+
+.eighty {
+    width: 79.8%;
+}
+
+.hundred {
+    width: 100%;
+}
+
+#content-wrapper.slide {
+	/*clear: both;*/
+	min-height: 100px;
+	position: relative;
+	text-align: left;
+	width: 100%;
+}
+
+#main-container {
+	float: left;
+	/*
+	left: 0;
+	*/
+	overflow: hidden;
+	width: 80%;
+}
+
+#slide-container {
+	overflow: hidden;
+	padding: 15px 0;
+	/* 
+	position: absolute;
+	right: 0;
+	top: 0;
+	*/
+	float: right;
+	position: relative;
+	width: 20%;
+}
+
+#slideButtons {
+	display: none;
+	text-align: right;
+}
+
+#slide-buttons a {
+	display: none;
+}
+
+#main-container * table {
+	table-layout: fixed;
+}
+
+/*----------------------------------------------------------------------
+=Forms
+----------------------------------------------------------------------*/
+
+input[type="text"],
+input[type="password"],
+input[type="file"],
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+select,
+textarea,
+.textarea,
+button,
+a.link-button,
+a:link.link-button,
+a:visited.link-button {
+	background-image: url(../images/forms/input_shadow.png);
+	background-repeat: no-repeat;
+	border: 1px solid;
+	border-color: #bfbfbf #dedede #dedede #bfbfbf;
+	font: 1em Arial, Helvetica, Verdana, sans-serif;
+	padding: 5px 1px;
+}
+
+.form-general {
+	margin: 3px 6px 0;
+}
+
+.form-general label {
+	display: block;
+	margin: 0 4px 0 0;
+}
+
+.form-general input,
+.form-general select,
+.form-general textarea {
+	margin: 0;
+}
+
+.form-general .alt {
+	display: inline;
+	margin: 0 3px 0 0;
+}
+
+.form-general .alt1 {
+	float: left;
+	width: 50%;
+}
+
+.form-general .alt2 {
+	float: right;
+	width: 50%;
+}
+
+.text, .radio,
+.checkbox, .select {
+	margin: 0 0 3px;
+}
+
+.text div,
+.radio div,
+.checkbox div,
+.select div {
+	margin-left: 20px;
+}
+
+.text input {
+	width: 27em;
+}
+
+.text textarea {
+	height: 10em;
+	width: 27em;
+}
+
+.pwd input {
+	width: 6em;
+}
+
+.form-general fieldset {
+	border: 1px solid #ccc;
+	margin: 1em 0;
+	padding: 5px 8px;
+}
+
+.control-group {
+	margin: 1em 0;
+}
+
+.checkbox, .radio {
+	white-space: nowrap;
+}
+
+.checkbox input,
+.radio input {
+	vertical-align: middle;
+}
+
+.checkbox label,
+.radio label {
+	display: inline;
+	margin-left: 3px;
+	vertical-align: middle;
+}
+
+.alt label {
+	display: inline;
+}
+
+.submit-area {
+	clear: both;
+	margin: 1em 0 0.5em;
+	text-align: center;
+}
+
+.size-1 input { width: 50px; }
+.size-2 input { width: 100px; }
+.size-3 input { width: 200px; }
+.size-4 input { width: 300px; }
+
+/*------- aui forms -------*/
+
+.aui-fieldset-legend {
+	color: #333;
+}
+
+.aui-legend {
+	border: none;
+}
+
+/*------- Buttons and Link buttons -------*/
+
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+button,
+a.link-button,
+a:link.link-button,
+a:visited.link-button {
+	background: #f5f5f5 url(../images/forms/button.png) repeat-x 0 0;
+	border-color: #dedede #bfbfbf #bfbfbf #dedede;
+	color: #34404f;
+	cursor: pointer;
+	font-weight: bold;
+	overflow: visible;
+	padding: 5px;
+	width: auto;
+}
+
+input[type="submit"]:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:focus,
+input[type="button"]:focus,
+input[type="reset"]:focus,
+button:hover,
+button:focus,
+a.link-button:hover {
+	background: #dff4ff;
+	border: 1px solid #a7cedf;
+	color: #369;
+}
+
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+button,
+.lfr-actions,
+.lfr-actions ul,
+a.link-button,
+a:link.link-button,
+a:visited.link-button {
+	background: #d4d4d4 url(../images/portlet/header_bg.png) repeat-x 0 0;
+	border: 1px solid;
+	border-color: #c8c9ca #9e9e9e #9e9e9e #c8c9Ca;
+	color: #34404F;
+	font-weight: bold;
+	text-shadow: 1px 1px #fff;
+}
+
+input[type="submit"]:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+button:hover,
+.lfr-actions:hover,
+.lfr-actions:hover ul,
+a.link-button:hover {
+	background: #b9ced9 url(../images/application/state_hover_bg.png) repeat-x 0 0;
+	border-color: #627782;
+	color: #369;
+}
+
+input[type="submit"]:focus,
+input[type="button"]:focus,
+input[type="reset"]:focus,
+button:focus,
+.lfr-actions:focus,
+.lfr-actions:focus ul,
+a.link-button:focus {
+	background: #ebebeb url(../images/application/state_active_bg.png) repeat-x 0 0;
+	border-color: #555;
+}
+
+/* ---------- IE6 chokes on attribute selectors in a chain, so we separate them into their own rule ---------- */
+
+.ie6 input.text,
+input.password,
+.ie6 input.submit,
+.ie6 input.file,
+.ie6 input.button,
+.ie6 button,
+.ie6 a.link-button {
+	background-image: url(../images/forms/input_shadow.png);
+	background-repeat: no-repeat;
+	border: 1px solid;
+	border-color: #bfbfbf #dedede #dedede #bfbfbf;
+	font: 1em Arial, Helvetica, Verdana, sans-serif;
+	padding: 5px 1px;
+}
+
+.ie6 input.submit,
+.ie6 input.button,
+.ie6 button,
+.ie6 .aui-button-disabled input.submit,
+.ie6 .aui-button-disabled input.button,
+.ie6 .aui-button-disabled button,
+.ie6 a.link-button {
+	background: #d4d4d4 url(../images/portlet/header_bg.png) repeat-x 0 0;
+	border-color: #dedede #bfbfbf #bfbfbf #dedede;
+	color: #34404f;
+	cursor: pointer;
+	font-weight: bold;
+	padding: 5px;
+}
+
+a.link-button,
+a:link.link-button {
+	text-decoration: none;
+}
+
+/*----------------------------------------------------------------------
+=Modules and Content
+----------------------------------------------------------------------*/
+
+/*------- Intro -------*/
+
+.intro {
+	color: #000;
+	font-size: 1.2em;
+}
+
+/*------- Dates -------*/
+span.date {
+	color: #585858;
+	font-family: Verdana, Arial, sans-serif;
+	font-size: 0.94em;
+}
+
+/*------- Article info -------*/
+
+.article-info {
+	margin: 1em 0;
+}
+
+.article-info p {
+	margin: 0;
+    font-size: 0.94em;
+}
+
+
+/*------- Modules -------*/
+
+.module {
+	padding-bottom: 9px;
+}
+
+.module h2 {
+	background: #d5e7d9;
+	clear: both;
+	margin: 0;
+	padding: 6px;
+}
+
+.module h2.alt {
+	background: transparent;
+	border-bottom: 1px solid #ddd;
+	padding-right: 0;
+	padding-left: 0;
+}
+
+.module h2 a:link,
+.module h2 a:visited,
+.module h2 span {
+	color: #000;
+	display: block;
+	margin: -2px 0;
+	padding: 2px 0 2px 20px;
+}
+
+.module h2.open a {
+	background: url(../images/famfam/bullet_toggle_minus.png) no-repeat 0 50%;
+}
+
+.module h2.closed a {
+	background: url(../images/famfam/bullet_toggle_plus.png) no-repeat 0 50%;
+}
+
+.module h3 {
+	background-color: #f5f5f5;
+	clear: both;
+	color: #444;
+	margin: 0;
+	padding: 5px 6px 4px;
+}
+
+.module h3 .date {
+	color: #666;
+}
+
+.module h3 a {
+	color: #465366;
+}
+
+.module h4 {
+	padding: 0 6px;
+}
+
+#module-shortcuts .alt {
+	margin: 0;
+}
+
+#module-shortcuts .form-general {
+	margin: 3px 0 0;
+}
+
+#module-shortcuts select {
+	width: 80%;
+}
+
+#module-news h2 a {
+	background: url(../images/famfam/chart_organisation.png) no-repeat 0 50%;
+}
+
+#module-shortcuts h2 a {
+	background: url(../images/famfam/heart.png) no-repeat 0 50%;
+}
+
+#module-contacts h2 a {
+	background: url(../images/famfam/book_addresses.png) no-repeat 0 50%;
+}
+
+#module-todos-latest h2 span {
+	background: url(../images/famfam/bell.png) no-repeat 0 50%;
+}
+
+#module-messages h2 span {
+	background: url(../images/famfam/group.png) no-repeat 0 50%;
+}
+
+/* Search - Hitta */
+#module-search-filter ul {
+	margin: 0 0 4px;
+}
+
+#module-search-filter li {
+	list-style: none;
+	margin: 0;
+}
+
+#module-search-filter li a {
+	color: #777;
+	display: block;
+	font-weight: bold;
+	padding: 2px 6px;
+	text-decoration: none;
+}
+
+#module-search-filter li li a {
+	font-weight: normal;
+}
+
+#module-search-filter li a span {
+	color: #00c;
+	text-decoration: underline;
+}
+
+#module-search-filter li a:focus,
+#module-search-filter li a:active {
+	background: #eee;
+	outline: none;
+}
+
+#module-search-filter li li a {
+	padding-left: 18px;
+}
+
+#module-search-filter li.sel ul {
+	display: block;
+}
+
+/* Profile settings */
+.profile-photo {
+	border: 1px solid #ddd;
+	float: left;
+	margin: 3px 0;
+}
+
+/*------- Info Panels -------*/
+
+.info-panel {
+	margin: 0;
+}
+
+.info-panel {
+	border: 1px solid #ddd;
+	border-top: none;
+	padding-bottom: 5px;
+}
+
+.info-panel dt {
+	border-top: 1px solid #ddd;
+	padding: 5px 15px 0;
+}
+
+.info-panel dd {
+	margin-left: 0;
+	padding: 0 15px;
+}
+
+.info-panel p, .more-info p {
+    margin: 0;
+    font-size: 0.94em;
+}
+
+.more-info {
+	background: #eee;
+	clear: both;
+	margin: 0;
+	padding: 5px 10px 5px 20px;
+}
+
+.more-author {
+	background: #eee;
+	clear: both;
+	font-size: 0.94em;
+}
+
+.info-toggle a {
+	background: url(../images/famfam/bullet_toggle_plus.png) no-repeat;
+	float: left;
+	height: 15px;
+	margin-left: -15px;
+	overflow: hidden;
+	text-indent: -9999px;
+	width: 15px;
+}
+
+.open.info-toggle a {
+	background: url(../images/famfam/bullet_toggle_minus.png) no-repeat;
+}
+
+.info-panel caption,
+.info-panel th,
+.info-panel td {
+	background: transparent;
+	border-bottom-color: #cde;
+}
+
+
+/*------- Lists - used in global modules to list items in a compact way -------*/
+
+.list {
+	font-family: Arial, Helvetica, sans-serif;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.list li {
+	margin: 0;
+	padding: 0 1px 1px;
+	position: relative;
+}
+
+.list li p {
+	margin: 0 0 0 18px;
+}
+
+.list li a {
+	background-position: 3px 50%;
+	background-repeat: no-repeat;
+	display: block;
+	font-weight: normal;
+	padding: 2px 2px 2px 24px;
+}
+
+.list li span {
+	display: block;
+	font-weight: normal;
+}
+
+.list .unread a {
+	background-color: #fea;
+	font-weight: bold;
+}
+
+.list .read a {
+	background-color: transparent;
+	color: #777;
+}
+
+/* Priorities - todo-lists and tables */
+li.prio-3,
+td.prio-3 {
+	background: url(../images/prio/prio-3.gif) no-repeat 100% 3px;
+	color: #a00;
+	font-weight: bold;
+}
+
+li.prio-2,
+td.prio-2 {
+	background: url(../images/prio/prio-2.gif) no-repeat 100% 3px;
+	color: #933;
+	font-weight: bold;
+}
+
+li.prio-1,
+td.prio-1 {
+	background: url(../images/prio/prio-1.gif) no-repeat 100% 3px;
+	color: #744;
+	font-weight: bold;
+}
+
+li.prio-3,
+li.prio-2,
+li.prio-1 {
+	border-bottom: 1px solid #ddd;
+	padding-right: 20px;    
+}
+
+li.prio-3 label {
+	color: #a00;
+}
+
+li.prio-2 label {
+	color: #933;
+}
+
+li.prio-1 label {
+	color: #744;
+}
+
+li.done {
+	background: none;
+}
+
+li.done label {
+	color: #585858;
+	font-weight: normal;
+	text-decoration: line-through;
+}
+
+li.done p {
+	display: none;
+}
+
+/* heading icons */
+h3.todos a {
+	background: url(../images/famfam/tick.png) no-repeat 0 50%;
+	padding: 1px 0 1px 20px;
+}
+
+h3.dictations a {
+	background: url(../images/famfam/sound.png) no-repeat 0 50%;
+	padding: 1px 0 1px 20px;
+}
+
+h3.watches a {
+	background: url(../images/famfam/magnifier.png) no-repeat 0 50%;
+	padding: 1px 0 1px 20px;
+}
+
+h3.labtests a {
+	background: url(../images/famfam/paste_plain.png) no-repeat 0 50%;
+	padding: 1px 0 1px 20px;
+}
+
+/* Invoices */
+
+.invoices li.urgent a {
+	background-image: url(../images/famfam/error.png);
+}
+
+/* e-mail */
+.emails li a {
+	background-image: url(../images/famfam/email.png);
+}
+
+.emails li.read a {
+	background-image: url(../images/famfam/email_open.png);
+}
+
+.discussions li a {
+	background-image: url(../images/famfam/group.png);
+}
+
+.ims li cite {
+	font-style: normal;
+}
+
+.ims li cite a {
+	background-image: url(../images/famfam/user.png);
+	display: inline;
+	color: #00c;
+}
+
+.ims li blockquote {
+	border-bottom: 1px solid #ddd;
+	margin: 0;
+	padding: 0 0 2px;
+}
+
+/*------- Tables -------*/
+
+.cols-4 th {
+	width: 20%;
+}
+
+.cols-4 td {
+	width: 30%;
+}
+
+.cols-2 {
+	float: left;
+	width: 49%;
+}
+
+.cols-2b {
+	float: right;
+	width: 49%;
+}
+
+.cols-2c {
+	clear: both;
+}
+
+td.heading {
+	width: 30%;
+}
+
+/*------- Tools -------*/
+
+.tools {
+	background: #fcf1d0;
+	clear: both;
+	padding: 4px;
+	text-align: center;
+}
+
+a.add {
+	background: url(../images/famfam/add.png) no-repeat 0 50%;
+	padding: 2px 10px 2px 20px;	
+}
+
+a.edit-table {
+	background: url(../images/famfam/table_edit.png) no-repeat 0 50%;
+	padding: 2px 10px 2px 20px;
+}
+
+a.edit {
+	background: url(../images/famfam/pencil.png) no-repeat 0 50%;
+	padding: 2px 10px 2px 20px;
+}
+
+a.remove, a.undo,
+button.remove,
+button.undo {
+	background: url(../images/famfam/delete.png) no-repeat 0 50%;
+	padding: 2px 10px 2px 20px
+}
+
+button.remove,
+button.undo {
+	border: none;
+	cursor: pointer;
+	padding-left: 20px;
+	text-align: left;
+}
+
+button.remove span,
+button.undo span {
+	color: #03c;
+	text-decoration: underline;
+}
+
+button.remove:hover span,
+button.undo:hover span {
+	color: #00c;
+	text-decoration: none;
+}
+
+a.undo,
+button.undo {
+	background-image: url(../images/famfam/arrow_undo.png)
+}
+
+.faded,
+.faded a,
+.faded button span {
+	color: #ccc;
+}
+
+.faded .edit {
+	display: none; /* Hides Edit link on Watches */
+}
+
+/*------- News list - used in news portlets -------*/
+
+.featured {
+	border-bottom: 1px solid #ddd;
+	margin-bottom: 0.5em;
+}
+
+.list-news li {
+	margin-top: 0.5em;
+}
+
+.list-news li p {
+	margin-bottom: 0.5em;
+}
+
+/*------- Contact list -------*/
+
+.list-contacts {
+	list-style: none;
+	margin: 10px 0;
+	padding: 0;
+	width: 100%; /* Fixes bug in IE */
+}
+
+.list-contacts li {
+	float: left;
+	margin: 0 0 10px 5px;
+	padding: 0 0 10px;
+	width: 24%;
+}
+
+.list-contacts .col-first {
+	clear: both;
+	margin-left: 0;
+}
+
+.list-contacts p {
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 0 6px;
+}
+
+.contact-private h3 {
+	background: #edffed;
+}
+
+.contact-work h3 {
+	background: #ffefef;
+}
+
+/*------- Calendar overview -------*/
+
+#event-cal {
+	margin: 0 auto 3px;
+	width: auto;
+}
+
+#event-cal caption {
+	border: none;
+	font: normal bold 1em Verdana, Arial, Helvetica, sans-serif;
+	margin: 3px auto;
+	overflow: hidden;
+	padding: 0;
+	text-align: center;
+	width: 80%;
+}
+
+#event-cal .sat,
+#event-cal .sun {
+	background: #fdd;
+}
+
+#event-cal,
+#event-cal th,
+#event-cal td {
+	border: 1px solid #ddd;
+	font-family: Arial, Helvetica, sans-serif;
+	padding: 2px 3px;
+	text-align: right;
+}
+
+#event-cal td.other {
+	background: #f3f3f3;
+	color: #555;
+}
+
+#event-cal td.active {
+	background: #f6bf41;
+}
+
+#event-cal td.today {
+	background-color: #fceac2;
+	border: 2px solid #999;
+	font-weight: bold;
+}
+
+#event-cal td a {
+	font-weight: bold;
+}
+
+span.cal-nav {
+	display: block;
+}
+
+span.cal-nav a {
+	color: #333;
+	font-size: 0.85em;
+}
+
+span.cal-nav a.previous {
+	float: left;
+}
+
+span.cal-nav a.next {
+	float: right;
+}
+
+span.select-year,
+span.select-month {
+	background: url(../images/common/dash.gif) no-repeat 100% 50%;
+	margin: 0 2px 0 0;
+	padding: 0 6px 0 0;
+}
+
+.events dd {
+	margin: 0;
+}
+
+.events dd.date {
+	border: 1px solid #d9e8ed;
+	border-width: 1px 0;
+	font-weight: bold;
+	margin: 2px 0;
+}
+
+.event-data {
+	background: #d9e8ed;
+	padding: 8px;
+}
+
+form#calendar legend {
+	font-weight: bold;
+	padding: .5em 0 0 0;
+}
+
+form#calendar div {
+	padding: 0 0 .5em 0;
+}
+
+form#calendar .dates fieldset {
+	border: none;
+	clear: none;
+	float: left;
+	padding: 0;
+	width: 49%;
+}
+
+form#calendar .dates label {
+	left: -9999px;
+	position: absolute;
+}
+
+form#calendar #query {
+	width: 90%;
+}
+
+form#calendar .submit {
+	text-align: left;
+}
+
+form#calendar .submit input {
+	width: auto;
+}
+
+/*------- Pagers -------*/
+
+p.pager {
+	margin: 2px 0 0;
+}
+
+p.pager a {
+	padding: 2px;
+}
+
+p.pager .prev {
+	background: url(../images/famfam/resultset_previous.png) no-repeat 0 50%;
+	float: left;
+	padding: 3px 6px 3px 20px;
+}
+
+p.pager .next {
+	background: url(../images/famfam/resultset_next.png) no-repeat 100% 50%;
+	float: right;
+	padding: 3px 20px 3px 6px;
+}
+
+.tools p.pager {
+	display: inline;
+}
+
+/*------- Patient overview -------*/
+
+#module-search-patient {
+	background: #fae6c9;
+	margin-bottom: 6px;
+	padding: 3px 6px;
+}
+
+#module-search-patient h2 {
+	background: transparent;
+	color: #454c41;
+	display: inline;
+	font: bold 1em/ 1.0 Verdana, Arial, Helvetica, sans-serif;
+	padding: 0;
+}
+
+#module-search-patient .module-content,
+#module-search-patient form,
+#module-search-patient .search-criteria {
+	display: inline;
+}
+
+#module-patient-1 dl {
+	clear: both;
+	margin: 6px 0;
+}
+
+#module-patient-1 dt {
+	float: left;
+	font-weight: bold;
+	width: 49%;
+}
+
+#module-patient-1 dd {
+	margin-left: 50%;
+}
+
+.patient-tools {
+	list-style: none;
+	margin: 0;
+}
+
+/*------- Tab view (aui) -------*/
+
+.aui-tabview a:link {
+	color: #004597;
+	text-decoration: none;
+}
+
+.aui-tabview a:link:hover {
+	color: #004597;
+	text-decoration: underline;
+}
+
+.aui-tab-active a,
+.aui-tab-active a:hover {
+	color: #fff !important;
+	text-decoration: none !important;
+}
+
+.aui-dialog-button {
+	display: inline;
+}
+
+.aui-field-element {
+	display: block;
+	text-align: left;
+}
+
+/*------- Dialog (aui) -------*/
+
+.aui-dialog-bd fieldset,
+.aui-dialog-bd .aui-form fieldset {
+    margin: 5px 0;
+}
+
+/*------- From extras.css -------*/
+
+.aui-tabview-list,
+.aui-tab-active,
+body > .lfr-menu-list ul,
+.lfr-actions,
+.aui-dialog-content,
+.aui-dialog .aui-widget-hd,
+.modify-pages .delete-tab,
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+button,
+a.link-button,
+a:link.link-button,
+a:visited.link-button {	
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+}
+
+/*----------------------------------------------------------------------
+=Liferay Portlets
+----------------------------------------------------------------------*/
+
+/*------- Portlet wrapper and icons -------*/
+
+.portlet {
+	background-color: #fff;
+	border: 1px solid #e1ebf3;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	/* Needs an absolute path */
+	behavior: url(/regionportalen-theme/htc/css3pie.htc);
+	margin: 0 0 10px;
+	padding: 0;
+	/* Position relative needed for css3pie.htc to work properly */
+	position: relative;
+	text-align: left;
+}
+
+.portlet .portlet-topper {
+	background: #d7e4ee;
+	background: #e9f0f6;
+	background: #ebf2f8;
+	padding: 0 12px;
+}
+
+.portlet-topper {
+	background: transparent url(../images/portlet/portlet_topper_bg.png) repeat-x 0 0;
+	border: none;
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	border-radius: 0px;
+	font-size: 1.1em;
+}
+
+.portlet-title {
+	border-bottom: 1px solid #82abcd;
+	border-bottom: none;
+	color: #06579c;
+	float: none;
+	font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
+	font-weight: normal;
+	min-width: 50%;
+	padding: 5px 0;
+	text-shadow: none;
+}
+
+.portlet-title .icon {
+	display: none;
+}
+
+
+.portlet-icons {
+	float: none;
+}
+
+.portlet-icons .portlet-close-icon {
+	border-width: 0;
+}
+
+.page-maximized .portlet-icons {
+	font-size: 11px;
+}
+
+.portlet-icon-back {
+}
+
+.ie .portlet-title {
+	padding-bottom: 5px;
+}
+
+.ie6 .portlet-topper {
+	zoom: 1;
+}
+
+.lfr-actions.portlet-options .lfr-trigger strong a {
+	text-indent: -9999px;
+	text-decoration: none;
+}
+
+.portlet-minimize a,
+.portlet-minimize a:link,
+.portlet-minimize a:hover,
+.portlet-maximize a,
+.portlet-maximize a:link,
+.portlet-maximize a:hover,
+.portlet-close a,
+.portlet-close a:link,
+.portlet-close a:hover {
+	text-decoration: none;
+}
+
+.portlet .portlet-content {
+	padding: 12px;
+}
+
+/*------- Portlet Dockbar -------*/
+
+.dockbar {
+	background: transparent;
+	border: none;
+	font-size: 12px;
+	line-height: 1.0;
+	padding: 3px 40px;
+	padding: 3px 0;
+}
+
+.dockbar a,
+.dockbar a:link {
+	color: #fff;
+	text-shadow: none;
+	text-decoration: none;
+}
+
+.dockbar .pin-dockbar,
+.ie .dockbar .pin-dockbar,
+.dockbar .pin-dockbar img,
+.ie .dockbar .pin-dockbar img {
+	display: none;
+}
+
+#wrapper .dockbar .pin-dockbar {
+	display: none;
+}
+
+.dockbar .aui-toolbar li {
+	margin: 0 5px;	
+}
+
+.dockbar .menu-button {
+	background: transparent url("../images/arrows/white_bluematte/05_down.png") no-repeat 93% 50%;
+}
+
+.dockbar .menu-button span {
+    background: url("") no-repeat scroll 0 50% transparent;
+    padding-left: 18px;
+}
+
+.dockbar .add-content .menu-button span {
+    background-image: url("../images/icons/white_bluematte/add.png");
+}
+
+.dockbar .manage-content .menu-button span {
+    background-image: url("../images/icons/white_bluematte/settings.png");
+}
+
+.dockbar .toggle-controls a,
+.dockbar .toggle-controls a:link {
+    background: url("../images/icons/white_bluematte/checked.png") no-repeat scroll 0 50% transparent;
+    padding-left: 18px;
+}
+
+.controls-hidden .toggle-controls a,
+.controls-hidden .toggle-controls a:link {
+    background-image: url("../images/icons/white_bluematte/unchecked.png");
+}
+
+.dockbar .my-places .menu-button span {
+    background-image: url("../images/icons/white_bluematte/places.png");
+}
+
+.signed-out .dockbar .user-toolbar {
+	display: none;
+}
+
+.dockbar .user-toolbar .aui-toolbar-separator {
+	display: none;
+}
+
+.dockbar .user-portrait {
+	display: none;
+}
+
+.dockbar .user-fullname {
+    background: url("../images/icons/white_bluematte/user.png") no-repeat scroll 0 50% transparent;
+    padding-left: 18px;
+}
+
+.dockbar .user-avatar .sign-out {
+	padding-left: 5px;
+}
+
+.dockbar .user-avatar .sign-out a {
+	background: url("../images/icons/white_bluematte/signout.png") no-repeat scroll 0 50% transparent;
+    font-size: 12px;
+    padding-left: 18px;
+}
+
+/* Portal title */
+
+.dockbar h1.portal-title {
+	color: #fff;
+	float: left;
+	font-size: 20px;
+	margin: 0;
+}
+
+/* Dropdown menus */
+
+.dockbar .aui-menu-content li a,
+.dockbar .aui-menu-content li a:link {
+	color: #333;	
+}
+
+.dockbar .aui-menu-content li a.aui-focus,
+.dockbar .aui-menu-content li a.aui-focus:link {
+	text-shadow: none;
+}
+
+/* Add application */
+
+.dockbar .add-application {
+    left: -40px !important;
+}
+
+#banner .dockbar .add-application h2 {
+	clip: auto;
+	position: static;
+}
+
+.dockbar .add-application a,
+.dockbar .add-application a:link,
+.dockbar .add-application a:visited {
+	color: #06579C;
+	text-decoration: underline;
+}
+
+.dockbar .add-application a:hover {
+	color: #06579C;
+	text-decoration: none;
+}
+
+
+/*------- Portlet Alerts -------*/
+
+/* Not actually styling of portlet alerts, but the y-padding set to 0 is needed since portlet alerts will be in this column */
+.controls-hidden .portlet-layout .hundred .portlet-column-content {
+	padding: 0 15px;
+}
+
+.portlet-alerts .portlet-body .entry-content {
+    padding: 2px;
+}
+
+.portlet-alerts .portlet-body .entry {
+    background-color: #f33;
+    border: 1px solid #faa;
+    color: white;
+    padding: 0px;
+    padding-left: 12px;
+}
+
+.portlet-alerts .portlet-body .read-entries .entry {
+    background-image: url("../images/warning-grey.png");
+}
+
+.portlet-alerts .entry-scope {
+    display: none;
+}
+
+/* hide controls */ 
+.portlet-alerts .entry .control-entry {
+    display: none;
+}
+.controls-hidden .portlet-alerts .edit-actions {
+    display: none;
+}
+
+.controls-hidden .portlet-alerts .portlet-borderless-container {
+	min-height: 0;
+} 
+
+.controls-hidden .portlet-alerts .aui-tabview-list {
+    display: none;
+	margin: 0;
+	padding: 0;
+}
+
+
+.portlet-alerts .portlet-body .entry .entry-title {
+    color: white;
+    padding: 2px 2px 2px 0px;
+    background-color: transparent;
+}
+
+.portlet-alerts .portlet-body .entry .entry-title .edit-actions table {
+    /* for some reason IE gets fixed table layout below, this doesn't work here 
+       the edi actions swells out to 100% width */
+    table-layout: auto !important; 
+}
+
+
+.portlet-alerts .portlet-body .entry a {
+    color: white;
+}
+
+/* custom classed portlet alerts 
+   Used for system information instead of alerts 
+   Add class 'portlet-alerts-info'
+   */
+.portlet-alerts-info .portlet-body .entry {
+    background-color: #005690;
+    color: white;
+    background-image: none;
+    border: none;
+    padding-left: 35px;
+}
+
+
+.portlet-alerts-info .entry-scope {
+	display: none;
+}
+
+.portlet-alerts-info .portlet-body .entry .entry-title,.portlet-alerts-info .portlet-body .entry .entry-title a {
+    color: white;
+}
+
+.portlet-alerts-info .entry-title {
+    font-size: 27px;
+    text-align: center;
+    margin-top: 9px;
+}
+
+.portlet-alerts-info .entry-content {
+    text-align: center;
+}
+
+.portlet-alerts-info .edit-actions a {
+    font-size: 9px;
+}
+
+.portlet-alerts-info .control-entry  {
+    display: none;
+}
+
+
+/*------  Portlet Announcements --------*/
+
+.portlet-announcements .entry .entry-scope {
+    display: none;
+}
+
+.portlet-announcements .entry p {
+    background-color: #ffe;
+    border-top: 1px solid #bebebe;
+    padding-left: 6px;
+}
+
+/* hide controls */ 
+.portlet-announcements .entry .control-entry {
+    display: none;
+}
+.controls-hidden .portlet-announcements .edit-actions {
+    display: none;
+}
+.controls-hidden .portlet-announcements .aui-tabview-list {
+    display: none;
+}
+
+
+.portlet-announcements .entry-title, .portlet-alerts .entry-title {
+    background-color: #FFFFBB;
+    color: #333;
+    padding-left: 6px;
+    
+}
+/*------- Portlet Navigation ------*/
+
+/*------- Portlet Navigation ------*/
+
+.portlet-navigation .portlet-body ul {
+    list-style-image: url("../images/arrows/04_right.png");
+    padding: 0px 0px 0px 10px;
+    margin: 0px;
+}
+
+
+.portlet-navigation .portlet-body li {
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.portlet-navigation .portlet-body a, .portlet-navigation .portlet-body a:visited {
+    color: #003366;
+}
+
+/* remove reduntant h2 tag on navigation, title is instead set on portlet title */
+.portlet-navigation .portlet-body h2 {
+    display: none;
+}
+
+/* Article template which resembles navigation
+   This is for use with the article portlet using
+   a custom template that just adds the class
+   'navigation-article' in a surrounding div. This way
+   custom navigation can be built.
+*/ 
+.navigation-article ul {
+    list-style-image: url("../images/arrows/04_right.png");
+    padding: 0px 0px 0px 10px;
+    margin: 0px;
+}
+
+.navigation-article li {
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.navigation-article p {
+    margin-bottom: 0px;
+}
+
+
+.navigation-article a {
+    color: #003366;
+}
+
+
+/* 
+ Custom class on standard navigation portlet that makes icons and
+ and a large front page styling possible.
+*/
+
+.icon-navigation .portlet-body ul {
+    list-style-type: none;
+    margin: 0px;    
+    padding: 10px;
+    overflow: hidden;
+}
+
+.icon-navigation .portlet-body li {
+    display: block;
+    float: left;
+    margin: 8px;
+}
+
+.icon-navigation .portlet-body li a {
+    background: #2d70a8 url(../images/navigation/icon-nav-bg-sprite.png) 0 0 no-repeat;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	/* Needs an absolute path */
+	behavior: url(/regionportalen-theme/htc/css3pie.htc);	
+    color: #fff;
+    display: block;
+	font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
+    font-size: 18px;
+    height: 39px;
+	line-height: 1.2em;
+    width: 190px;
+    padding: 25px 5px;
+	/* Position relative needed for css3pie.htc to work properly */
+	position: relative;	
+    text-decoration: none;
+    text-align: center;
+}
+.icon-navigation .portlet-body li a:visited {
+    color: #fff;
+}
+
+.icon-navigation .portlet-body li a:hover {
+	background-color: #558cb8;
+	background-position: 0 -321px;
+}
+
+
+/*--------------- Portlet Journal Content ------------------------------*/
+
+.portlet-journal-content .cal-wrap {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.portlet-journal-content ul.cal-list {
+    border-top: 1px solid #EFEDE3;
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+.portlet-journal-content ul.cal-list li {
+    border-bottom: 1px solid #EFEDE3;
+    margin: 5px 0;
+    padding: 5px 0;
+}
+.portlet-journal-content ul.cal-list li .cal-entry-date {
+    display: block;
+    float: left;
+    width: 30px;
+}
+.portlet-journal-content ul.cal-list li .cal-entry-content {
+    display: block;
+    margin: 0 0 0 30px;
+    padding: 0 0 0 15px;
+}
+.portlet-journal-content ul.cal-list li .cal-entry-date .cal-entry-date-month {
+    background: none repeat scroll 0 0 #CC071E;
+    color: #FFFFFF;
+    display: block;
+    font-size: 0.9em;
+    font-weight: bold;
+    margin: 0;
+    padding: 2px;
+    text-align: center;
+}
+.portlet-journal-content ul.cal-list li .cal-entry-date .cal-entry-date-day {
+    background: none repeat scroll 0 0 #EFEDE3;
+    color: #444444;
+    display: block;
+    font-size: 1.3em;
+    font-weight: bold;
+    margin: 0;
+    padding: 2px;
+    text-align: center;
+}
+.portlet-journal-content ul.cal-list li .cal-entry-heading {
+    color: #444444;
+    display: block;
+    font-size: 1.3em;
+    font-weight: bold;
+    padding: 5px 0;
+}
+
+.portlet-journal-content ul.cal-list li .cal-entry-heading a {
+    text-decoration: none;
+}
+.portlet-journal-content ul.cal-list li .cal-entry-heading a:hover {
+    text-decoration: underline;
+}
+
+
+.portlet-journal-content ul.cal-list li .cal-entry-details {
+    color: #444444;
+    display: block;
+    font-size: 0.9em;
+}
+
+
+/*----------------------------------------------------------------------
+=Custom Portlets
+----------------------------------------------------------------------*/
+
+
+/* ---------------- ifeed portlet ------------------------- */
+
+.ifeed-portlet .ifeed-portlet-ldap-people .aui-combobox-content .aui-field-content {
+    display: block;
+}
+
+/* hide button */ 
+.ifeed-portlet .ifeed-portlet-ldap-people .aui-toolbar {
+    display: none;    
+}
+
+.ifeed-portlet .ifeed-portlet-filter-input input { 
+    width: 96%;
+    margin: 0px auto;
+}
+
+.ifeed-portlet-filter-result {
+    margin: 0px;
+    padding: 4px;
+    cursor: pointer;
+}
+
+.ifeed-portlet-filter-result-odd {
+    background-color: #fafafa;
+}
+
+.aui-autocomplete-selected .ifeed-portlet-filter-result-odd {
+    background-color: #DFE8F6;
+}
+
+/*------- Task List portlet -------*/
+
+.task-list-wrap {
+	margin: 5px;
+}
+
+.task-list-wrap ul.tasks {
+	list-style-type: none;
+}
+
+.task-list-wrap li.task-item {
+	padding: 3px 0;	
+}
+
+.task-list-wrap li.task-item {
+	background: transparent url(../images/prio/prio-LOW.gif) 100% 0 no-repeat;
+	background-image: none;
+	padding-right: 20px;
+}
+
+.task-list-wrap li.priority-high {
+	background-image: url(../images/prio/prio-HIGH.gif);
+}
+
+.task-list-wrap li.priority-medium {
+	background-image: url(../images/prio/prio-MEDIUM.gif);
+}
+
+.task-list-wrap li.priority-low {
+	background-image: url(../images/prio/prio-LOW.gif);
+}
+
+.task-list-wrap input.todo {
+	margin-right: 10px;
+}
+
+.task-list-wrap label.task-label {
+	color:#993333;
+	font-weight: bold;
+}
+
+.task-edit-controls {
+	margin-left: 20px;
+}
+
+.task-edit-controls ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.task-edit-controls ul li {
+	float: left;
+	/*
+	height: 16px;
+	line-height: 16px;
+	margin-right: 5px;
+	*/
+}
+
+.task-edit-controls ul li a {
+	height: 16px;
+	line-height: 16px;
+	margin-right: 5px;
+}
+
+.task-edit-controls li.edit-task,
+.task-edit-controls li.delete-task {
+	width: 16px;
+}
+
+.task-edit-controls li.edit-task a,
+.task-edit-controls li.delete-task a {
+	background: transparent url(../images/famfam/pencil.png) 0 0 no-repeat;
+	display: block;
+}
+
+.task-edit-controls li.edit-task a {
+	background-image: url(../images/famfam/pencil.png);
+}
+
+.task-edit-controls li.delete-task a {
+	background-image: url(../images/famfam/delete.png);
+}
+
+.task-edit-controls li.edit-task a span,
+.task-edit-controls li.delete-task a span {
+	font-size: 0;
+	text-indent: -9999em;
+}
+
+/*------- Booking Portlet (resebokning) -------*/
+
+.booking-wrap fieldset {
+	background: #f2efe9;
+	border: 1px solid #bfbab0;
+	display: block;
+	margin: 10px 0;
+	padding: 10px;
+}
+
+.booking-wrap legend {
+	color: #000;
+	margin-left: 10px;
+	font-weight: bold;
+}
+
+.booking-wrap fieldset ol {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.booking-wrap fieldset li {
+	list-style-type: none;
+}
+
+.booking-wrap fieldset.submit {
+	background: none;
+	border: none;
+	float: none;
+	text-align: center;
+	width: auto;
+}
+
+.booking-wrap label {
+	float: left;
+	margin-right: 10px;
+	width: 130px;
+}
+
+.booking-wrap span label {
+	float: none;
+	margin-right: auto;
+	width: auto;
+}
+
+.booking-wrap li .radio-group {
+	display: block;
+	margin-bottom: 10px; 
+}
+
+.booking-wrap fieldset .textarea,
+.booking-wrap fieldset
+.booking-wrap .text,
+.booking-wrap fieldset .time,
+.booking-wrap fieldset .radio,
+.booking-wrap fieldset .select {
+	border: 1px solid #ccc;
+	padding: 4px 2px;  
+}
+
+.booking-wrap fieldset .textarea {
+	height: 110px;
+}
+
+.booking-wrap fieldset .text,
+.booking-wrap fieldset .textarea {
+	width: 190px;
+}
+.booking-wrap fieldset .select {
+	max-width: 196px;
+}
+
+.booking-wrap .time {
+	margin: 0 0 3px;
+	width: 40px; 
+}
+
+/* Datepicker formatting */
+.booking-wrap  #ui-datepicker-div {
+	font-size: 10px;
+	width: 215px
+}
+
+.booking-wrap  fieldset.submit-ok {
+	padding: 1em;
+	width: 350px;
+}
+
+.booking-wrap  .ui-datepicker-next {
+	text-align: left;
+}
+
+.booking-wrap select.validation-error,
+.booking-wrap textarea.validation-error,
+.booking-wrap input.validation-error {
+	border: 1px solid red;
+}
+
+.booking-wrap .validation-error-message {
+	background: url('../images/exclamation.gif') no-repeat;
+	display: inline;
+	margin: 0.3em 0 0 .3em;
+	padding-left: 18px;
+}
+.booking-wrap span.comment {
+	color: grey;
+	font-size: 0.9em;
+}
+
+/*------- BFR portlet -------*/
+
+.bfr-wrap {
+	width: 100%;
+}
+
+.bfr-wrap h2 {
+    margin-top: 0px;
+}
+
+.bfr-wrap .aui-tabview-list {
+	border: none;
+	border-bottom: 5px solid #2c6fa7;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	margin: 0;
+	padding: 0;
+}
+
+.bfr-wrap .aui-tab {
+	background: #d8d8d8;
+	border: 1px solid #a3a3a3;
+	border-width: 1px 1px 0 1px;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	color: #333;
+	margin: 0 0.2em 0 0;
+}
+
+.bfr-wrap .aui-tab-active {
+	background: #2c6fa7;
+	border-color: #243356;
+	color: #fff;
+}
+
+.bfr-wrap .aui-tab-active:after {
+	border: 0;
+	bottom: 0;
+	content: '';
+	display: block;
+	height: 0;
+	margin: 0;
+	width: 0;
+	z-index: 0;
+}
+
+.bfr-wrap .aui-tabview-content-wrap {
+	background: #edf5ff;
+	border: 1px solid #808080;
+	border-top-color: #243356;
+}
+
+.bfr-wrap .aui-tabview-content-item {
+    padding: 10px;
+}
+
+.bfr-wrap .aui-tabview-content-wrap .imageview {
+    padding: 0px;
+}
+
+
+.bfr-wrap table {
+	/* Test uncommenting this code for BFR (not yet tested 2011-12-14) */
+	/*table-layout: auto !important;*/
+}
+
+.bfr-wrap .yui-dt tr th {
+	background: #eee;
+}
+
+.bfr-wrap .yui-dt-even td {
+    background-color: #fff;
+}
+.bfr-wrap .yui-dt-odd td {
+    background-color: #fafafa;
+}
+
+
+.bfr-wrap tbody td .yui-dt-liner:hover {
+    text-decoration: underline;
+}
+
+.bfr-wrap .aui-tabview-content-wrap .aui-tabview-content-item table td {
+    vertical-align: top; 
+}
+
+/* ---------------- RSS portlet ------------------------- */
+
+/* There are still styles left in the rss portlet (style.css). These styling rules should be moved to theme */
+
+a.news-title {
+    font-size: 1em;
+}
+
+/*----------------------------------------------------------------------
+=Articles
+----------------------------------------------------------------------*/
+
+/*------- All articles -------*/
+
+.journal-content-article {}
+
+/*----------------------------------------------------------------------
+=Sandbox
+----------------------------------------------------------------------*/
+
+.manage-layouts .aui-widget-bd {
+	height: 400px;
+	overflow-y: auto;	
+}
+
