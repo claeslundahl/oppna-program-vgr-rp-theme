@@ -2030,8 +2030,15 @@ a:visited.link-button {
 .controls-hidden .portlet-alerts .edit-actions {
     display: none;
 }
+
+.controls-hidden .portlet-alerts .portlet-borderless-container {
+	min-height: 0;
+} 
+
 .controls-hidden .portlet-alerts .aui-tabview-list {
     display: none;
+	margin: 0;
+	padding: 0;
 }
 
 
