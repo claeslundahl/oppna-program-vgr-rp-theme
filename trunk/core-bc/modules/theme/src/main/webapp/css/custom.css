@@ -74,22 +74,15 @@ body {
 #footer {
 	margin: 0;
 	padding: 0 40px;
+	min-width: 960px;
 }
 
 /*------- banner (header) -------*/
 
 #banner {
-	
-	/*background: #05579b;*/ /* Old browsers */
-	/*background: -moz-linear-gradient(top,  #05579b 0%, #0a60a6 100%);*/ /* FF3.6+ */
-	/*background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#05579b), color-stop(100%,#0a60a6));*/ /* Chrome,Safari4+ */
-	/*background: -webkit-linear-gradient(top,  #05579b 0%,#0a60a6 100%);*/ /* Chrome10+,Safari5.1+ */
-	/*background: -o-linear-gradient(top,  #05579b 0%,#0a60a6 100%);*/ /* Opera 11.10+ */
-	/*background: -ms-linear-gradient(top,  #05579b 0%,#0a60a6 100%);*/ /* IE10+ */
-	/*background: linear-gradient(top,  #05579b 0%,#0a60a6 100%);*/ /* W3C */
-	/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#05579b', endColorstr='#0a60a6',GradientType=0 );*/ /* IE6-9 */
 	background: #2c6fa7 url(../images/common/top_dekor.gif) no-repeat 90% 0;
 	position: relative;
+	z-index: 10;
 }
 
 #banner.overflow-hidden {
@@ -149,6 +142,7 @@ body {
 
 #content {
 	min-height: 100px;
+	padding-top: 10px;
 }
 
 /*------- footer -------*/
@@ -493,19 +487,20 @@ img.dec {
 	padding-right: 20px;
 }
 
-#navigation .nav-main li.nav-toolbar-item a.hide-sidebar,
-#navigation .nav-main li.nav-toolbar-item a.hide-sidebar:link,
-#navigation .nav-main li.nav-toolbar-item a.hide-sidebar:visited {
-	background: transparent url(../images/arrows/white_bluematte/arrow-right.png) 50% 0 no-repeat;
-	padding-right: 20px;
+/*------- Sidbar navigation (toggle) -------*/
+
+.sidebar-tools {
+	list-style-type: none;
+	margin: 5px 0;
+	padding: 0 15px;
+	text-align: right;
 }
 
-#navigation .nav-main li.nav-toolbar-item a.show-sidebar,
-#navigation .nav-main li.nav-toolbar-item a.show-sidebar:link,
-#navigation .nav-main li.nav-toolbar-item a.show-sidebar:visited {
-	background: transparent url(../images/arrows/white_bluematte/arrow-left.png) 50% 0 no-repeat;
-	padding-right: 20px;
+.sidebar-tools li {
+	display: inline;
 }
+
+.sidebar-tools li a {}
 
 /*------- Sub navigation -------*/
 
