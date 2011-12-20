@@ -15,16 +15,16 @@ Since Maven is used instead of the ant-based Liferay-plugins-SDK, the theme proj
 ==Theme structure==
 The project contains css, htc, images, javascript and velocity templates:
 
-image here
+http://oppna-program-vgr-rp-theme.googlecode.com/svn/wiki/project-structure.png
 
 ==CSS==
 The main styling for the theme is placed in custom.css. Liferay automatically includes custom.css for a theme.
 
-image here
+http://oppna-program-vgr-rp-theme.googlecode.com/svn/wiki/css-files.png
 
 The custom.css file is structured in main sections and sub-sections. The structure is defined in top of the file together with color definitions and other comments. Each main section starts with an equal sign (“=”). Since css typically does not contain equal signs, one can easily jump through the section by searching for “=”.
 
-image here
+http://oppna-program-vgr-rp-theme.googlecode.com/svn/wiki/custom-css-structure.png
 
 At the very beginning of custom.css, the webfont Ubuntu is loaded through Googles Font API.
 
@@ -62,14 +62,14 @@ Images are placed in the images folder.
 ==Javascript==
 The main javascript features of the theme are placed in a separate AUI-module, vgr-novus-main.js. The module is instantiated in vgr-novus-instance.js. The instance script also contains plain old javascript in order to prevent content flashing before AUI is ready on the page.
 
-image here
+http://oppna-program-vgr-rp-theme.googlecode.com/svn/wiki/js-files.png
 
 Finally, there is a debug.js file that activates the YUI debug console if debug is turned on in templates/init_custom.vm.
 
 ==Templates==
 The templates folder contains velocity templates for the theme.
 
-image here
+http://oppna-program-vgr-rp-theme.googlecode.com/svn/wiki/template-files.png
 
 The main template is the portal_normal.vm file. This template contains the overall structure for the page and calls the other templates for rendering.
   * footer.vm contains markup for the footer.
