@@ -20,6 +20,7 @@ AUI().add('vgr-novus-main',function(A) {
 		DOCKBAR_NODE = 'dockbarNode',
 		HEADER_NODE = 'headerNode',
 		LAYOUT_GRID_NODE = 'layoutGridNode',
+		NEWS_BOX = 'newsBox',
 		MAIN_CONTENT_NODE = 'mainContentNode',
 		SIDEBAR_NODE = 'sidebarNode',
 		WRAPPER_NODE = 'wrapperNode',
@@ -61,6 +62,11 @@ AUI().add('vgr-novus-main',function(A) {
 						setter: A.one
 					},
 					
+					newsBox: {
+						setter: A.one,
+						value: '.news-box'
+					},
+					
 					sidebarNode: {
 						value: '#slide-container',
 						setter: A.one
@@ -81,6 +87,7 @@ AUI().add('vgr-novus-main',function(A) {
 					animSidebar: null,
 					animSidebarPushX: 0,
 					computedHeaderHeight: '',
+					newsBoxCarousel: null,
 					
 					initializer: function(config) {
 						var instance = this;
@@ -102,6 +109,8 @@ AUI().add('vgr-novus-main',function(A) {
 						instance._initDockbarTitle();
 						instance._initDockbarFixes();
 						instance._initToggleHeader();
+						
+						instance._initNewsBoxCarousel();
 						
 						if(instance.get(SIDEBAR_NODE) && vgrGlobal.hideSidbar) {
 							instance._initToggleSidebar();
@@ -152,6 +161,36 @@ AUI().add('vgr-novus-main',function(A) {
 						signoutHtml = signoutHtml.replace('(', '');
 						signoutHtml = signoutHtml.replace(')', '');
 						signoutNode.html(signoutHtml);
+					},
+					
+					// Carousel requires the vgr-customjsp-hook plugin to be installed to work properly
+					_initNewsBoxCarousel: function() {
+						var instance = this;
+						
+						var newsBox = instance.get(NEWS_BOX);
+						
+						if(isNull(newsBox)) {return;}
+						
+						var computedNewsBoxWidthStr = newsBox.getComputedStyle('width').replace('px', '');
+						var computedNewsBoxWidth = parseInt(computedNewsBoxWidthStr);
+						
+						var newsBoxMenu = newsBox.ancestor().one('.news-box-menu');
+						
+						newsBoxMenu.show();
+						
+						instance.newsBoxCarousel = new A.Carousel({
+							intervalTime: 20,
+							contentBox: newsBox,
+							//activeIndex: 'rand',
+							activeIndex: 0,
+							height: 220,
+							width: computedNewsBoxWidth,
+							nodeMenu: newsBoxMenu,
+							nodeMenuItemSelector: 'li'
+						}).render();
+
+						newsBox.all('a.news-box-link').removeClass('aui-helper-hidden');
+						newsBox.addClass('news-box-js');
 					},
 					
 					_initToggleHeader: function() {
@@ -494,6 +533,7 @@ AUI().add('vgr-novus-main',function(A) {
 	},1, {
 		requires: [
 			'aui-base',
+			'aui-carousel',
 			'aui-tooltip',
 			'anim',
 			'cookie',
