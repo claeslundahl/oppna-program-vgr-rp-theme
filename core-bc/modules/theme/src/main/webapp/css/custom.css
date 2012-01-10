@@ -2763,6 +2763,163 @@ a.news-title {
 
 .journal-content-article {}
 
+/*------- News Box -------*/
+
+.news-box-wrap {
+	border: 1px solid #2c6fa7;
+	margin: 10px 0;
+}
+
+.news-box {
+	position: relative;
+}
+
+.news-box a,
+.news-box a:link,
+.news-box a:hover {
+	text-decoration: none;	
+}
+
+.news-box a.news-box-link {
+	background: #fff;
+	display: block;
+	height: 180px;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	width: 100%;
+}
+
+.news-box .news-box-link-content {
+	padding: 10px;
+}
+
+
+.news-box-image-wrap {
+	float: left;
+	width: 30%;
+}
+
+.news-box-description-wrap {
+	float: right;
+	width: 69%;
+}
+
+.news-box a h1 {
+	color: #2c6fa7;
+	font-size: 30px;
+	margin: 5px 0;
+	padding: 0;
+}
+
+.news-box a h2 {
+	color: #555;
+	font-size: 18px;
+	margin: 5px 0;
+	padding: 0;
+}
+
+.news-box .span-btn {
+	background: #317cbb;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	/* Needs an absolute path */
+	behavior: url(/regionportalen-theme/htc/css3pie.htc);
+	color: #fff;
+	display: block;
+	float: right;
+	font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
+	font-size: 24px;
+	text-align: center;
+	padding: 10px 15px;
+	margin: 0;
+	/* Position relative needed for css3pie.htc to work properly */
+	position: relative;
+}
+
+.news-box-js .aui-carousel {
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	top: 0;
+}
+
+.news-box-js .aui-carousel-item {
+	opacity: 0;
+}
+
+.news-box .aui-carousel menu {
+    background: #2c6fa7;
+    bottom: 0px;
+    margin: 0;
+    padding: 3px;
+    position: absolute;
+    right: 0px;
+	width: 100%;
+    z-index: 4;
+}
+
+.news-box-js .aui-carousel-menu-item {
+	border: 1px solid transparent;
+}
+
+.news-box-js .aui-carousel-menu-active {
+	border: 1px solid #474A4B;
+}
+
+.news-box-js .aui-carousel-menu-pause,
+.news-box-js .aui-carousel-menu-play,
+.news-box-js .aui-carousel-menu-prev,
+.news-box-js .aui-carousel-menu-next {
+	/*display: none;*/
+}
+
+
+.news-box-menu-wrap {
+	background: #2c6fa7;
+	padding: 10px;
+}
+
+ul.news-box-menu {
+	float: right;
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+
+ul.news-box-menu li {
+	background: #80a9ca;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	/* Needs an absolute path */
+	behavior: url(/regionportalen-theme/htc/css3pie.htc);
+	cursor: pointer;	
+	float: left;
+	font-size: 0;
+	height: 10px;
+	width: 10px;
+	list-style-type: none;
+	margin: 0 3px;
+	padding: 0;
+	/* Position relative needed for css3pie.htc to work properly */
+	position: relative;
+	text-indent: -9999em;
+}
+
+ul.news-box-menu li.aui-carousel-menu-active {
+	background: #fff;
+}
+
+.news-box-menu .aui-carousel-menu-pause,
+.news-box-menu .aui-carousel-menu-prev,
+.news-box-menu .aui-carousel-menu-next {
+	display: none;
+}
+
+
 /*----------------------------------------------------------------------
 =Sandbox
 ----------------------------------------------------------------------*/
