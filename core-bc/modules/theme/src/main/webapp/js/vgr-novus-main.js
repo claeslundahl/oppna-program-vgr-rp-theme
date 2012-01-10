@@ -203,11 +203,6 @@ AUI().add('vgr-novus-main',function(A) {
 						
 						// Bind window size change event
 						A.on('window:resize', function(e) {
-							//var newsCarouselCB = instance.newsBoxCarousel.get('contentBox');
-							//var newsBoxWrap 
-							//console.log(newsCarouselCB);
-							//console.log('Window was resized.');
-							
 							var newsBoxWrap = instance.newsBoxWrap;
 							
 							if(isNull(newsBoxWrap)) {return;}
