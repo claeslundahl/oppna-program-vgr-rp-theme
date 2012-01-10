@@ -2782,8 +2782,9 @@ a.news-title {
 
 .news-box a.news-box-link {
 	background: #fff;
+	cursor: pointer;
 	display: block;
-	height: 180px;
+	height: 220px;
 	margin: 0;
 	overflow: hidden;
 	padding: 0;
