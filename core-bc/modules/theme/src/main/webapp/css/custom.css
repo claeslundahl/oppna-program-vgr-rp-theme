@@ -2762,6 +2762,139 @@ a.news-title {
     font-size: 1em;
 }
 
+/* ---------------- User Wizard portlet ------------------------- */
+
+.user-wizard-portlet {}
+
+.user-wizard-portlet .portlet-borderless-container {
+	min-height: 0;
+}
+
+.controls-visible .user-wizard-portlet .portlet-borderless-container {
+	min-height: 2.5em;
+} 
+
+/*-------User Wizard Dialog -------*/
+
+.user-wizard-dialog .aui-dialog-hd {
+	background: #2C6FA7;
+	color: #fff;
+	font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
+	font-size: 26px;
+	font-weight: normal;
+	text-shadow: none;
+}
+
+.user-wizard-dialog .aui-buttonitem-content {
+	background: none;
+	border: none;
+	height: 32px;
+	width: 32px;
+}
+
+.user-wizard-dialog .aui-icon-closethick {
+	background: transparent url(../images/user-wizard/wizard-close-button-sprite.png) 0 0 no-repeat;
+	height: 32px;
+	width: 32px;
+}
+
+.user-wizard-dialog .aui-state-hover .aui-icon-closethick {
+	background-position: 0 -50px;
+}
+
+.user-wizard-dialog .aui-panel-hd-text {
+	line-height: 1.4;
+}
+
+.user-wizard-content-wrap {
+	padding: 10px 15px;
+}
+
+.user-wizard-dialog .user-wizard-intro {
+	font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
+	font-size: 18px;
+	margin: 0 0 10px 0;
+}
+
+.user-wizard-content-wrap {
+	color: #333;
+}
+
+.user-wizard-dialog .user-wizard-personalize-wrap {
+	background: #ddd;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;	
+	/* Needs an absolute path */
+	behavior: url(/regionportalen-theme/htc/css3pie.htc);	
+    display: block;
+	font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
+	font-size: 16px;
+    font-weight: normal;
+	margin: 10px 0;
+    padding: 15px;
+	/* Position relative needed for css3pie.htc to work properly */
+	position: relative;
+}
+
+.user-wizard-personalize-text {
+	background: transparent url(../images/user-wizard/wizard-personalization-matte-ddd.png) 0 50% no-repeat;
+	padding-left: 110px;
+	padding: 10px 0 10px 110px;
+}
+
+.user-wizard-profile-link-wrap {
+	text-align: right;
+}
+
+.user-wizard-profile-link-wrap a,
+.user-wizard-profile-link-wrap a:link,
+.user-wizard-profile-link-wrap a:hover {
+	background: transparent url(../images/user-wizard/link-icon-matte-ddd.png) 0 50% no-repeat;
+	color: #2c6fa7;
+	font-size: 14px;
+	padding-left: 14px;
+	text-decoration: none;
+}
+
+.user-wizard-profile-link-wrap a:hover span {
+	text-decoration: underline;
+}
+
+.user-wizard-control-wrap {
+	border: 1px solid #ccc;
+	border-width: 1px 0 1px 0;
+	margin-top: 10px;
+	padding: 10px;
+}
+
+.user-wizard-control-wrap a,
+.user-wizard-control-wrap a:link,
+.user-wizard-control-wrap a:hover {
+	color: #333;
+	display: block;
+	font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
+	font-size: 16px;
+    font-weight: normal;
+	line-height: 28px;
+	min-height: 28px;
+	padding-left: 40px;
+	text-decoration: none;
+}
+
+.user-wizard-control-wrap a {
+	background: transparent url(../images/user-wizard/wizard-checkbox-sprite.png) 0 0 no-repeat;
+}
+
+.user-wizard-control-wrap a.checked {
+	background-position: 0 -50px;
+}
+
+.user-wizard-control-wrap a:hover span {
+	text-decoration: underline;
+}
+
+
 /*----------------------------------------------------------------------
 =Articles
 ----------------------------------------------------------------------*/
@@ -2936,125 +3069,3 @@ ul.news-box-menu li.aui-carousel-menu-active {
 	height: 400px;
 	overflow-y: auto;	
 }
-
-
-/*-------User Wizard Dialog -------*/
-
-.user-wizard-dialog .aui-dialog-hd {
-	background: #2C6FA7;
-	color: #fff;
-	font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
-	font-size: 26px;
-	font-weight: normal;
-	text-shadow: none;
-}
-
-.user-wizard-dialog .aui-buttonitem-content {
-	background: none;
-	border: none;
-	height: 32px;
-	width: 32px;
-}
-
-.user-wizard-dialog .aui-icon-closethick {
-	background: transparent url(../images/user-wizard/wizard-close-button-sprite.png) 0 0 no-repeat;
-	height: 32px;
-	width: 32px;
-}
-
-.user-wizard-dialog .aui-state-hover .aui-icon-closethick {
-	background-position: 0 -50px;
-}
-
-.user-wizard-dialog .aui-panel-hd-text {
-	line-height: 1.4;
-}
-
-.user-wizard-content-wrap {
-	padding: 10px 15px;
-}
-
-.user-wizard-dialog .user-wizard-intro {
-	font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
-	font-size: 18px;
-	margin: 0 0 10px 0;
-}
-
-.user-wizard-content-wrap {
-	color: #333;
-}
-
-.user-wizard-dialog .user-wizard-personalize-wrap {
-	background: #ddd;
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
-	border-radius: 4px;	
-	/* Needs an absolute path */
-	behavior: url(/regionportalen-theme/htc/css3pie.htc);	
-    display: block;
-	font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
-	font-size: 16px;
-    font-weight: normal;
-	margin: 10px 0;
-    padding: 15px;
-	/* Position relative needed for css3pie.htc to work properly */
-	position: relative;
-}
-
-.user-wizard-personalize-text {
-	background: transparent url(../images/user-wizard/wizard-personalization-matte-ddd.png) 0 50% no-repeat;
-	padding-left: 110px;
-	padding: 10px 0 10px 110px;
-}
-
-.user-wizard-profile-link-wrap {
-	text-align: right;
-}
-
-.user-wizard-profile-link-wrap a,
-.user-wizard-profile-link-wrap a:link,
-.user-wizard-profile-link-wrap a:hover {
-	background: transparent url(../images/user-wizard/link-icon-matte-ddd.png) 0 50% no-repeat;
-	color: #2c6fa7;
-	font-size: 14px;
-	padding-left: 14px;
-	text-decoration: none;
-}
-
-.user-wizard-profile-link-wrap a:hover span {
-	text-decoration: underline;
-}
-
-.user-wizard-control-wrap {
-	border: 1px solid #ccc;
-	border-width: 1px 0 1px 0;
-	margin-top: 10px;
-	padding: 10px;
-}
-
-.user-wizard-control-wrap a,
-.user-wizard-control-wrap a:link,
-.user-wizard-control-wrap a:hover {
-	color: #333;
-	display: block;
-	font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
-	font-size: 16px;
-    font-weight: normal;
-	line-height: 28px;
-	min-height: 28px;
-	padding-left: 40px;
-	text-decoration: none;
-}
-
-.user-wizard-control-wrap a {
-	background: transparent url(../images/user-wizard/wizard-checkbox-sprite.png) 0 0 no-repeat;
-}
-
-.user-wizard-control-wrap a.checked {
-	background-position: 0 -50px;
-}
-
-.user-wizard-control-wrap a:hover span {
-	text-decoration: underline;
-}
-
