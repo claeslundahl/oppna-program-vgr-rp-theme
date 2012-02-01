@@ -180,7 +180,7 @@ AUI().add('vgr-novus-main',function(A) {
 						
 						var newsBox = instance.get(NEWS_BOX);
 						
-						if(isNull(newsBox)) {return;}
+						if(isNull(newsBox) || isUndefined(newsBox)) {return;}
 						
 						var newsBoxWrap = newsBox.ancestor('.news-box-wrap');
 						instance.newsBoxWrap = newsBoxWrap;
