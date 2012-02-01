@@ -7,6 +7,12 @@
 	<div class="aui-column aui-w25 aui-column-first">
 		<div class="aui-column-content">
 			&nbsp;
+			
+			#*
+			#set ($sc_show_vgr_wizard = $getterUtil.getString($sessionClicks.get($request, "show_vgr_wizard", "")))
+			<a href="#" class="show-vgr-wizard-test" data-showVgrWizardTest="$sc_show_vgr_wizard">sc_show_vgr_wizard: $sc_show_vgr_wizard</a>
+			*#
+			
 		</div>
 	</div>
 	<div class="aui-column aui-w25 aui-column-first">

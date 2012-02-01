@@ -113,6 +113,9 @@
 
 	$theme.include($bottom_include)
 	
+	#js ("$themeDisplay.getPathJavaScript()/liferay/service.js")
+	#js ("/knowledge-base-portlet/js/service.js")
+	
 	#js ("$javascript_folder/vgr-novus-main.js")
 	#js ("$javascript_folder/vgr-novus-instance.js")
 

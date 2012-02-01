@@ -120,6 +120,16 @@ AUI().add('vgr-novus-main',function(A) {
 	
 					bindUI: function() {
 						var instance = this;
+						
+						instance._bindKnowledgeBaseAggregator();
+					},
+					
+					_bindKnowledgeBaseAggregator: function() {
+						var instance = this;
+						
+						var kbAggregatorTitleLinks = A.all('.knowledge-base-portlet-aggregator .kb-results-body .kb-title a');
+						kbAggregatorTitleLinks.on('click', instance._onKBAggregatorTitleLinksClick, instance);
+						
 					},
 					
 					_getHideSidebarCookie: function() {
@@ -169,16 +179,16 @@ AUI().add('vgr-novus-main',function(A) {
 						var instance = this;
 						
 						var newsBox = instance.get(NEWS_BOX);
-						var newsBoxWrap = newsBox.ancestor('.news-box-wrap');
-						
-						instance.newsBoxWrap = newsBoxWrap;
 						
 						if(isNull(newsBox)) {return;}
+						
+						var newsBoxWrap = newsBox.ancestor('.news-box-wrap');
+						instance.newsBoxWrap = newsBoxWrap;
 						
 						var computedNewsBoxWidthStr = newsBox.getComputedStyle('width').replace('px', '');
 						var computedNewsBoxWidth = parseInt(computedNewsBoxWidthStr);
 
-						var height = 220;						
+						var height = 220;
 						if(computedNewsBoxWidth < 540) {
 							height= 250;
 						}
@@ -226,7 +236,7 @@ AUI().add('vgr-novus-main',function(A) {
 
 						var mainNavList = headerNode.one('ul.nav-main');
 
-						// Create and insert hideHeader node in nav						
+						// Create and insert hideHeader node in nav
 						var hideHeaderHtml = A.substitute(TPL_HIDE_HEADER, {
 							linkText: instance.messages.hideHeader,
 							titleText: instance.messages.hideHeaderTitle
@@ -547,7 +557,44 @@ AUI().add('vgr-novus-main',function(A) {
 						
 						// Set cookie
 						A.Cookie.set(COOKIE_HIDE_SIDEBAR, 'false');
-					}					
+					},
+					
+					_onKBAggregatorTitleLinksClick: function(e) {
+						var instance = this;
+						
+						e.halt();
+						
+						var currentTarget = e.currentTarget;
+						var url = currentTarget.getAttribute('href');
+						
+						var currentTitleNode = currentTarget.one('.taglib-text');
+						var currentTitle = currentTitleNode.html();
+						
+						url = url.replace('/group/', '/widget/group/');
+						
+						var dialogHeight = 500;
+						var dialogWidth = 700;
+						
+						var TPL_KB_IFRAME = '<div class="iframe-wrap"><iframe name="kbAggregatorDialog" id="kbAggregatorDialog" class="" title="" frameborder="0" src="{url}" width="{iframeWidth}" height="{iframeHeight}"></iframe></div>';
+						
+						var bodyContent = A.substitute(TPL_KB_IFRAME, {
+							iframeHeight: dialogHeight - 50,
+							iframeWidth: dialogWidth - 15,
+							url: url
+						});
+						
+						var dialog1 = new A.Dialog({
+							bodyContent: bodyContent,
+							centered: true,
+							constrain2view: true,
+							destroyOnClose: true,
+							height: dialogHeight,
+							modal: true,
+							width: dialogWidth,
+							title: currentTitle
+						}).render();
+					}
+ 
 					
 				}
 			}
@@ -559,11 +606,15 @@ AUI().add('vgr-novus-main',function(A) {
 		requires: [
 			'aui-base',
 			'aui-carousel',
+			'aui-dialog',
+			'aui-loading-mask',
+			'aui-overlay',
 			'aui-tooltip',
 			'anim',
 			'cookie',
 			'event-resize',
-			'substitute'
+			'substitute',
+			'vgr-user-wizard'
       ]
 	}
 );
