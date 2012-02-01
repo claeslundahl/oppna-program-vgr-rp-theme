@@ -613,8 +613,7 @@ AUI().add('vgr-novus-main',function(A) {
 			'anim',
 			'cookie',
 			'event-resize',
-			'substitute',
-			'vgr-user-wizard'
+			'substitute'
       ]
 	}
 );
