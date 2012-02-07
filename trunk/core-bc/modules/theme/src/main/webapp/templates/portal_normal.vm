@@ -73,7 +73,8 @@
 		#end
 
 		#if ($has_navigation)
-			#parse ("$full_templates_path/navigation.vm")
+            #parse ("$full_templates_path/quick_links.vm")
+            #parse ("$full_templates_path/navigation.vm")
 		#end
 	</header>
 
