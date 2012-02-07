@@ -108,6 +108,7 @@ AUI().add('vgr-novus-main',function(A) {
 						var instance = this;
 						
 						instance._initDockbarTitle();
+                        instance._initDockbarQuickNavigation();
 						instance._initDockbarFixes();
 						instance._initToggleHeader();
 						
@@ -150,8 +151,25 @@ AUI().add('vgr-novus-main',function(A) {
 						
 						instance.get(DOCKBAR_NODE).prepend('<h1 class="portal-title">' + 'Regionportalen' + '</h1>');
 					},
-					
-					_initDockbarFixes: function() {
+
+                    _initDockbarQuickNavigation: function() {
+                        var instance = this;
+
+                        var dockbarNode = instance.get(DOCKBAR_NODE);
+                        var userToolBar = dockbarNode.one('.user-toolbar');
+                        if (userToolBar != null) {
+                            userToolBar.prepend('<li id="quick-navigation"><a href="#">Snabbnavigering</a></li>');
+                            var quickNavigation = userToolBar.one('#quick-navigation');
+                            quickNavigation.on('click', instance._onQuickNavigationClick, instance);
+                            var quickNavigationClose = A.one('#quick-links-close');
+                            quickNavigationClose.on('click', function(e) {
+                                A.one('#quick-links').toggle();
+                            }, instance);
+                        }
+
+                    },
+
+                    _initDockbarFixes: function() {
 						var instance = this;
 						
 						// Fixes issue with a bug in the taglib that prints cssclass into the html
@@ -614,9 +632,18 @@ AUI().add('vgr-novus-main',function(A) {
 							}).render();
 						}
 						return false;
-					}
- 
-					
+					},
+
+                    _onQuickNavigationClick: function(e) {
+                        var instance = this;
+
+                        e.halt();
+
+                        var quickLinksDiv = A.one('#quick-links');
+
+                        quickLinksDiv.toggle();
+                    }
+
 				}
 			}
 	);

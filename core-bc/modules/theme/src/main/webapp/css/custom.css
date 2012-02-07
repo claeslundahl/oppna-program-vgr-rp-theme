@@ -3125,6 +3125,71 @@ ul.news-box-menu li.aui-carousel-menu-active {
 	display: none;
 }
 
+/* Quick links (snabbnavigering) */
+#quick-links {
+    position: absolute;
+    border:#666666  solid 2px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    /* Needs an absolute path */
+    behavior: url(/regionportalen-theme/htc/css3pie.htc);
+    background-color: #FFFFFF;
+    max-width: 92%;
+    z-index:100;
+    padding-bottom: 20px;
+}
+
+#quick-links a {
+    text-decoration: none;
+    color: #000000;
+}
+
+#quick-links .gradient-background {
+    background: rgb(239,242,244);  /*Old browsers*/
+    background: -moz-linear-gradient(-45deg,  rgba(239,242,244,1) 37%, rgba(215,232,242,1) 98%);  /*FF3.6+*/
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(37%,rgba(239,242,244,1)), color-stop(98%,rgba(215,232,242,1)));  /*Chrome,Safari4+*/
+    background: -webkit-linear-gradient(-45deg,  rgba(239,242,244,1) 37%,rgba(215,232,242,1) 98%);  /*Chrome10+,Safari5.1+*/
+    background: -o-linear-gradient(-45deg,  rgba(239,242,244,1) 37%,rgba(215,232,242,1) 98%);  /*Opera 11.10+*/
+    background: -ms-linear-gradient(-45deg,  rgba(239,242,244,1) 37%,rgba(215,232,242,1) 98%);  /*IE10+*/
+    background: linear-gradient(-45deg,  rgba(239,242,244,1) 37%,rgba(215,232,242,1) 98%);  /*W3C*/
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eff2f4', endColorstr='#d7e8f2',GradientType=1 );  /*IE6-9 fallback on horizontal gradient*/
+}
+
+#quick-links .nav-item-box {
+    float: left;
+    margin: 10px;
+    padding: 10px;
+    position: relative;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    /* Needs an absolute path */
+    behavior: url(/regionportalen-theme/htc/css3pie.htc);
+}
+
+#quick-links-header {
+    height: 30px;
+}
+
+#quick-links-header-text {
+    float: left;
+    padding: 6px 0 0 6px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#quick-links-close {
+    float: right;
+    padding: 6px 6px 0 0;
+    cursor: pointer
+}
+
+#quick-links .nav-item-box > a {
+    font-weight: bold;
+}
+
+
 
 /*----------------------------------------------------------------------
 =Sandbox
