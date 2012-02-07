@@ -81,7 +81,7 @@ body {
 #banner {
 	background: #2c6fa7 url(../images/common/top_dekor.gif) no-repeat 90% 0;
 	position: relative;
-	z-index: 10;
+	z-index: 20;
 }
 
 #banner.overflow-hidden {
