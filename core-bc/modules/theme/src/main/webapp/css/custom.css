@@ -1950,6 +1950,10 @@ a:visited.link-button {
 	float: none;
 }
 
+.portlet-msg-info {
+    background-repeat: no-repeat;
+}
+
 .portlet-icons .portlet-close-icon {
 	border-width: 0;
 }
@@ -2429,6 +2433,74 @@ a:visited.link-button {
     font-size: 0.9em;
 }
 
+
+/*----------------------------------------------------------------------
+=Portlet Knowledge Base Display
+----------------------------------------------------------------------*/
+/* Remove unnecessary cruft */
+.knowledge-base-portlet-display .kb-article-tools td {
+    display: none;
+}
+/* we do like to display print though */
+.knowledge-base-portlet-display .kb-article-tools td+td+td+td {
+    display: table-cell;
+}
+
+/* Enhance readability, line lenght, line height and font-size */
+.knowledge-base-portlet-display .kb-entity-body {
+  text-align: justify;
+  line-height: 1.7;
+  font-size: 12pt;
+  width: 40em;
+}
+
+.knowledge-base-portlet-display .kb-entity-header .kb-title {
+  font-size: 2.2em;
+}
+
+.knowledge-base-portlet-display .kb-article-comments .lfr-panel-title { 
+  font-size: 85%;
+}
+
+.knowledge-base-portlet-display .kb-article-comments.kb-submit-buttons input {
+    font-size: 80%;
+}
+
+.knowledge-base-portlet-display .kb-article-comments .user-profile-image {
+    display: none;
+}
+
+.knowledge-base-portlet-display .kb-article-comments .user-details {
+    width: 40em;
+}
+.knowledge-base-portlet-display .kb-article-comments .user-details .user-name {
+    text-align: right;
+}
+
+
+
+/*---------------------------------------------------------------------
+=Portlet Knowledge Base Aggregator
+----------------------------------------------------------------------*/
+/* Remove unnecessary cruft */
+.knowledge-base-portlet-aggregator .search-results {
+    display: none;
+}
+.knowledge-base-portlet-aggregator .kb-article-tools td {
+    display: none;
+}
+/* we do like to display print though */
+.knowledge-base-portlet-aggregator .kb-article-tools td+td+td+td {
+    display: table-cell;
+}
+
+.knowledge-base-portlet-aggregator a, .knowledge-base-portlet-aggregator .taglib-icon .taglib-text {
+    text-decoration: none;
+}
+
+.knowledge-base-portlet-aggregator .taglib-icon  .taglib-text:hover {
+    text-decoration: underline;
+}
 
 /*----------------------------------------------------------------------
 =Custom Portlets
