@@ -560,12 +560,13 @@ AUI().add('vgr-novus-main',function(A) {
 					},
 					
 					_onKBAggregatorTitleLinksClick: function(e) {
-					    //hijacks the click and either shows the KB artilcle in
-					    //a modal dialog (default) or if the Aggregator Portlet
-					    //has the class "display_in_help" it will issue a redirect
-					    //to the help page
+						//hijacks the click and either shows the KB artilcle in
+						//a modal dialog (default) or if the Aggregator Portlet
+						//has the class "display_in_help" it will issue a redirect
+						//to the help page
 						var instance = this;
 						
+						e.stopImmediatePropagation();
 						e.halt();
 						
 						var currentTarget = e.currentTarget;
@@ -574,45 +575,45 @@ AUI().add('vgr-novus-main',function(A) {
 						//check for class on portlet to decide what to do
 						var portlet = currentTarget.ancestor('.knowledge-base-portlet-aggregator');
 
-					    if (portlet && portlet.hasClass('display_in_help')) {
-                            //to display it in the help page we have to do a redirect,
-                            //with a proper URL
-                            //
-                            //ie: from /knowledge_base_aggregator/tIa6/article/<id>/maximized
-                            //to: /knowledge_base_display/YGi2/article/<id>
-                            url = url.replace(/knowledge_base_aggregator\/.+\/article\/([0-9]+)\/?.*/,'knowledge_base_display/YGi2/article/$1');
-                            window.location.href = url;
-                            		
+						if (portlet && portlet.hasClass('display_in_help')) {
+							//to display it in the help page we have to do a redirect,
+							//with a proper URL
+							//
+							//ie: from /knowledge_base_aggregator/tIa6/article/<id>/maximized
+							//to: /knowledge_base_display/YGi2/article/<id>
+							url = url.replace(/knowledge_base_aggregator\/.+\/article\/([0-9]+)\/?.*/,'knowledge_base_display/YGi2/article/$1');
+							window.location.href = url;
+									
 						} else {
 						
-						    var currentTitleNode = currentTarget.one('.taglib-text');
-						    var currentTitle = currentTitleNode.html();
+							var currentTitleNode = currentTarget.one('.taglib-text');
+							var currentTitle = currentTitleNode.html();
 						
-						    url = url.replace('/group/', '/widget/group/');
+							url = url.replace('/group/', '/widget/group/');
 						
-						    var dialogHeight = 500;
-						    var dialogWidth = 700;
+							var dialogHeight = 500;
+							var dialogWidth = 700;
 						
-						    var TPL_KB_IFRAME = '<div class="iframe-wrap"><iframe name="kbAggregatorDialog" id="kbAggregatorDialog" class="" title="" frameborder="0" src="{url}" width="{iframeWidth}" height="{iframeHeight}"></iframe></div>';
+							var TPL_KB_IFRAME = '<div class="iframe-wrap"><iframe name="kbAggregatorDialog" id="kbAggregatorDialog" class="" title="" frameborder="0" src="{url}" width="{iframeWidth}" height="{iframeHeight}"></iframe></div>';
 						
-						    var bodyContent = A.substitute(TPL_KB_IFRAME, {
-							    iframeHeight: dialogHeight - 50,
-							    iframeWidth: dialogWidth - 15,
-							    url: url
-						    });
+							var bodyContent = A.substitute(TPL_KB_IFRAME, {
+								iframeHeight: dialogHeight - 50,
+								iframeWidth: dialogWidth - 15,
+								url: url
+							});
 						
-						    var dialog1 = new A.Dialog({
-							    bodyContent: bodyContent,
-							    centered: true,
-							    constrain2view: true,
-							    destroyOnClose: true,
-							    height: dialogHeight,
-							    modal: true,
-							    width: dialogWidth,
-							    title: currentTitle
-						    }).render();
-					    }
-					    return false;
+							var dialog1 = new A.Dialog({
+								bodyContent: bodyContent,
+								centered: true,
+								constrain2view: true,
+								destroyOnClose: true,
+								height: dialogHeight,
+								modal: true,
+								width: dialogWidth,
+								title: currentTitle
+							}).render();
+						}
+						return false;
 					}
  
 					
@@ -634,6 +635,6 @@ AUI().add('vgr-novus-main',function(A) {
 			'cookie',
 			'event-resize',
 			'substitute'
-      ]
+	  ]
 	}
 );
