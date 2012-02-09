@@ -3128,7 +3128,7 @@ ul.news-box-menu li.aui-carousel-menu-active {
 /* Quick links (snabbnavigering) */
 #quick-links {
     position: absolute;
-    border:#666666  solid 2px;
+    border: rgb(235,242,247) solid 3px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
@@ -3136,7 +3136,10 @@ ul.news-box-menu li.aui-carousel-menu-active {
     behavior: url(/regionportalen-theme/htc/css3pie.htc);
     background-color: #FFFFFF;
     max-width: 92%;
+    right: 309px;
     z-index:100;
+    padding-left: 6px;
+    padding-right: 6px;
     padding-bottom: 20px;
 }
 
@@ -3145,28 +3148,60 @@ ul.news-box-menu li.aui-carousel-menu-active {
     color: #000000;
 }
 
-#quick-links .gradient-background {
-    background: rgb(239,242,244);  /*Old browsers*/
-    background: -moz-linear-gradient(-45deg,  rgba(239,242,244,1) 37%, rgba(215,232,242,1) 98%);  /*FF3.6+*/
-    background: -webkit-gradient(linear, left top, right bottom, color-stop(37%,rgba(239,242,244,1)), color-stop(98%,rgba(215,232,242,1)));  /*Chrome,Safari4+*/
-    background: -webkit-linear-gradient(-45deg,  rgba(239,242,244,1) 37%,rgba(215,232,242,1) 98%);  /*Chrome10+,Safari5.1+*/
-    background: -o-linear-gradient(-45deg,  rgba(239,242,244,1) 37%,rgba(215,232,242,1) 98%);  /*Opera 11.10+*/
-    background: -ms-linear-gradient(-45deg,  rgba(239,242,244,1) 37%,rgba(215,232,242,1) 98%);  /*IE10+*/
-    background: linear-gradient(-45deg,  rgba(239,242,244,1) 37%,rgba(215,232,242,1) 98%);  /*W3C*/
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eff2f4', endColorstr='#d7e8f2',GradientType=1 );  /*IE6-9 fallback on horizontal gradient*/
+#quick-links a:hover {
+    text-decoration: underline;
 }
 
+
+#quick-links  {
+    background: white; /* Old browsers */
+    background: -moz-linear-gradient(top,  rgba(235,242,247,1) 6%, rgba(255,255,255,1) 54%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(6%,rgba(235,242,247,1)), color-stop(54%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(235,242,247,1) 6%,rgba(255,255,255,1) 54%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(235,242,247,1) 6%,rgba(255,255,255,1) 54%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(235,242,247,1) 6%,rgba(255,255,255,1) 54%); /* IE10+ */
+    background: linear-gradient(top,  rgba(235,242,247,1) 6%,rgba(255,255,255,1) 54%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebf2f7', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+}
+
+
 #quick-links .nav-item-box {
-    float: left;
-    margin: 10px;
-    padding: 10px;
-    position: relative;
+    padding-left: 16px;
+    vertical-align: top;
+    width: 170px;
+    padding-bottom: 10px;
+}
+/*
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
-    border-radius: 5px;
+    border-radius: 5px; */
     /* Needs an absolute path */
-    behavior: url(/regionportalen-theme/htc/css3pie.htc);
+/*    behavior: url(/regionportalen-theme/htc/css3pie.htc); */
+
+#quick-links table {
+    table-layout: fixed;
 }
+
+#quick-links .quick-links-rows {
+    border-top: 2px solid rgb(235,242,247); 
+}
+
+#quick-links .quick-links-rows td {
+    padding-top: 10px;
+}
+
+#quick-links table ul {
+    list-style-image: url("../images/arrows/04_right.png");
+    margin: 0px;
+    margin-left: 16px;
+}
+
+#quick-links table ul ul {
+    margin: 0px 9px;
+    list-style-image: url("../images/arrows/04_right-modified.png");
+}
+
+
 
 #quick-links-header {
     height: 30px;

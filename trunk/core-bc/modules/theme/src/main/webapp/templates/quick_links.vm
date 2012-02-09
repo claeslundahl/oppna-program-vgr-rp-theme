@@ -1,31 +1,45 @@
 <div id="quick-links" class="aui-helper-hidden">
-    <div id="quick-links-header" class="gradient-background">
+    <div id="quick-links-header">
         <span id="quick-links-header-text">Snabbnavigering</span>
         <span id="quick-links-close">
             <img id="cpPortletTitleHelpIcon" src="$themeDisplay.getPathThemeImages()/portlet/close.png" alt="Stäng"/>
         </span>
     </div>
-    #foreach ($nav_item in $nav_items)
-        <div class="gradient-background nav-item-box">
-            <a href="$nav_item.getURL()" $nav_item.getTarget()><span>$nav_item.icon() $nav_item.getName()</span></a>
-            #if ($nav_item.hasChildren())
-                <ul>
-                    #foreach ($nav_item_child in $nav_item.getChildren())
-                        <li>
-                            <a href="$nav_item_child.getURL()" $nav_item_child.getTarget()><span>$nav_item_child.icon() $nav_item_child.getName()</span></a>
-                            #if ($nav_item_child.hasChildren())
+    <table>
+        <tbody>  
+            <tr>
+                #set ($count = 0)
+                #foreach ($nav_item in $nav_items)
+                    #if ($nav_item.hasChildren())
+                        #set ($count = $count + 1)
+                        <td class="nav-item-box">
+                            <a href="$nav_item.getURL()" $nav_item.getTarget()><span>$nav_item.icon() $nav_item.getName()</span></a>
+                            #if ($nav_item.hasChildren())
                                 <ul>
-                                    #foreach ($nav_item_subchild in $nav_item_child.getChildren())
+                                    #foreach ($nav_item_child in $nav_item.getChildren())
                                         <li>
-                                            <a href="$nav_item_subchild.getURL()" $nav_item_subchild.getTarget()><span>$nav_item_subchild.icon() $nav_item_subchild.getName()</span></a>
+                                            <a href="$nav_item_child.getURL()" $nav_item_child.getTarget()><span>$nav_item_child.icon() $nav_item_child.getName()</span></a>
+                                            #if ($nav_item_child.hasChildren())
+                                                <ul>
+                                                    #foreach ($nav_item_subchild in $nav_item_child.getChildren())
+                                                        <li>
+                                                            <a href="$nav_item_subchild.getURL()" $nav_item_subchild.getTarget()><span>$nav_item_subchild.icon() $nav_item_subchild.getName()</span></a>
+                                                        </li>
+                                                    #end
+                                                </ul>
+                                            #end
                                         </li>
                                     #end
                                 </ul>
                             #end
-                        </li>
+                        </td>
+                    #end                    
+                    #if ($count % 5 == 0 && $nav_items.size() != $count-1)
+                        </tr>
+                        <tr class="quick-links-rows">
                     #end
-                </ul>
-            #end
-        </div>
-    #end
+                #end
+            </tr>
+        </tbody>
+    </table>
 </div>
