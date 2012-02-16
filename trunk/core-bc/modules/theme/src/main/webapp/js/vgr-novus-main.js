@@ -232,7 +232,7 @@ AUI().add('vgr-novus-main',function(A) {
                         newsBox.addClass('news-box-js');
                         
                         // Bind window size change event
-                        A.on('window:resize', function(e) {
+                        A.on('windowresize', function(e) {
                             var newsBoxWrap = instance.newsBoxWrap;
                             
                             if(isNull(newsBoxWrap)) {return;}
@@ -241,7 +241,7 @@ AUI().add('vgr-novus-main',function(A) {
                             var computedNewsBoxWrapWidth = parseInt(computedNewsBoxWrapWidthStr);
                             
                             instance.newsBoxCarousel.set('width', computedNewsBoxWrapWidth);
-                            
+
                             if(computedNewsBoxWrapWidth < 540) {
                                 instance.newsBoxCarousel.set('height', 250);
                             }
