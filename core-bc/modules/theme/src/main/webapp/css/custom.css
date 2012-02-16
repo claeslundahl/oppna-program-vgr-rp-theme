@@ -3086,7 +3086,7 @@ a.news-title {
 	background: #fff;
 	cursor: pointer;
 	display: block;
-	height: 220px;
+	/*height: 220px;*/
 	margin: 0;
 	overflow: hidden;
 	padding: 0;
@@ -3103,16 +3103,17 @@ a.news-title {
 	width: 30%;
 }
 
-.news-box-description-wrap {
-	float: right;
-	width: 69%;
-}
-
 .news-box a h1 {
 	color: #2c6fa7;
-	font-size: 30px;
+	font-size: 26px;
 	margin: 5px 0;
 	padding: 0;
+}
+
+.news-box-description-wrap {
+	background: url(../images/bg/bg_fff.gif) repeat 0 0;
+	float: right;
+	width: 69%;
 }
 
 .news-box a h2 {
