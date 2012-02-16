@@ -2960,6 +2960,31 @@ a.news-title {
 }
 
 
+/* ---------------- calendar portlet (notes) ------------------------- */
+
+.calendar-wrap ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.calendar-wrap ul li {
+	list-style: none;
+	padding: 2px 6px 2px 20px;
+}
+
+.calendar-wrap li.cal-private {
+	background: #edffed url(../images/common/date.png) no-repeat 1px 50%;
+}
+
+.calendar-wrap li.cal-work {
+	background: #ffefef url(../images/common/date.png) no-repeat 1px 50%;
+}
+
+.calendar-wrap ul li .calendar-type {
+	float: right;
+}
+
 /*----------------------------------------------------------------------
 =Articles
 ----------------------------------------------------------------------*/
