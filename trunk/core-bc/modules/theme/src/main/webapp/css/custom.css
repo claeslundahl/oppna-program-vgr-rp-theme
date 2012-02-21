@@ -2955,6 +2955,11 @@ a.news-title {
 
 .user-wizard-content-wrap {
 	color: #333;
+	/* Position relative and z-index needed for css3pie.htc to work properly
+	    http://css3pie.com/documentation/known-issues/#z-index
+	 */
+    position: relative; 
+    z-index: 100000;
 }
 
 .user-wizard-dialog .user-wizard-personalize-wrap {
@@ -2970,8 +2975,6 @@ a.news-title {
     font-weight: normal;
 	margin: 10px 0;
     padding: 15px;
-	/* Position relative needed for css3pie.htc to work properly */
-	position: relative;
 }
 
 .user-wizard-personalize-text {
