@@ -3090,7 +3090,7 @@ a.news-title {
 	background: #fff;
 	cursor: pointer;
 	display: block;
-	/*height: 220px;*/
+	height: 220px;
 	margin: 0;
 	overflow: hidden;
 	padding: 0;
