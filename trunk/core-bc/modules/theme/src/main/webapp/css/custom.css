@@ -2997,6 +2997,14 @@ ul.list-news li {
 	margin: 0 0 0 80px;
 }
 
+.list-news .news-item-no-date .news-date {
+	display: none;
+}
+
+.list-news .news-item-no-date .news-block {
+	margin-left: 0;
+} 
+
 .list-news .news-title {
 	display: block;
 }
