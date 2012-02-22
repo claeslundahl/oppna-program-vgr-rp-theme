@@ -2925,8 +2925,9 @@ a.news-title {
 .user-wizard-dialog .aui-buttonitem-content {
 	background: none;
 	border: none;
-	height: 32px;
-	width: 32px;
+	height: 35px;
+	width: 34px;
+	padding: 0px;
 }
 
 .user-wizard-dialog .aui-icon-closethick {
