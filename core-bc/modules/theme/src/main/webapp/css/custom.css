@@ -1850,9 +1850,12 @@ p.pager .next {
 }
 
 .aui-tab-active a,
+.aui-tab-active a:link,
 .aui-tab-active a:hover {
-	color: #fff !important;
-	text-decoration: none !important;
+	/*color: #fff !important;*/
+	/*text-decoration: none !important;*/
+	color: #fff;
+	text-decoration: none;
 }
 
 .aui-dialog-button {
@@ -1862,6 +1865,84 @@ p.pager .next {
 .aui-field-element {
 	display: block;
 	text-align: left;
+}
+
+/*------- VGR tabs -------*/
+
+.vgr-tabs {
+	background: #2C6FA7;
+	-moz-border-radius: 0 0 4px 4px;
+	-webkit-border-radius: 0 0 4px 4px;
+	border-radius: 0 0 4px 4px;
+	margin: 10px 0;
+	padding: 3px;
+}
+
+.vgr-tabs .aui-tabview-list {
+	background: none;
+	border: 0;
+	margin: 0;
+	padding: 4px 0 0 0;
+}
+
+.vgr-tabs .aui-tab {
+	background: none;
+	border: none;
+	margin: 0 1px 0 0;
+}
+
+.vgr-tabs .aui-tab-active {
+	background: #fff;
+	border-color: #fff;
+}
+
+.vgr-tabs .aui-tab-active:after {
+	border: none;
+	bottom: 0;
+	content: '';
+	left: 0;
+	margin-left: 0;
+	z-index: 0;
+}
+
+.vgr-tabs .aui-tab-content {
+	padding: 0;
+}
+
+.vgr-tabs .aui-tab a,
+.vgr-tabs .aui-tab a:link {
+	background: #06579C;
+	border: 1px solid #75A1C6;
+	border-bottom: 0;
+	-moz-border-radius: 4px 4px 0 0;
+	-webkit-border-radius: 4px 4px 0 0;
+	border-radius: 4px 4px 0 0;
+	color: #fff;
+	display: block;
+	font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
+	font-weight: bold;
+	padding: 3px 10px;
+	text-decoration: none;
+	text-shadow: none;
+}
+
+.vgr-tabs .aui-tab-active a,
+.vgr-tabs .aui-tab-active a:link,
+.vgr-tabs .aui-tab a:hover {
+	background: #fff;
+	border-color: #fff;
+	color: #06579C;
+}
+
+/* .vgr-tabs-content > .aui-tabview-content */
+.vgr-tabs .vgr-tabs-content-wrap {
+	background: #fff;
+	border: 0;
+	border-top: none;
+	-moz-border-radius: 0 0 4px 4px;
+	-webkit-border-radius: 0 0 4px 4px;
+	border-radius: 0 0 4px 4px;
+	padding: 10px;
 }
 
 /*------- Dialog (aui) -------*/
@@ -2893,11 +2974,22 @@ a:visited.link-button {
 
 /* ---------------- RSS portlet ------------------------- */
 
-/* There are still styles left in the rss portlet (style.css). These styling rules should be moved to theme */
+ul.list-news {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+ul.list-news li {
+	border-bottom: 1px solid #EBF2F8;
+	padding: 5px 0;
+}
 
 a.news-title {
     font-size: 1em;
 }
+
+
 
 /* ---------------- User Wizard portlet ------------------------- */
 
