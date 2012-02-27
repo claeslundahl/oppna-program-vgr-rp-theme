@@ -1771,27 +1771,27 @@ form#calendar .submit input {
 
 /*------- Pagers -------*/
 
-p.pager {
+.pager {
 	margin: 2px 0 0;
 }
 
-p.pager a {
+.pager a {
 	padding: 2px;
 }
 
-p.pager .prev {
+.pager .prev {
 	background: url(../images/famfam/resultset_previous.png) no-repeat 0 50%;
 	float: left;
 	padding: 3px 6px 3px 20px;
 }
 
-p.pager .next {
+.pager .next {
 	background: url(../images/famfam/resultset_next.png) no-repeat 100% 50%;
 	float: right;
 	padding: 3px 20px 3px 6px;
 }
 
-.tools p.pager {
+.tools .pager {
 	display: inline;
 }
 
@@ -3154,28 +3154,51 @@ a.news-title {
 
 /* ---------------- calendar portlet (notes) ------------------------- */
 
-.calendar-wrap ul {
-	list-style: none;
+.calendar-wrap {}
+
+.cal-day-wrap {
+	margin: 10px 0;
+}
+
+h4.cal-date {
+	border-bottom: 1px solid #EBF2F8;
+	color: #005095;
+	font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: normal;
+}
+
+ul.cal-item-list {
+	list-style-type: none;
 	margin: 0;
 	padding: 0;
 }
 
-.calendar-wrap ul li {
-	list-style: none;
-	padding: 2px 6px 2px 20px;
+ul.cal-item-list li {
+	border-bottom: 1px solid #EBF2F8;
+	margin: 0;
+	padding: 2px 2px;
 }
 
-.calendar-wrap li.cal-private {
-	background: #edffed url(../images/common/date.png) no-repeat 1px 50%;
+.cal-item-time {
+	display: block;
+	float: left;
+	width: 80px;
 }
 
-.calendar-wrap li.cal-work {
-	background: #ffefef url(../images/common/date.png) no-repeat 1px 50%;
+.cal-item-title {
+	display: block;
+	margin: 0 100px 0 80px;
 }
 
-.calendar-wrap ul li .calendar-type {
+.cal-item-type {
+	display: block;
 	float: right;
+	width: 100px;
 }
+
+
+
 
 /*----------------------------------------------------------------------
 =Articles
