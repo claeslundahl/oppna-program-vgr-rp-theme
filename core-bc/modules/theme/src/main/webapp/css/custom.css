@@ -3178,23 +3178,31 @@ ul.cal-item-list li {
 	border-bottom: 1px solid #EBF2F8;
 	margin: 0;
 	padding: 2px 2px;
+	clear: both;
 }
+
+/* Clearfix style clearing */
+ul.cal-item-list li:after{clear:both;content:'.';display:block;visibility:hidden;height:0}
+ul.cal-item-list li{display:inline-block}
+* html ul.cal-item-list li{height:1%}
+ul.cal-item-list li{display:block}
 
 .cal-item-time {
 	display: block;
 	float: left;
-	width: 80px;
+	width: 19%;
 }
 
 .cal-item-title {
 	display: block;
-	margin: 0 100px 0 80px;
+	float: left;
+	width: 55%;
 }
 
 .cal-item-type {
 	display: block;
 	float: right;
-	width: 100px;
+	width: 24%;
 }
 
 
