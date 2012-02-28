@@ -1,30 +1,11 @@
 <div class="footer-inner aui-lay clearfix">
-	<div class="aui-column aui-w25 aui-column-first">
-		<div class="aui-column-content">
-			#language("powered-by") <a href="http://www.liferay.com" rel="external">Liferay EE</a>
-		</div>
+
+	<div class="powered-by">
+		#language("powered-by") <a href="http://www.liferay.com" rel="external">Liferay EE</a>
 	</div>
-	<div class="aui-column aui-w25 aui-column-first">
-		<div class="aui-column-content">
-			&nbsp;
-			
-			#*
-			#set ($sc_show_vgr_wizard = $getterUtil.getString($sessionClicks.get($request, "show_vgr_wizard", "")))
-			<a href="#" class="show-vgr-wizard-test" data-showVgrWizardTest="$sc_show_vgr_wizard">sc_show_vgr_wizard: $sc_show_vgr_wizard</a>
-			*#
-			
-		</div>
-	</div>
-	<div class="aui-column aui-w25 aui-column-first">
-		<div class="aui-column-content">
-			&nbsp;
-		</div>
-	</div>
-	<div class="aui-column aui-w25 aui-column-first">
-		<div class="aui-column-content">
-			<a class="logo" href="$company_url">
-				<span>$region_portal_name</span>
-			</a>
-		</div>
-	</div>
+	
+	<a class="logo" href="$company_url">
+		<span>$region_portal_name</span>
+	</a>
+	
 </div>
