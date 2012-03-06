@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE look-and-feel PUBLIC "-//Liferay//DTD Look and Feel 6.0.0//EN" "http://www.liferay.com/dtd/liferay-look-and-feel_6_0_0.dtd">
+
+<look-and-feel>
+	<compatibility>
+		<version>6.0.11+</version>
+	</compatibility>
+	<theme id="regionportalen-theme" name="Regionportalen Tema">
+		<settings>
+			<setting key="bullet-style-options" value="1,2" />
+			<setting key="hide-sidebar-active" value="true" />
+		</settings>
+	</theme>
+	<theme id="regionportalen-theme-no-hide" name="Regionportalen Tema (ej göm notifikationer)">
+		<settings>
+			<setting key="bullet-style-options" value="1,2" />
+			<setting key="hide-sidebar-active" value="false" />
+		</settings>
+	</theme>
+</look-and-feel>

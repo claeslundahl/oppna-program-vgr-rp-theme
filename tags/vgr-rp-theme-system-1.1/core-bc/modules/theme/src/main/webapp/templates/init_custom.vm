@@ -1,0 +1,39 @@
+#* ------ Theme settings ------------------------------------- *#
+
+#set($hide_sidebar_active = true)
+
+#if ($theme.getSetting("hide-sidebar-active") == "true")
+	#set($hide_sidebar_active = true)
+#else
+	#set($hide_sidebar_active = false)
+#end
+
+#* ------ Enable JS debug ------------------------------------- *#
+	
+#set ($enableDebug = false )
+#set ($launchDebugger = false )
+
+#* ------ Phrases ------------------------------------- *#
+
+#set ( $test_company = "vgregion.se" )
+#if($company_name == $test_company)
+    #set ($region_portal_name="Regionportalen")
+#else
+    #set ($region_portal_name="")
+#end
+
+#* ------ URLs ------------------------------------- *#
+
+#set ( $logo_url = $company_url )
+
+#if($is_signed_in)
+	#set ( $logo_url = "/group/vgregion/" )
+#end	
+
+#* ------ Piwik ------------------------------------- *#
+
+#set ($piwikActive = $propsUtil.get("web.tracking.piwik.active") )
+#set ($piwikURL = "http://piwik.vgregion.se/" )
+#set ($piwikURLSecure = "https://piwik.vgregion.se/" )
+#set ($piwikURLNoScriptImg = "http://piwik.vgregion.se/piwik.php?idsite=6" )
+#set ($piwikScriptName = "piwik.js" )
