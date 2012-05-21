@@ -1,11 +1,10 @@
-<div class="footer-inner aui-lay clearfix">
-
-	<div class="powered-by">
-		#language("powered-by") <a href="http://www.liferay.com" rel="external">Liferay EE</a>
+<div class="footer-inner">
+	<div class="footer-content clearfix">
+		<div class="powered-by">
+			#language("powered-by") <a href="http://www.liferay.com" rel="external" target="_BLANK">Liferay EE</a>
+		</div>
+		<a class="logo" href="$company_url">
+			<span>$region_portal_name</span>
+		</a>
 	</div>
-	
-	<a class="logo" href="$company_url">
-		<span>$region_portal_name</span>
-	</a>
-	
 </div>

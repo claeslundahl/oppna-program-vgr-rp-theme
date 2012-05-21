@@ -6,64 +6,34 @@
 
 <head>
 	<title>$the_title - $company_name</title>
-	
+
 	$theme.include($top_head_include)
-	
-    <!--[if lte IE 7]>
-    	#css ("$css_folder/ie7.css")
-    <![endif]-->
-	
-	## Neeed for sticky footer
-    <!--[if !IE 7]>
-    	<style type="text/css">
-    		#wrapper {display:table;height:100%}
-    	</style>
-    <![endif]-->
-	
-    <script type="text/javascript">
-		
-		vgrGlobal = {};
-	
-		## Set global variable for sidebar hide
-		vgrGlobal.hideSidbar = $hide_sidebar_active;
-	
-	</script>
-	
 </head>
 
 <body class="$css_class">
 
+#if($showDockbar)
+	<div id="dockbarWrap">
+		#dockbar()	
+	</div>
+#end
+
 <div id="wrapper">
 	<a href="#main-content" id="skip-to-content">#language("skip-to-content")</a>
-	
+
 	<header id="banner" role="banner">
-		
-        #*#if($is_signed_in)
-        	#dockbar()
-		#end*#
-		
-		#dockbar()
-		
-		<hgroup id="heading">
-			<h1 class="company-title clearfix">
+		<hgroup id="heading" class="clearfix">
+			<h1 class="company-title">
 				<a class="logo" href="$company_url" title="#language("go-to") $company_name">
-					<span>$region_portal_name</span>
+					<span>$company_name</span>
 				</a>
 			</h1>
+			#parse ("$full_templates_path/top_navigation.vm")
 
-			<h2 class="community-title">
-				<a href="$community_default_url" title="#language("go-to") $community_name">
-					<span>$community_name</span>
-				</a>
-			</h2>
-
-			<h3 class="page-title">
-				<span>$the_title</span>
-			</h3>
 		</hgroup>
 
 		#if(!$is_signed_in)
-			##<a href="$sign_in_url" id="sign-in" rel="nofollow">$sign_in_text</a>
+			<a href="$sign_in_url" id="sign-in" rel="nofollow">$sign_in_text</a>
 		#end
 
 		#if ($update_available_url)
@@ -73,24 +43,19 @@
 		#end
 
 		#if ($has_navigation)
-            #parse ("$full_templates_path/quick_links.vm")
-            #parse ("$full_templates_path/navigation.vm")
+			#parse ("$full_templates_path/navigation.vm")
 		#end
 	</header>
 
 	<div id="content">
-		#*
-		<nav class="site-breadcrumbs" id="breadcrumbs">
-			<h1>
-				<span>#language("breadcrumbs")</span>
-			</h1>
-
-			#breadcrumbs()
-		</nav>
-		*#
-
 		#if ($selectable)
 			$theme.include($content_include)
+			<div id="toolsSidebar" class="tools-sidebar">
+				#if($show_notifications_portlet)
+					#parse ("$full_templates_path/notifications.vm")
+				#end
+				#parse ("$full_templates_path/tyck-till-content.vm")
+			</div>
 		#else
 			$portletDisplay.recycle()
 
@@ -98,34 +63,22 @@
 
 			$theme.wrapPortlet("portlet.vm", $content_include)
 		#end
-		
 	</div>
-
+	
 </div>
+
 <footer id="footer" role="contentinfo">
 	#parse ("$full_templates_path/footer.vm")
 </footer>
 
-
-	#if($piwikActive)
-		#parse ("$full_templates_path/piwik.vm")
-	#end
 </body>
 
-	$theme.include($bottom_include)
-	
-	#js ("$themeDisplay.getPathJavaScript()/liferay/service.js")
-	#js ("/knowledge-base-portlet/js/service.js")
-	
-	#js ("$javascript_folder/vgr-novus-main.js")
-	#js ("$javascript_folder/vgr-novus-instance.js")
+$theme.include($bottom_include)
 
-	#if($enableDebug)		
-		#css ("$css_folder/console-core.css")
-		
-		#if($launchDebugger)
-			#js ("$javascript_folder/debug.js")
-		#end
-	#end
+#js ("$javascript_folder/rp-tyck-till.js")
+#js ("$javascript_folder/rp-quick-access-nav.js")
+#js ("$javascript_folder/vgr-novus-main.js")
+#js ("$javascript_folder/vgr-novus-instance.js")
+#js ("$javascript_folder/theme-main.js")
 
 </html>
