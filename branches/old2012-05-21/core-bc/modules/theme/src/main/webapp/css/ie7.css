@@ -1,0 +1,1 @@
+/*ie7.css: Internet Explorer bugfest workarounds* html targets IE 7*/#content-wrapper.slide * .fifty {	width: 49.9%;}/*------- Booking Portlet (resebokning) -------*/.booking-wrap fieldset li {	zoom: 1;}/* ie7 clips texts, this is a hack to fix it */#dockbar {    line-height: 1.3;}
