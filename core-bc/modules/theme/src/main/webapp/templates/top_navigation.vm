@@ -1,0 +1,61 @@
+<nav class="top-navigation" id="topNavigation">
+	<ul class="top-nav-list clearfix">
+		<li class="top-nav-settings top-nav-settings-show">
+			<a href="#top-nav-settings-show">
+				<span>$topnavSettingsShowText</span>
+			</a>
+		</li>
+		<li class="top-nav-settings top-nav-settings-hide aui-helper-hidden">
+			<a href="#top-nav-settings-hide">
+				<span>$topnavSettingsHideText</span>
+			</a>
+		</li>
+		<li class="top-nav-quick-access aui-helper-hidden">
+			<a href="#top-nav-quick-access">
+				<span>$topnavQuickAccessText</span>
+			</a>
+			<div class="quick-access-nav-prototype aui-helper-hidden">
+				<div class="quick-access-nav-hd clearfix">
+					<h3>$quickAccessNavTitle</h3>
+					<div class="filter-wrap">
+						<label for="quickAccessFilterInput">$quickAccessNavFilterLabel</label>
+						<input type="text" name="quickAccessFilterInput" id="quickAccessFilterInput" value="" class="" />
+						<span class="help-text">$quickAccessNavHelpText</span>
+					</div>				
+				</div>
+				
+				<ul class="quick-access-nav-list clearfix">
+					#set($quicknavTicker = 1)
+					#foreach ($nav_item in $nav_items)
+						#if ($nav_item.hasChildren())
+							<li class="first-level">
+								<div>
+									<a href="$nav_item.getURL()">$nav_item.getName()</a>
+									<ul class="child-menu">
+										#foreach ($nav_child in $nav_item.getChildren())
+											<li class="second-level">
+												<a href="$nav_child.getURL()">$nav_child.getName()</a>
+											</li>
+										#end
+									</ul>
+								</div>
+							</li>
+						#end
+						<li class="aui-helper-hidden"></li>
+						#set($quicknavTicker = 0)
+					#end
+				</ul>
+			</div>
+		</li>
+		<li class="top-nav-user">
+			<a href="#top-nav-user">
+				<span>$user_name</span>
+			</a>
+		</li>
+		<li class="top-nav-signout">
+			<a href="$sign_out_url">
+				<span>$sign_out_text</span>
+			</a>
+		</li>
+	</ul>
+</nav>

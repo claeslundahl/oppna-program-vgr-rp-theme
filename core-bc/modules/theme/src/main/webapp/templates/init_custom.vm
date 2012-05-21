@@ -1,39 +1,59 @@
-#* ------ Theme settings ------------------------------------- *#
+##
+## Null
+##
 
-#set($hide_sidebar_active = true)
+#set($null = $some-never-used-variable)
 
-#if ($theme.getSetting("hide-sidebar-active") == "true")
-	#set($hide_sidebar_active = true)
-#else
-	#set($hide_sidebar_active = false)
-#end
 
-#* ------ Enable JS debug ------------------------------------- *#
-	
-#set ($enableDebug = false )
-#set ($launchDebugger = false )
+##
+## Services
+##
 
-#* ------ Phrases ------------------------------------- *#
+##
+## Dockbar
+##
 
-#set ( $test_company = "vgregion.se" )
-#if($company_name == $test_company)
-    #set ($region_portal_name="Regionportalen")
-#else
-    #set ($region_portal_name="")
-#end
+#set($showDockbar = $is_signed_in)
 
-#* ------ URLs ------------------------------------- *#
+#* ------  ------------------------------------- *#
 
-#set ( $logo_url = $company_url )
+##
+## Phrases
+##
 
-#if($is_signed_in)
-	#set ( $logo_url = "/group/vgregion/" )
-#end	
+#set ($region_portal_name="Regionportalen")
 
-#* ------ Piwik ------------------------------------- *#
+##
+## Top navigation
+##
 
-#set ($piwikActive = $propsUtil.get("web.tracking.piwik.active") )
-#set ($piwikURL = "http://piwik.vgregion.se/" )
-#set ($piwikURLSecure = "https://piwik.vgregion.se/" )
-#set ($piwikURLNoScriptImg = "http://piwik.vgregion.se/piwik.php?idsite=6" )
-#set ($piwikScriptName = "piwik.js" )
+#set($topnavSettingsShowText = "Visa meny f&ouml;r inst&auml;llningar")
+#set($topnavSettingsHideText = "G&ouml;m meny f&ouml;r inst&auml;llningar")
+#set($topnavQuickAccessText = "Snabbnavigering")
+
+##
+## Tyck till
+##
+
+#set($tycktillPortalURL = "#tyck-till")
+#set($tycktillDialogURL = "http://tycktill.vgregion.se/tyck-till/tycktill/KontaktaOss?formName=portalen&breadcrumb=portalen-tycktill")
+
+##
+## Quick Access Navigation
+##
+
+#set($quickAccessNavTitle = "Snabbnavigering")
+#set($quickAccessNavFilterLabel = "Filter")
+#set($quickAccessNavHelpText = "Skriv in namnet p&aring; det system du letar efter s&aring; sorteras listan efter detta.")
+
+##
+## Notification portlet
+##
+
+#set($show_notifications_portlet = $is_signed_in)
+
+#set ($notifications_portlet_stub_id = "notificationsbarstubportlet_WAR_notificationsbarstubportlet")
+#set ($notifications_portlet_prod_id = "notifications_WAR_notificationsportlet")
+
+#set ($notifications_portlet_id = $notifications_portlet_stub_id)
+#set ($notifications_portlet_id = $notifications_portlet_prod_id)

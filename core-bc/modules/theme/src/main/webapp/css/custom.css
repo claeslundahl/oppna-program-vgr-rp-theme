@@ -18,6 +18,7 @@ Structure:
 =Liferay Portlets
 =Custom Portlets
 =Articles
+=Debugging
 =Sandbox
 
 --------------------------------------
@@ -63,6 +64,7 @@ body {
 	position: relative;
 	/*overflow: auto;*/
 	overflow-x: hidden;
+	overflow-y: hidden;
 }
 
 .ie6 #wrapper {
@@ -78,112 +80,111 @@ body {
 
 /*------- banner (header) -------*/
 
-#banner {
-	background: #2c6fa7 url(../images/common/top_dekor.gif) no-repeat 90% 0;
-	position: relative;
-	z-index: 20;
+#heading {
+	margin: 10px 0;
 }
 
-#banner.overflow-hidden {
-	overflow: hidden;
+.company-title {
+	float: left;
+	margin: 0;
+	width: 30%;
 }
 
-#banner .community-title,
-#banner .page-title {
+.top-navigation {
+	float: right;
+	width: 60%;
+}
+
+#banner .company-title .logo {
+	background: url(../images/rp-logo.png) top left no-repeat;
+	display: block;
+	float: left;
 	font-size: 0;
-	margin: 0;
-	padding: 0;
+	height: 23px;
 	text-indent: -9999em;
+	width: 162px;
 }
 
-#banner #heading .logo {
-	background: none;
-	display: inline;
-	font-size: 26px;
-	height: auto;
-	text-indent: 0;
-	width: auto;
-}
-
-#banner .company-title {
-	display: none;
-	margin: 0;
-	text-align: left;
-}
-
-#banner .company-title a.logo {
-	text-decoration: none;
-}
-
-#banner .company-title a.logo:hover {
-	text-decoration: none;
-}
-
-#banner .company-title a.logo span {
-	color: #fff;
-	float: none;
-	font-size: 26px;
-	text-indent: 0;
-	text-decoration: none;
-}
-
-#sign-in {
-	background: transparent url(../images/common/key.png) no-repeat 3px 50%;
-	color: #eee;
-	font-weight: bold;
-	padding: 5px 5px 5px 25px;
-	position: absolute;
-	right: 40px;
-	top: 16px;
+#banner .company-title .server-node-info {
+	display: block;
+	float: left;
+	font-size: 14px;
+	text-transform: uppercase;
+	width: 30px;
 }
 
 /*------- content -------*/
 
 #content {
-	min-height: 100px;
-	padding-top: 10px;
+	min-height: 400px;
+	position: relative;
+}
+
+/* Hide node info */
+#content>.portlet-msg-info {
+	display: none;
+}
+
+#main-content {
+	margin: 15px 0;
+	margin-right: 50px;
+}
+
+/*- tools sidebar -*/
+
+#toolsSidebar {
+	position: absolute;
+	right: 0;
+	top: 10px;
+	width: 46px;
+}
+
+/*- notifications -*/
+
+#notifications {
+	margin: 0 0 20px 0;
+}
+
+/*- tyckt till -*/
+
+#tycktillWrap {
+}
+
+#tycktillWrap a {
+	background: #2c6fa7 url(../images/tyck-till/tyck-till-text.png) center center no-repeat;
+	border: 1px solid #255d8c;
+	behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
+	-moz-border-radius-topleft: 2px;
+	-moz-border-radius-bottomleft: 2px;
+	-webkit-border-radius: 2px 0 0 2px;
+	border-radius: 2px 0 0 2px;
+	display: block;
+	font-size: 0;
+	height: 100px;
+	text-indent: -9999em;
+	position: relative; /* Position relative needed for css3pie.htc to work properly */
+}
+
+#tycktillWrap a:hover {
+	background-color: #255d8c;
 }
 
 /*------- footer -------*/
 
-/* Sticky footer */
-
-html, body {height: 100%;}
-#wrapper {min-height: 100%;}
-
-#content {
-	overflow:auto;
-	padding-bottom: 100px; /* must be same height as the footer */
-}
-
 #footer {
-	clear:both;
-	height: 100px;
-	position: relative;
-	margin-top: -100px; /* negative value of footer height */
-} 
-
-/*Opera Fix*/
-body:before {
-	content:"";
-	height:100%;
-	float:left;
-	width:0;
-	margin-top:-32767px;/
+	padding: 0;
+	width: 100%;
 }
 
-/* Footer styling */
-
-#footer {
-	background: #276ca5;
-	color: #fff;
-	z-index: 1;
+.footer-inner {
+	background: #e4edf9;
+	color: #005095;
+	margin: 0 40px;
 }
 
-#footer .footer-inner {
-	padding: 20px 0;
+.footer-content {
+	padding: 10px;
 }
-
 
 #footer .powered-by {
 	display: block;
@@ -192,9 +193,8 @@ body:before {
 }
 
 #footer a,
-#footer a:link,
 #footer a:visited {
-	color: #fff;
+	color: #005095;
 	text-decoration: none;
 }
 
@@ -203,10 +203,10 @@ body:before {
 }
 
 #footer a.logo {
-    background: url("../images/logo/vgr-logo-large-bluematte.png") no-repeat scroll 0 0 transparent;
+    background: url(../images/logo/vgr-logo-large-transparent.png) no-repeat scroll 0 0 transparent;
     display: block;
 	float: right;
-	fonts-size: 0;
+	font-size: 0;
     height: 51px;
     width: 252px;
 }
@@ -216,6 +216,41 @@ body:before {
     text-indent: -9999em;
 }
 
+
+/*------- sticky footer -------*/
+/**
+html, body {
+	height: 100%;
+}
+
+#wrapper {
+	min-height: 100%;
+}
+
+#content {
+	overflow: auto;
+	padding-bottom: 80px; /* must be same height as the footer *//**
+}
+#footer {
+	clear: both;
+	height: 80px;
+	margin-top: -80px; /* negative value of footer height *//*
+	position: relative;
+}
+
+#footer .footer-inner {
+	height: 80px; /* must be same height as the footer *//*
+}
+
+/*Opera Fix*//*
+body:before {
+	content:"";
+	height:100%;
+	float:left;
+	width:0;
+	margin-top:-32767px;/
+}
+*/
 /*------- Common elements -------*/
 
 h1, h2, h3 {
@@ -244,7 +279,6 @@ h4 {
 }
 
 a,
-a:link,
 a:visited {
 	color: #06579C;
 	text-decoration: underline;
@@ -255,96 +289,6 @@ a:hover {
 	text-decoration: none;
 }
 
-/*------- System messages -------*/
-
-.system-info {
-	border: 2px solid;
-	margin: 1em 0;
-	padding: 0 12px;
-}
-
-.system-info h2, .system-info h3 {
-	font-size: 1.1em;
-	margin: 0 -12px !important;
-	padding: 4px !important;
-}
-
-.system-info p {
-	margin: 1em 0;
-}
-
-.error {
-	border-color: #900 !important;
-	color: #900;
-}
-
-.confirmation {
-	border-color: #060 !important;
-	color: #060;
-}
-
-.warning {
-	border-color: #ed0 !important;
-	color: #000;
-}
-
-.error h2,
-.error h3,
-.text.error label,
-.error legend {
-	background: #900 !important;
-	color: #fff !important;
-}
-
-.confirmation h2,
-.confirmation h3 {
-	background: #060 !important;
-	color: #fff !important;
-}
-
-.warning h2,
-.warning h3 {
-	background: #ed0 !important;
-	color: #000 !important;
-}
-
-.non-html strong {
-	font-weight: normal;
-}
-
-.read-more {
-	text-align: right;
-}
-
-.read-more a span {
-	left: -9999px;
-	position: absolute;
-}
-
-/*------- Structural elements, not visible when CSS is enabled -------*/
-
-.structural {
-    position: absolute;
-    left: -9999px;
-}
-
-/*------- Images -------*/
-
-img.left, img.right {
-    float: left;
-    width: auto;
-    margin: 3px 9px 3px 0;
-}
-
-img.right {
-    float: right;
-    margin: 3px 0 3px 9px;
-}
-
-img.dec {
-    padding: 3px;
-    border: 1px solid #ccc;
-}
 
 /* ---------- Hidden Accessible ---------- */
 
@@ -357,41 +301,6 @@ img.dec {
 	position: absolute;
 }
 
-/* ---------- Extras ---------- */
-
-.aui-tab-active:after {
-	border: 10px solid;
-	border-bottom-width: 0;
-	border-color: #333 transparent transparent;
-	bottom: -7px;
-	content: '-';
-	display: block;
-	height: 0;
-	left: 50%;
-	margin-left: -10px;
-	position: absolute;
-	text-indent: -9999px;
-	width: 0;
-	z-index: 20;
-}
-
-.lfr-title-scope-selector {
-	-moz-border-radius-bottomleft: 4px;
-	-webkit-border-bottom-left-radius: 4px;
-	border-bottom-left-radius: 4px;
-}
-
-.lfr-title-scope-selector {
-	-moz-border-radius-bottomright: 4px;
-	-webkit-border-bottom-right-radius: 4px;
-	border-bottom-right-radius: 4px;
-}
-
-.logo .current-community, #navigation, #navigation a, .portlet, .portlet-topper, .site-breadcrumbs ul {
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
-	border-radius: 4px;
-}
 
 /*----------------------------------------------------------------------
 =Common classes
@@ -445,438 +354,285 @@ img.dec {
 =Navigation
 ----------------------------------------------------------------------*/
 
+
+/*------- Top navigation -------*/
+
+ul.top-nav-list {
+	float: right;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+
+ul.top-nav-list li {
+	display: block;
+	float: left;
+	margin: 0 8px;
+}
+
+.top-nav-list a {
+	display: block;
+	float: left;
+	font-size: 1.1em;
+	padding: 5px 5px;
+	text-decoration: none;
+}
+
+.top-nav-settings a,
+.top-nav-user a,
+.top-nav-signout a,
+.top-nav-quick-access a {
+	background: transparent url(../images/navigation/topnav-icon-sprite.png) 0 0 no-repeat;
+}
+
+.top-nav-settings a,
+.top-nav-user a,
+.top-nav-signout a {
+	padding-left: 18px;
+}
+
+.top-nav-quick-access a {
+	padding-right: 18px;
+}
+
+.top-nav-settings a { background-position: 0 -12px; }
+.top-nav-user a { background-position: 0 -111px; }
+.top-nav-signout a { background-position: 0 -162px; }
+.top-nav-quick-access a { background-position: 100% -58px; }
+
+.top-nav-settings a:hover { background-position: 0 -212px; }
+.top-nav-user a:hover { background-position: 0 -311px; }
+.top-nav-signout a:hover { background-position: 0 -362px; }
+
+.top-nav-quick-access a.active,
+.top-nav-quick-access a:hover {
+	background-position: 100% -258px;
+}
+
+
+ul.top-nav-list li a.active,
+ul.top-nav-list li a:hover {
+	background-color: #e4edf9;
+}
+
 /*------- Main navigation -------*/
 
 #navigation {
-	margin: 10px 0 0 0;
-}
-
-#navigation .nav-main {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-#navigation .nav-main li {
-	background: transparent;
-    display: block;
-    float: left;
-    list-style: none;
-    margin: 0 1px;
-    padding: 0;
-}
-
-#navigation .nav-main li a {
-	background: #06579c;
-	border: 1px solid #75a1c6;
-	border-bottom: 0;
-	-moz-border-radius-topleft: 4px;
-	-moz-border-radius-topright: 4px;
-	-moz-border-radius-bottomright: 0px;
-	-moz-border-radius-bottomleft: 0px;
-	-webkit-border-radius: 4px 4px 0px 0px;
-	/* Needs an absolute path */
-	behavior: url(/regionportalen-theme/htc/css3pie.htc);	
-	border-radius: 4px 4px 0px 0px;
-    color: #fff;
-    display: block;
-    float: left;
-	font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
-	font-size: 16px;
-    font-weight: normal;
-    padding: 2px 10px;
-	/* Position relative needed for css3pie.htc to work properly */
-	position: relative;
-    text-decoration: none;
-}
-
-#navigation .nav-main li a:hover {
-	background: #fff;
-	color: #06579c;
-    text-decoration: none;
-}
-
-#navigation .nav-main li.selected a,
-#navigation .nav-main li.selected a:hover {
-	background: #fff;
-	color: #06579c;
-	font-weight: normal;
-}
-
-/*-  Nav toolbar items ---*/
-
-#navigation .nav-main li.nav-toolbar-item {
-	float: right;
-}
-
-#navigation .nav-main li.nav-toolbar-item a,
-#navigation .nav-main li.nav-toolbar-item a:link,
-#navigation .nav-main li.nav-toolbar-item a:visited {
-	background: transparent;
-	border: none;
-	-moz-border-radius: 0;
-	-webkit-border-radius: 0;
-	border-radius: 0;
-	behavior: none;
-	font-size: 13px;
+	background: #255d8c url(../images/navigation/nav-bg-normal.png) top left repeat-x;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
 	
-	display: block;
-    font-size: 0;
-	height: 16px;
-    text-indent: -9999em;
+	-webkit-box-shadow: 2px 2px 2px 2px #255d8c;
+	-moz-box-shadow: 2px 2px 2px 2px #255d8c;
+	box-shadow: 2px 2px 2px 2px #255d8c;
 	
+	behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
+	clear: both;
+	margin: 0 auto 5px;
+	min-height: 2.2em;
+	padding: 0 6px;
+	position: relative; /* Position relative needed for css3pie.htc to work properly */
+	z-index: 10;
 }
 
-#navigation .nav-main li.nav-toolbar-item a:hover {
-	color: #fff;
-	text-decoration: underline;
-}
-
-#navigation .nav-main li.nav-toolbar-item a.hide-header,
-#navigation .nav-main li.nav-toolbar-item a.hide-header:link,
-#navigation .nav-main li.nav-toolbar-item a.hide-header:visited {
-	background: transparent url(../images/arrows/white_bluematte/arrow-up.png) 50% 0 no-repeat;
-	padding-right: 20px;
-}
-
-/*------- Sidbar navigation (toggle) -------*/
-
-.sidebar-tools {
-	list-style-type: none;
-	margin: 5px 0;
-	padding: 0 15px;
-	text-align: right;
-}
-
-.sidebar-tools li {
-	display: inline;
-}
-
-.sidebar-tools li a {}
-
-/*------- Sub navigation -------*/
-
-#navigation .nav-sub-wrap {
-	margin: 0 -40px;
-}
-
-#navigation .nav-sub-wrap-inner {
-	background: #fff;
-	width: 100%;	
-}
-
-#navigation ul.nav-sub {
-	border: 1px solid #005095;
-	border-width: 0 0 1px 0;
-    list-style: none;
+#navigation ul {
+	list-style: none;
 	margin: 0;
-    margin: 0 40px;
-    padding: 5px 0;
+	padding: 0 6px;
 }
 
-#navigation ul.nav-sub li {
-	background: transparent;
-    display: block;
-    float: left;
-    list-style: none;
-    margin: 0 3px;
-    padding: 0;
+.ie7 #navigation ul {
+	padding: 2px;
 }
 
-#navigation ul.nav-sub li a,
-#navigation ul.nav-sub li a:link {
-	background: #fff;
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
-	border-radius: 4px;
-	/* Needs an absolute path */
-	behavior: url(/regionportalen-theme/htc/css3pie.htc);	
-    color: #06579c;
-    display: block;
-    float: left;
-	font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
-	font-size: 12px;
-    font-weight: normal;
-    margin: 0;
-    padding: 3px 5px;
-	/* Position relative needed for css3pie.htc to work properly */
-	position: relative;
-    text-decoration: none;
-}
-
-#navigation ul.nav-sub li a:hover,
-#navigation ul.nav-sub li.selected a,
-#navigation ul.nav-sub li.selected a:link,
-#navigation ul.nav-sub li.selected a:hover {
-	background: #06579c;
-	border: none;
-	border-bottom: none;
-	color: #fff;
-	font-weight: bold;
-}
-
-#navigation ul.nav-sub li a:hover {
-	font-weight: normal;
-}
-
-/* ---------- Breadcrumbs ---------- */
-
-.breadcrumbs {
-	margin-bottom: 1.5em;
-}
-
-.breadcrumbs li {
-	background: url(../images/arrows/05_right.png) no-repeat 100% 50%;
-	display: inline-block;
-	margin-right: 5px;
-	max-width: 50%;
-	padding-right: 15px;
+#navigation ul.nav-list li {
+	background: url(../images/navigation/nav-sep.png) top right repeat-y;
+	display: list-item;
+	float: left;
+	padding-right: 2px;
 	vertical-align: middle;
-}
-
-.ie7 .breadcrumbs li, .ie6 .breadcrumbs li {
-	display: inline;
 	zoom: 1;
 }
 
-.ie6 .breadcrumbs {
-	zoom: 1;
-}
-
-.breadcrumbs a {
+#navigation ul.nav-list li a {
+	background: transparent;
+	color: #fff;
 	display: block;
-}
-
-.breadcrumbs .last {
-	background-image: none;
-	margin-top: 0.2em;
-}
-
-.breadcrumbs .last a, .aui-tree-node-selected a {
-	color: #555;
-}
-
-/* ---------- Site breadcrumbs ---------- */
-
-.site-breadcrumbs {
-	margin: 0 0 5px;
-	width: auto;
-}
-
-.site-breadcrumbs ul {
-	background-color: #FFF;
-	border: 1px solid #DEDEDE;
-	border-color: #C0C2C5;
+	font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
+	font-size: 1.2em;
+	font-weight: normal;
+	line-height: 1.0;
 	margin: 0;
-}
-
-.site-breadcrumbs li {
-	background-image: none;
-	margin-right: 0;
-	padding-left: 0.75em;
-	padding-right: 0;
-}
-
-.site-breadcrumbs li span {
-	background: url(../images/common/breadcrumbs.png) no-repeat 100% 50%;
-	display: block;
-	padding: 0.5em 15px 0.5em 0;
-}
-
-.site-breadcrumbs li span a {
+	padding: 10px 14px;
 	text-decoration: none;
 }
 
-.site-breadcrumbs li.first a {
-	color: #369;
-	font-weight: bold;
+#navigation ul.nav-list > li.selected > a,
+#navigation ul.nav-list > li.selected.hover > a,
+#navigation ul.nav-list > li.selected:hover > a {	
+	background: #54752f url(../images/navigation/nav-bg-active.png) top left repeat-x;
+	color: #fff;
 }
 
-.site-breadcrumbs li.last a {
-	color: #4B5567;
-	font-size: 1.3em;
+#navigation ul.nav-list li.hover > a,
+#navigation ul.nav-list li:hover > a {
+	background: #e4edf9;
+	color: #255d8c;
 }
 
-.site-breadcrumbs .last {
-	font-size: 1em;
-	margin-top: 0;
-	padding-right: 0;
+#navigation ul.nav-list ul {
+	background: #e4edf9;
+	-moz-border-radius: 0 0 6px 6px;
+	-webkit-border-radius: 0 0 6px 6px;
+	border-radius: 0 0 6px 6px;
+	behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
+	left: 0;
+	padding: 5px 0;
+	position: absolute;
+	top: 100%;
+	visibility: hidden;
+	width: 200px;
+	z-index: 598;	
 }
 
-.site-breadcrumbs .last span {
-	background-image: none;
+#navigation  ul.nav-list ul li {
+	background: none;
+	border-bottom: 1px solid #ccc;
+	float: none;
 	padding: 0;
 }
 
-
-/*------- Navigation - Show header -------*/
-
-.show-header-wrap {
-	border-top: 3px solid #06579c;
-	margin: 0 auto;
-	text-align: center;
-}
-
-.show-header-wrap a,
-.show-header-wrap a:link,
-.show-header-wrap a:visited {
-	background: #06579c url("../images/arrows/white_bluematte/arrow-down.png") no-repeat 96% 50%;
-	border: 1px solid #06579c;
-	border-top-width: 0;
-	-moz-border-radius-topleft: 0px;
-	-moz-border-radius-topright: 0px;
-	-moz-border-radius-bottomright: 6px;
-	-moz-border-radius-bottomleft: 6px;
-	-webkit-border-radius: 0px 0px 6px 6px;
-	/* Needs an absolute path */
-	behavior: url(/regionportalen-theme/htc/css3pie.htc);	
-	border-radius: 0px 0px 6px 6px;
-	color: #fff;
+#navigation ul.nav-list ul li a {
+	background: #e4edf9;
+	color: #255d8c;
 	display: block;
-	font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
-	font-size: 14px;
-	left: 50%;
-	margin: 0 auto;
-	padding: 3px 6px;
-	padding-right: 30px;
-	position: absolute;
-	text-align: center;
+	font-size: 1.1em;
+	padding: 10px 5px;
 	text-decoration: none;
-	top: 0;
-	width: 90px;
-	z-index: 100;
 }
 
-.show-header-wrap a:hover {
-	background-color: #4682b6;
-	color: #fff;
+#navigation ul.nav-list ul li a:hover {
+	background: #255d8c;
+	color: #e4edf9;
+}
+
+#navigation  ul.nav-list li:hover > ul {
+	visibility: visible;
+}
+
+#navigation  ul.nav-list li:hover > ul li {}
+
+#navigation  ul.nav-list li:hover > ul li a {
+	
+}
+
+/*------- Quick Access Navigation -------*/
+
+.quick-access-overlay {
+}
+
+.quick-access-overlay .aui-overlay-content {
+	background: #e4edf9;
+	behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
+	-moz-border-radius: 3px 0 0 3px;
+	-webkit-border-radius: 3px 0 0 3px;
+	border-radius: 3px 0 0 3px;	
+	border: 1px solid #e4edf9;
+	-moz-box-shadow: 1px 1px 4px #777;
+	-webkit-box-shadow: 1px 1px 4px #777;
+	box-shadow: 1px 1px 4px #777;	
+	position: relative;
+}
+
+.quick-access-nav-hd {
+	border-bottom: 1px solid #b0b1b3;
+	padding: 0 0 5px 0;
+	margin: 0 0 5px 0;
+}
+
+.quick-access-nav-hd h3 {
+	color: #005095;
+	float: left;
+	margin: 0 10px 0 0;
+	width: 130px;
+}
+
+.quick-access-nav-hd .filter-wrap {
+	float: left;
+	width: 600px;
+}
+
+.quick-access-nav-hd .filter-wrap label,
+.quick-access-nav-hd .filter-wrap input,
+.quick-access-nav-hd .filter-wrap span.help-text {
+	display: inline;
+	padding-right: 10px;
+}
+
+ul.quick-access-nav-list {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+ul.quick-access-nav-list li.first-level {
+	min-height: 150px;
+    width: 220px;
+    /*
+    border: 1px solid #b0b1b3;
+    border-width: 0 1px 0 0;
+    */
+    display: -moz-inline-stack;
+    display: inline-block;
+    vertical-align: top;
+    margin: 5px;
+    zoom: 1;
+}
+
+.ie7 ul.quick-access-nav-list li.first-level {
+	display: inline;
+} 
+
+ul.quick-access-nav-list li.first-level a {
+	color: #444;
+	font-size: 1.1em;
+	font-weight: bold;
 	text-decoration: none;
 }
+
+ul.quick-access-nav-list li.first-level a:hover {
+	text-decoration: underline;
+}
+
+ul.quick-access-nav-list ul.child-menu {}
+
+ul.quick-access-nav-list ul.child-menu li {}
+
+ul.quick-access-nav-list ul.child-menu li a {
+	color: #333;
+	text-decoration: none;
+}
+
+ul.quick-access-nav-list ul.child-menu li a:hover {
+	text-decoration: underline;
+}
+
+/*------- Sub navigation -------*/
+
+
+/* ---------- Breadcrumbs ---------- */
+
+
+/* ---------- Site breadcrumbs ---------- */
+
 
 /*----------------------------------------------------------------------
 =Layout
 ----------------------------------------------------------------------*/
 
-.columns-max {
-	padding: 15px;
-}
 
-.portlet-layout .portlet-column-content {
-	padding: 15px;
-}
-
-.portlet-layout .portlet-column > .empty {
-	padding: 0;
-}
-
-.portlet-layout .aui-dd-drop-active-valid > .empty {
-	padding: 15px 0;
-}
-
-.portlet-layout .portlet-column-content-first,
-.portlet-layout .portlet-column-content-only {
-	padding-left: 0;
-}
-
-.portlet-layout .portlet-column-content-last,
-.portlet-layout .portlet-column-content-only {
-	padding-right: 0;
-}
-
-.grid-960 .aui-mod {
-	margin: 0 15px 0 15px;
-}
-
-.grid-960 .aui-col {
-	float: left;
-}
-
-
-/*------- Slide column styles -------*/
-
-#content-wrapper.slide * #column-1,
-#content-wrapper.slide * #column-2,
-#content-wrapper.slide * #column-3,
-#content-wrapper.slide * #column-4 {
-    float: left;
-}
-
-/*
-#content-wrapper.slide * .fifty {
-    width: 50%;
-}
-
-#content-wrapper.slide * .hundred {
-    width: 100%;
-}
-*/
-
-.twenty {
-    width: 19.8%;
-}
-
-.thirty {
-    width: 29.8%;
-}
-
-.fifty {
-    width: 49.8%;
-}
-
-.seventy {
-    width: 69.8%;
-}
-
-.eighty {
-    width: 79.8%;
-}
-
-.hundred {
-    width: 100%;
-}
-
-#content-wrapper.slide {
-	/*clear: both;*/
-	min-height: 100px;
-	position: relative;
-	text-align: left;
-	width: 100%;
-}
-
-#main-container {
-	float: left;
-	/*
-	left: 0;
-	*/
-	overflow: hidden;
-	width: 80%;
-}
-
-#slide-container {
-	overflow: hidden;
-	padding: 15px 0;
-	/* 
-	position: absolute;
-	right: 0;
-	top: 0;
-	*/
-	float: right;
-	position: relative;
-	width: 20%;
-}
-
-#slideButtons {
-	display: none;
-	text-align: right;
-}
-
-#slide-buttons a {
-	display: none;
-}
-
-#main-container * table {
-	table-layout: fixed;
-}
 
 /*----------------------------------------------------------------------
 =Forms
@@ -893,7 +649,6 @@ textarea,
 .textarea,
 button,
 a.link-button,
-a:link.link-button,
 a:visited.link-button {
 	background-image: url(../images/forms/input_shadow.png);
 	background-repeat: no-repeat;
@@ -1011,860 +766,10 @@ a:visited.link-button {
 
 /*------- Buttons and Link buttons -------*/
 
-input[type="submit"],
-input[type="button"],
-input[type="reset"],
-button,
-a.link-button,
-a:link.link-button,
-a:visited.link-button {
-	background: #f5f5f5 url(../images/forms/button.png) repeat-x 0 0;
-	border-color: #dedede #bfbfbf #bfbfbf #dedede;
-	color: #34404f;
-	cursor: pointer;
-	font-weight: bold;
-	overflow: visible;
-	padding: 5px;
-	width: auto;
-}
-
-input[type="submit"]:hover,
-input[type="button"]:hover,
-input[type="reset"]:hover,
-input[type="submit"]:focus,
-input[type="button"]:focus,
-input[type="reset"]:focus,
-button:hover,
-button:focus,
-a.link-button:hover {
-	background: #dff4ff;
-	border: 1px solid #a7cedf;
-	color: #369;
-}
-
-input[type="submit"],
-input[type="button"],
-input[type="reset"],
-button,
-.lfr-actions,
-.lfr-actions ul,
-a.link-button,
-a:link.link-button,
-a:visited.link-button {
-	background: #d4d4d4 url(../images/portlet/header_bg.png) repeat-x 0 0;
-	border: 1px solid;
-	border-color: #c8c9ca #9e9e9e #9e9e9e #c8c9Ca;
-	color: #34404F;
-	font-weight: bold;
-	text-shadow: 1px 1px #fff;
-}
-
-input[type="submit"]:hover,
-input[type="button"]:hover,
-input[type="reset"]:hover,
-button:hover,
-.lfr-actions:hover,
-.lfr-actions:hover ul,
-a.link-button:hover {
-	background: #b9ced9 url(../images/application/state_hover_bg.png) repeat-x 0 0;
-	border-color: #627782;
-	color: #369;
-}
-
-input[type="submit"]:focus,
-input[type="button"]:focus,
-input[type="reset"]:focus,
-button:focus,
-.lfr-actions:focus,
-.lfr-actions:focus ul,
-a.link-button:focus {
-	background: #ebebeb url(../images/application/state_active_bg.png) repeat-x 0 0;
-	border-color: #555;
-}
-
-/* ---------- IE6 chokes on attribute selectors in a chain, so we separate them into their own rule ---------- */
-
-.ie6 input.text,
-input.password,
-.ie6 input.submit,
-.ie6 input.file,
-.ie6 input.button,
-.ie6 button,
-.ie6 a.link-button {
-	background-image: url(../images/forms/input_shadow.png);
-	background-repeat: no-repeat;
-	border: 1px solid;
-	border-color: #bfbfbf #dedede #dedede #bfbfbf;
-	font: 1em Arial, Helvetica, Verdana, sans-serif;
-	padding: 5px 1px;
-}
-
-.ie6 input.submit,
-.ie6 input.button,
-.ie6 button,
-.ie6 .aui-button-disabled input.submit,
-.ie6 .aui-button-disabled input.button,
-.ie6 .aui-button-disabled button,
-.ie6 a.link-button {
-	background: #d4d4d4 url(../images/portlet/header_bg.png) repeat-x 0 0;
-	border-color: #dedede #bfbfbf #bfbfbf #dedede;
-	color: #34404f;
-	cursor: pointer;
-	font-weight: bold;
-	padding: 5px;
-}
-
-a.link-button,
-a:link.link-button {
-	text-decoration: none;
-}
 
 /*----------------------------------------------------------------------
 =Modules and Content
 ----------------------------------------------------------------------*/
-
-/*------- Intro -------*/
-
-.intro {
-	color: #000;
-	font-size: 1.2em;
-}
-
-/*------- Dates -------*/
-span.date {
-	color: #585858;
-	font-family: Verdana, Arial, sans-serif;
-	font-size: 0.94em;
-}
-
-/*------- Article info -------*/
-
-.article-info {
-	margin: 1em 0;
-}
-
-.article-info p {
-	margin: 0;
-    font-size: 0.94em;
-}
-
-
-/*------- Modules -------*/
-
-.module {
-	padding-bottom: 9px;
-}
-
-.module h2 {
-	background: #d5e7d9;
-	clear: both;
-	margin: 0;
-	padding: 6px;
-}
-
-.module h2.alt {
-	background: transparent;
-	border-bottom: 1px solid #ddd;
-	padding-right: 0;
-	padding-left: 0;
-}
-
-.module h2 a:link,
-.module h2 a:visited,
-.module h2 span {
-	color: #000;
-	display: block;
-	margin: -2px 0;
-	padding: 2px 0 2px 20px;
-}
-
-.module h2.open a {
-	background: url(../images/famfam/bullet_toggle_minus.png) no-repeat 0 50%;
-}
-
-.module h2.closed a {
-	background: url(../images/famfam/bullet_toggle_plus.png) no-repeat 0 50%;
-}
-
-.module h3 {
-	background-color: #f5f5f5;
-	clear: both;
-	color: #444;
-	margin: 0;
-	padding: 5px 6px 4px;
-}
-
-.module h3 .date {
-	color: #666;
-}
-
-.module h3 a {
-	color: #465366;
-}
-
-.module h4 {
-	padding: 0 6px;
-}
-
-#module-shortcuts .alt {
-	margin: 0;
-}
-
-#module-shortcuts .form-general {
-	margin: 3px 0 0;
-}
-
-#module-shortcuts select {
-	width: 80%;
-}
-
-#module-news h2 a {
-	background: url(../images/famfam/chart_organisation.png) no-repeat 0 50%;
-}
-
-#module-shortcuts h2 a {
-	background: url(../images/famfam/heart.png) no-repeat 0 50%;
-}
-
-#module-contacts h2 a {
-	background: url(../images/famfam/book_addresses.png) no-repeat 0 50%;
-}
-
-#module-todos-latest h2 span {
-	background: url(../images/famfam/bell.png) no-repeat 0 50%;
-}
-
-#module-messages h2 span {
-	background: url(../images/famfam/group.png) no-repeat 0 50%;
-}
-
-/* Search - Hitta */
-#module-search-filter ul {
-	margin: 0 0 4px;
-}
-
-#module-search-filter li {
-	list-style: none;
-	margin: 0;
-}
-
-#module-search-filter li a {
-	color: #777;
-	display: block;
-	font-weight: bold;
-	padding: 2px 6px;
-	text-decoration: none;
-}
-
-#module-search-filter li li a {
-	font-weight: normal;
-}
-
-#module-search-filter li a span {
-	color: #00c;
-	text-decoration: underline;
-}
-
-#module-search-filter li a:focus,
-#module-search-filter li a:active {
-	background: #eee;
-	outline: none;
-}
-
-#module-search-filter li li a {
-	padding-left: 18px;
-}
-
-#module-search-filter li.sel ul {
-	display: block;
-}
-
-/* Profile settings */
-.profile-photo {
-	border: 1px solid #ddd;
-	float: left;
-	margin: 3px 0;
-}
-
-/*------- Info Panels -------*/
-
-.info-panel {
-	margin: 0;
-}
-
-.info-panel {
-	border: 1px solid #ddd;
-	border-top: none;
-	padding-bottom: 5px;
-}
-
-.info-panel dt {
-	border-top: 1px solid #ddd;
-	padding: 5px 15px 0;
-}
-
-.info-panel dd {
-	margin-left: 0;
-	padding: 0 15px;
-}
-
-.info-panel p, .more-info p {
-    margin: 0;
-    font-size: 0.94em;
-}
-
-.more-info {
-	background: #eee;
-	clear: both;
-	margin: 0;
-	padding: 5px 10px 5px 20px;
-}
-
-.more-author {
-	background: #eee;
-	clear: both;
-	font-size: 0.94em;
-}
-
-.info-toggle a {
-	background: url(../images/famfam/bullet_toggle_plus.png) no-repeat;
-	float: left;
-	height: 15px;
-	margin-left: -15px;
-	overflow: hidden;
-	text-indent: -9999px;
-	width: 15px;
-}
-
-.open.info-toggle a {
-	background: url(../images/famfam/bullet_toggle_minus.png) no-repeat;
-}
-
-.info-panel caption,
-.info-panel th,
-.info-panel td {
-	background: transparent;
-	border-bottom-color: #cde;
-}
-
-
-/*------- Lists - used in global modules to list items in a compact way -------*/
-
-.list {
-	font-family: Arial, Helvetica, sans-serif;
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-
-.list li {
-	margin: 0;
-	padding: 0 1px 1px;
-	position: relative;
-}
-
-.list li p {
-	margin: 0 0 0 18px;
-}
-
-.list li a {
-	background-position: 3px 50%;
-	background-repeat: no-repeat;
-	display: block;
-	font-weight: normal;
-	padding: 2px 2px 2px 24px;
-}
-
-.list li span {
-	display: block;
-	font-weight: normal;
-}
-
-.list .unread a {
-	background-color: #fea;
-	font-weight: bold;
-}
-
-.list .read a {
-	background-color: transparent;
-	color: #777;
-}
-
-/* Priorities - todo-lists and tables */
-li.prio-3,
-td.prio-3 {
-	background: url(../images/prio/prio-3.gif) no-repeat 100% 3px;
-	color: #a00;
-	font-weight: bold;
-}
-
-li.prio-2,
-td.prio-2 {
-	background: url(../images/prio/prio-2.gif) no-repeat 100% 3px;
-	color: #933;
-	font-weight: bold;
-}
-
-li.prio-1,
-td.prio-1 {
-	background: url(../images/prio/prio-1.gif) no-repeat 100% 3px;
-	color: #744;
-	font-weight: bold;
-}
-
-li.prio-3,
-li.prio-2,
-li.prio-1 {
-	border-bottom: 1px solid #ddd;
-	padding-right: 20px;    
-}
-
-li.prio-3 label {
-	color: #a00;
-}
-
-li.prio-2 label {
-	color: #933;
-}
-
-li.prio-1 label {
-	color: #744;
-}
-
-li.done {
-	background: none;
-}
-
-li.done label {
-	color: #585858;
-	font-weight: normal;
-	text-decoration: line-through;
-}
-
-li.done p {
-	display: none;
-}
-
-/* heading icons */
-h3.todos a {
-	background: url(../images/famfam/tick.png) no-repeat 0 50%;
-	padding: 1px 0 1px 20px;
-}
-
-h3.dictations a {
-	background: url(../images/famfam/sound.png) no-repeat 0 50%;
-	padding: 1px 0 1px 20px;
-}
-
-h3.watches a {
-	background: url(../images/famfam/magnifier.png) no-repeat 0 50%;
-	padding: 1px 0 1px 20px;
-}
-
-h3.labtests a {
-	background: url(../images/famfam/paste_plain.png) no-repeat 0 50%;
-	padding: 1px 0 1px 20px;
-}
-
-/* Invoices */
-
-.invoices li.urgent a {
-	background-image: url(../images/famfam/error.png);
-}
-
-/* e-mail */
-.emails li a {
-	background-image: url(../images/famfam/email.png);
-}
-
-.emails li.read a {
-	background-image: url(../images/famfam/email_open.png);
-}
-
-.discussions li a {
-	background-image: url(../images/famfam/group.png);
-}
-
-.ims li cite {
-	font-style: normal;
-}
-
-.ims li cite a {
-	background-image: url(../images/famfam/user.png);
-	display: inline;
-	color: #00c;
-}
-
-.ims li blockquote {
-	border-bottom: 1px solid #ddd;
-	margin: 0;
-	padding: 0 0 2px;
-}
-
-/*------- Tables -------*/
-
-.cols-4 th {
-	width: 20%;
-}
-
-.cols-4 td {
-	width: 30%;
-}
-
-.cols-2 {
-	float: left;
-	width: 49%;
-}
-
-.cols-2b {
-	float: right;
-	width: 49%;
-}
-
-.cols-2c {
-	clear: both;
-}
-
-td.heading {
-	width: 30%;
-}
-
-/*------- Tools -------*/
-
-.tools {
-	background: #fcf1d0;
-	clear: both;
-	padding: 4px;
-	text-align: center;
-}
-
-a.add {
-	background: url(../images/famfam/add.png) no-repeat 0 50%;
-	padding: 2px 10px 2px 20px;	
-}
-
-a.edit-table {
-	background: url(../images/famfam/table_edit.png) no-repeat 0 50%;
-	padding: 2px 10px 2px 20px;
-}
-
-a.edit {
-	background: url(../images/famfam/pencil.png) no-repeat 0 50%;
-	padding: 2px 10px 2px 20px;
-}
-
-a.remove, a.undo,
-button.remove,
-button.undo {
-	background: url(../images/famfam/delete.png) no-repeat 0 50%;
-	padding: 2px 10px 2px 20px
-}
-
-button.remove,
-button.undo {
-	border: none;
-	cursor: pointer;
-	padding-left: 20px;
-	text-align: left;
-}
-
-button.remove span,
-button.undo span {
-	color: #03c;
-	text-decoration: underline;
-}
-
-button.remove:hover span,
-button.undo:hover span {
-	color: #00c;
-	text-decoration: none;
-}
-
-a.undo,
-button.undo {
-	background-image: url(../images/famfam/arrow_undo.png)
-}
-
-.faded,
-.faded a,
-.faded button span {
-	color: #ccc;
-}
-
-.faded .edit {
-	display: none; /* Hides Edit link on Watches */
-}
-
-/*------- News list - used in news portlets -------*/
-
-.featured {
-	border-bottom: 1px solid #ddd;
-	margin-bottom: 0.5em;
-}
-
-.list-news li {
-	margin-top: 0.5em;
-}
-
-.list-news li p {
-	margin-bottom: 0.5em;
-}
-
-/*------- Contact list -------*/
-
-.list-contacts {
-	list-style: none;
-	margin: 10px 0;
-	padding: 0;
-	width: 100%; /* Fixes bug in IE */
-}
-
-.list-contacts li {
-	float: left;
-	margin: 0 0 10px 5px;
-	padding: 0 0 10px;
-	width: 24%;
-}
-
-.list-contacts .col-first {
-	clear: both;
-	margin-left: 0;
-}
-
-.list-contacts p {
-	font-family: Arial, Helvetica, sans-serif;
-	margin: 0 6px;
-}
-
-.contact-private h3 {
-	background: #edffed;
-}
-
-.contact-work h3 {
-	background: #ffefef;
-}
-
-/*------- Calendar overview -------*/
-
-#event-cal {
-	margin: 0 auto 3px;
-	width: auto;
-}
-
-#event-cal caption {
-	border: none;
-	font: normal bold 1em Verdana, Arial, Helvetica, sans-serif;
-	margin: 3px auto;
-	overflow: hidden;
-	padding: 0;
-	text-align: center;
-	width: 80%;
-}
-
-#event-cal .sat,
-#event-cal .sun {
-	background: #fdd;
-}
-
-#event-cal,
-#event-cal th,
-#event-cal td {
-	border: 1px solid #ddd;
-	font-family: Arial, Helvetica, sans-serif;
-	padding: 2px 3px;
-	text-align: right;
-}
-
-#event-cal td.other {
-	background: #f3f3f3;
-	color: #555;
-}
-
-#event-cal td.active {
-	background: #f6bf41;
-}
-
-#event-cal td.today {
-	background-color: #fceac2;
-	border: 2px solid #999;
-	font-weight: bold;
-}
-
-#event-cal td a {
-	font-weight: bold;
-}
-
-span.cal-nav {
-	display: block;
-}
-
-span.cal-nav a {
-	color: #333;
-	font-size: 0.85em;
-}
-
-span.cal-nav a.previous {
-	float: left;
-}
-
-span.cal-nav a.next {
-	float: right;
-}
-
-span.select-year,
-span.select-month {
-	background: url(../images/common/dash.gif) no-repeat 100% 50%;
-	margin: 0 2px 0 0;
-	padding: 0 6px 0 0;
-}
-
-.events dd {
-	margin: 0;
-}
-
-.events dd.date {
-	border: 1px solid #d9e8ed;
-	border-width: 1px 0;
-	font-weight: bold;
-	margin: 2px 0;
-}
-
-.event-data {
-	background: #d9e8ed;
-	padding: 8px;
-}
-
-form#calendar legend {
-	font-weight: bold;
-	padding: .5em 0 0 0;
-}
-
-form#calendar div {
-	padding: 0 0 .5em 0;
-}
-
-form#calendar .dates fieldset {
-	border: none;
-	clear: none;
-	float: left;
-	padding: 0;
-	width: 49%;
-}
-
-form#calendar .dates label {
-	left: -9999px;
-	position: absolute;
-}
-
-form#calendar #query {
-	width: 90%;
-}
-
-form#calendar .submit {
-	text-align: left;
-}
-
-form#calendar .submit input {
-	width: auto;
-}
-
-/*------- Pagers -------*/
-
-.pager {
-	margin: 2px 0 0;
-}
-
-.pager a {
-	padding: 2px;
-}
-
-.pager .prev {
-	background: url(../images/famfam/resultset_previous.png) no-repeat 0 50%;
-	float: left;
-	padding: 3px 6px 3px 20px;
-}
-
-.pager .next {
-	background: url(../images/famfam/resultset_next.png) no-repeat 100% 50%;
-	float: right;
-	padding: 3px 20px 3px 6px;
-}
-
-.tools .pager {
-	display: inline;
-}
-
-/*------- Patient overview -------*/
-
-#module-search-patient {
-	background: #fae6c9;
-	margin-bottom: 6px;
-	padding: 3px 6px;
-}
-
-#module-search-patient h2 {
-	background: transparent;
-	color: #454c41;
-	display: inline;
-	font: bold 1em/ 1.0 Verdana, Arial, Helvetica, sans-serif;
-	padding: 0;
-}
-
-#module-search-patient .module-content,
-#module-search-patient form,
-#module-search-patient .search-criteria {
-	display: inline;
-}
-
-#module-patient-1 dl {
-	clear: both;
-	margin: 6px 0;
-}
-
-#module-patient-1 dt {
-	float: left;
-	font-weight: bold;
-	width: 49%;
-}
-
-#module-patient-1 dd {
-	margin-left: 50%;
-}
-
-.patient-tools {
-	list-style: none;
-	margin: 0;
-}
-
-/*------- Tab view (aui) -------*/
-
-.aui-tabview a:link {
-	color: #004597;
-	text-decoration: none;
-}
-
-.aui-tabview a:link:hover {
-	color: #004597;
-	text-decoration: underline;
-}
-
-.aui-tab-active a,
-.aui-tab-active a:link,
-.aui-tab-active a:hover {
-	/*color: #fff !important;*/
-	/*text-decoration: none !important;*/
-	color: #fff;
-	text-decoration: none;
-}
-
-.aui-dialog-button {
-	display: inline;
-}
-
-.aui-field-element {
-	display: block;
-	text-align: left;
-}
 
 /*------- VGR tabs -------*/
 
@@ -1873,8 +778,10 @@ form#calendar .submit input {
 	-moz-border-radius: 0 0 4px 4px;
 	-webkit-border-radius: 0 0 4px 4px;
 	border-radius: 0 0 4px 4px;
+	behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
 	margin: 10px 0;
 	padding: 3px;
+	position: relative; /* Position relative needed for css3pie.htc to work properly */
 }
 
 .vgr-tabs .aui-tabview-list {
@@ -1951,26 +858,21 @@ form#calendar .submit input {
     margin: 5px 0;
 }
 
-/*------- From extras.css -------*/
+/*------- News list - used in news portlets -------*/
 
-.aui-tabview-list,
-.aui-tab-active,
-body > .lfr-menu-list ul,
-.lfr-actions,
-.aui-dialog-content,
-.aui-dialog .aui-widget-hd,
-.modify-pages .delete-tab,
-input[type="submit"],
-input[type="button"],
-input[type="reset"],
-button,
-a.link-button,
-a:link.link-button,
-a:visited.link-button {	
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
-	border-radius: 4px;
+.featured {
+	border-bottom: 1px solid #ddd;
+	margin-bottom: 0.5em;
 }
+
+.list-news li {
+	margin-top: 0.5em;
+}
+
+.list-news li p {
+	margin-bottom: 0.5em;
+}
+
 
 /*----------------------------------------------------------------------
 =Liferay Portlets
@@ -1979,52 +881,47 @@ a:visited.link-button {
 /*------- Portlet wrapper and icons -------*/
 
 .portlet {
-	background-color: #fff;
-	border: 1px solid #e1ebf3;
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
-	border-radius: 4px;
-	/* Needs an absolute path */
-	behavior: url(/regionportalen-theme/htc/css3pie.htc);
+	background-color: transparent;
 	margin: 0 0 10px;
 	padding: 0;
-	/* Position relative needed for css3pie.htc to work properly */
-	position: relative;
 	text-align: left;
 }
 
 .portlet .portlet-topper {
-	background: #d7e4ee;
-	background: #e9f0f6;
-	background: #ebf2f8;
-	padding: 0 12px;
+	background: #255e8d url(../images/portlet/portlet-hd-bg-1.png) top left repeat-x;
+	behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
+	-moz-border-radius-topleft: 6px;
+	-moz-border-radius-topright: 6px;
+	-webkit-border-radius: 6px 6px 0 0;
+	border-radius: 6px 6px 0 0;	
+	position: relative; /* Position relative needed for css3pie.htc to work properly */
 }
 
-.portlet-topper {
-	background: transparent url(../images/portlet/portlet_topper_bg.png) repeat-x 0 0;
-	border: none;
-	-moz-border-radius: 0px;
-	-webkit-border-radius: 0px;
-	border-radius: 0px;
-	font-size: 1.1em;
+.portlet .portlet-content {
+	background: #fff;
+	behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
+	border: 1px solid #2c6fa7;
+	border-width: 0 1px 1px 1px;
+	-moz-border-radius-bottomleft: 6px;
+	-moz-border-radius-bottomright: 6px;
+	-webkit-border-radius: 0 0 6px 6px;
+	border-radius:  0 0 6px 6px;	
+	padding: 12px;
+	position: relative; /* Position relative needed for css3pie.htc to work properly */	
 }
 
 .portlet-title {
-	border-bottom: 1px solid #82abcd;
-	border-bottom: none;
-	color: #06579c;
+	color: #fff;
 	float: none;
 	font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
+	font-size: 1.1em;
 	font-weight: normal;
-	min-width: 50%;
-	padding: 5px 0;
-	text-shadow: none;
+	padding: 7px 10px;
 }
 
 .portlet-title .icon {
 	display: none;
 }
-
 
 .portlet-icons {
 	float: none;
@@ -2059,973 +956,47 @@ a:visited.link-button {
 }
 
 .portlet-minimize a,
-.portlet-minimize a:link,
 .portlet-minimize a:hover,
 .portlet-maximize a,
-.portlet-maximize a:link,
 .portlet-maximize a:hover,
 .portlet-close a,
-.portlet-close a:link,
 .portlet-close a:hover {
 	text-decoration: none;
 }
 
-.portlet .portlet-content {
-	padding: 12px;
-}
-
 /*------- Portlet Dockbar -------*/
-
-.dockbar {
-	background: transparent;
-	border: none;
-	font-size: 12px;
-	line-height: 1.0;
-	padding: 3px 40px;
-	padding: 3px 0;
-}
-
-.dockbar a,
-.dockbar a:link {
-	color: #fff;
-	text-shadow: none;
-	text-decoration: none;
-}
-
-.dockbar .pin-dockbar,
-.ie .dockbar .pin-dockbar,
-.dockbar .pin-dockbar img,
-.ie .dockbar .pin-dockbar img {
-	display: none;
-}
-
-#wrapper .dockbar .pin-dockbar {
-	display: none;
-}
-
-.dockbar .aui-toolbar li {
-	margin: 0 5px;	
-}
-
-.dockbar .menu-button {
-	background: transparent url("../images/arrows/white_bluematte/05_down.png") no-repeat 93% 50%;
-}
-
-.dockbar .menu-button span {
-    background: url("") no-repeat scroll 0 50% transparent;
-    padding-left: 18px;
-}
-
-.dockbar .add-content .menu-button span {
-    background-image: url("../images/icons/white_bluematte/add.png");
-}
-
-.dockbar .manage-content .menu-button span {
-    background-image: url("../images/icons/white_bluematte/settings.png");
-}
-
-.dockbar .toggle-controls a,
-.dockbar .toggle-controls a:link {
-    background: url("../images/icons/white_bluematte/checked.png") no-repeat scroll 0 50% transparent;
-    padding-left: 18px;
-}
-
-.controls-hidden .toggle-controls a,
-.controls-hidden .toggle-controls a:link {
-    background-image: url("../images/icons/white_bluematte/unchecked.png");
-}
-
-.dockbar .my-places .menu-button span {
-    background-image: url("../images/icons/white_bluematte/places.png");
-}
-
-.signed-out .dockbar .user-toolbar {
-	display: none;
-}
-
-.dockbar .user-toolbar .aui-toolbar-separator {
-	display: none;
-}
-
-.dockbar .user-portrait {
-	display: none;
-}
-
-.dockbar .user-fullname {
-    background: url("../images/icons/white_bluematte/user.png") no-repeat scroll 0 50% transparent;
-    padding-left: 18px;
-}
-
-.dockbar .user-avatar .sign-out {
-	padding-left: 5px;
-}
-
-.dockbar .user-avatar .sign-out a {
-	background: url("../images/icons/white_bluematte/signout.png") no-repeat scroll 0 50% transparent;
-    font-size: 12px;
-    padding-left: 18px;
-}
-
-/* Portal title */
-
-.dockbar h1.portal-title {
-	color: #fff;
-	float: left;
-	font-size: 20px;
-	margin: 0;
-}
-
-/* Dropdown menus */
-
-.dockbar .aui-menu-content li a,
-.dockbar .aui-menu-content li a:link {
-	color: #333;	
-}
-
-.dockbar .aui-menu-content li a.aui-focus,
-.dockbar .aui-menu-content li a.aui-focus:link {
-	text-shadow: none;
-}
-
-/* Add application */
-
-.dockbar .add-application {
-    left: -40px !important;
-}
-
-#banner .dockbar .add-application h2 {
-	clip: auto;
-	position: static;
-}
-
-.dockbar .add-application a,
-.dockbar .add-application a:link,
-.dockbar .add-application a:visited {
-	color: #06579C;
-	text-decoration: underline;
-}
-
-.dockbar .add-application a:hover {
-	color: #06579C;
-	text-decoration: none;
-}
 
 
 /*------- Portlet Alerts -------*/
 
-/* Not actually styling of portlet alerts, but the y-padding set to 0 is needed since portlet alerts will be in this column */
-.controls-hidden .portlet-layout .hundred .portlet-column-content {
-	padding: 0 15px;
-}
-
-.portlet-alerts .portlet-body .entry-content {
-    padding: 2px;
-}
-
-.portlet-alerts .portlet-body .entry {
-    background-color: #f33;
-    border: 1px solid #faa;
-    color: white;
-    padding: 0px;
-    padding-left: 12px;
-}
-
-.portlet-alerts .portlet-body .read-entries .entry {
-    background-image: url("../images/warning-grey.png");
-}
-
-.portlet-alerts .entry-scope {
-    display: none;
-}
-
-/* hide controls */ 
-.portlet-alerts .entry .control-entry {
-    display: none;
-}
-.controls-hidden .portlet-alerts .edit-actions {
-    display: none;
-}
-
-.controls-hidden .portlet-alerts .portlet-borderless-container {
-	min-height: 0;
-} 
-
-.controls-hidden .portlet-alerts .aui-tabview-list {
-    display: none;
-	margin: 0;
-	padding: 0;
-}
-
-
-.portlet-alerts .portlet-body .entry .entry-title {
-    color: white;
-    padding: 2px 2px 2px 0px;
-    background-color: transparent;
-}
-
-.portlet-alerts .portlet-body .entry .entry-title .edit-actions table {
-    /* for some reason IE gets fixed table layout below, this doesn't work here 
-       the edi actions swells out to 100% width */
-    table-layout: auto !important; 
-}
-
-
-.portlet-alerts .portlet-body .entry a {
-    color: white;
-}
-
-/* custom classed portlet alerts 
-   Used for system information instead of alerts 
-   Add class 'portlet-alerts-info'
-   */
-.portlet-alerts-info .portlet-body .entry {
-    background-color: #005690;
-    color: white;
-    background-image: none;
-    border: none;
-    padding-left: 35px;
-}
-
-
-.portlet-alerts-info .entry-scope {
-	display: none;
-}
-
-.portlet-alerts-info .portlet-body .entry .entry-title,.portlet-alerts-info .portlet-body .entry .entry-title a {
-    color: white;
-}
-
-.portlet-alerts-info .entry-title {
-    font-size: 27px;
-    text-align: center;
-    margin-top: 9px;
-}
-
-.portlet-alerts-info .entry-content {
-    text-align: center;
-}
-
-.portlet-alerts-info .edit-actions a {
-    font-size: 9px;
-}
-
-.portlet-alerts-info .control-entry  {
-    display: none;
-}
-
 
 /*------  Portlet Announcements --------*/
 
-.portlet-announcements .entry .entry-scope {
-    display: none;
-}
-
-.portlet-announcements .entry p {
-    background-color: #ffe;
-    border-top: 1px solid #bebebe;
-    padding-left: 6px;
-}
-
-/* hide controls */ 
-.portlet-announcements .entry .control-entry {
-    display: none;
-}
-.controls-hidden .portlet-announcements .edit-actions {
-    display: none;
-}
-.controls-hidden .portlet-announcements .aui-tabview-list {
-    display: none;
-}
-
-
-.portlet-announcements .entry-title, .portlet-alerts .entry-title {
-    background-color: #FFFFBB;
-    color: #333;
-    padding-left: 6px;
-    
-}
-/*------- Portlet Navigation ------*/
 
 /*------- Portlet Navigation ------*/
 
-.portlet-navigation .portlet-body ul {
-    list-style-image: url("../images/arrows/04_right.png");
-    padding: 0px 0px 0px 10px;
-    margin: 0px;
+/*------- Portlet Journal Content ------*/
+
+
+/*------- Portlet Knowledge Base Display/Knowledge Base Aggregator ------*/
+
+/*------- Portlet Knowledge Base Aggregator ------*/
+
+.knowledge-base-portlet-aggregator .lfr-panel .lfr-panel-titlebar {
+	background-position: 2px 63%;
 }
 
-
-.portlet-navigation .portlet-body li {
-    padding-top: 3px;
-    padding-bottom: 3px;
-}
-
-.portlet-navigation .portlet-body a, .portlet-navigation .portlet-body a:visited {
-    color: #003366;
-}
-
-/* remove reduntant h2 tag on navigation, title is instead set on portlet title */
-.portlet-navigation .portlet-body h2 {
-    display: none;
-}
-
-/* Article template which resembles navigation
-   This is for use with the article portlet using
-   a custom template that just adds the class
-   'navigation-article' in a surrounding div. This way
-   custom navigation can be built.
-*/ 
-.navigation-article ul {
-    list-style-image: url("../images/arrows/04_right.png");
-    padding: 0px 0px 0px 10px;
-    margin: 0px;
-}
-
-.navigation-article li {
-    padding-top: 3px;
-    padding-bottom: 3px;
-}
-
-.navigation-article p {
-    margin-bottom: 0px;
-}
-
-
-.navigation-article a {
-    color: #003366;
-}
-
-
-/* 
- Custom class on standard navigation portlet that makes icons and
- and a large front page styling possible.
-*/
-
-.icon-navigation .portlet-body ul {
-    list-style-type: none;
-    margin: 0px;    
-    padding: 10px;
-    overflow: hidden;
-}
-
-.icon-navigation .portlet-body li {
-    display: block;
-    float: left;
-    margin: 8px;
-}
-
-.icon-navigation .portlet-body li a {
-    background: #2d70a8 url(../images/navigation/icon-nav-bg-sprite.png) 0 0 no-repeat;
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
-	border-radius: 4px;
-	/* Needs an absolute path */
-	behavior: url(/regionportalen-theme/htc/css3pie.htc);	
-    color: #fff;
-    display: block;
+.knowledge-base-portlet-aggregator .lfr-panel-titlebar .lfr-panel-title {
+	color: #444;
 	font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
-    font-size: 18px;
-    height: 39px;
-	line-height: 1.2em;
-    width: 190px;
-    padding: 25px 5px;
-	/* Position relative needed for css3pie.htc to work properly */
-	position: relative;	
-    text-decoration: none;
-    text-align: center;
-}
-.icon-navigation .portlet-body li a:visited {
-    color: #fff;
-}
-
-.icon-navigation .portlet-body li a:hover {
-	background-color: #558cb8;
-	background-position: 0 -321px;
-}
-
-
-/*--------------- Portlet Journal Content ------------------------------*/
-
-.portlet-journal-content .cal-wrap {
-    padding-left: 20px;
-    padding-right: 20px;
-}
-.portlet-journal-content ul.cal-list {
-    border-top: 1px solid #EFEDE3;
-    list-style: none outside none;
-    margin: 0;
-    padding: 0;
-}
-.portlet-journal-content ul.cal-list li {
-    border-bottom: 1px solid #EFEDE3;
-    margin: 5px 0;
-    padding: 5px 0;
-}
-.portlet-journal-content ul.cal-list li .cal-entry-date {
-    display: block;
-    float: left;
-    width: 30px;
-}
-.portlet-journal-content ul.cal-list li .cal-entry-content {
-    display: block;
-    margin: 0 0 0 30px;
-    padding: 0 0 0 15px;
-}
-.portlet-journal-content ul.cal-list li .cal-entry-date .cal-entry-date-month {
-    background: none repeat scroll 0 0 #CC071E;
-    color: #FFFFFF;
-    display: block;
-    font-size: 0.9em;
-    font-weight: bold;
-    margin: 0;
-    padding: 2px;
-    text-align: center;
-}
-.portlet-journal-content ul.cal-list li .cal-entry-date .cal-entry-date-day {
-    background: none repeat scroll 0 0 #EFEDE3;
-    color: #444444;
-    display: block;
-    font-size: 1.3em;
-    font-weight: bold;
-    margin: 0;
-    padding: 2px;
-    text-align: center;
-}
-.portlet-journal-content ul.cal-list li .cal-entry-heading {
-    color: #444444;
-    display: block;
-    font-size: 1.3em;
-    font-weight: bold;
-    padding: 5px 0;
-}
-
-.portlet-journal-content ul.cal-list li .cal-entry-heading a {
-    text-decoration: none;
-}
-.portlet-journal-content ul.cal-list li .cal-entry-heading a:hover {
-    text-decoration: underline;
-}
-
-
-.portlet-journal-content ul.cal-list li .cal-entry-details {
-    color: #444444;
-    display: block;
-    font-size: 0.9em;
-}
-
-
-/*----------------------------------------------------------------------
-=Portlet Knowledge Base Display/Knowledge Base Aggregator
-----------------------------------------------------------------------*/
-/* Remove unnecessary cruft */
-.knowledge-base-portlet-display .kb-article-tools td,.knowledge-base-portlet-aggregator .kb-article-tools td {
-    display: none;
-}
-/* we do like to display print though */
-.knowledge-base-portlet-display .kb-article-tools td+td+td+td,.knowledge-base-portlet-aggregator .kb-article-tools td+td+td+td {
-    display: table-cell;
-}
-
-/* Enhance readability, line lenght, line height and font-size */
-.knowledge-base-portlet-display .kb-entity-body, .knowledge-base-portlet-aggregator .kb-entity-body {
-  text-align: justify;
-  line-height: 1.7;
-  font-size: 12pt;
-  width: 40em;
-}
-
-.knowledge-base-portlet-display .kb-entity-header .kb-title,
-.knowledge-base-portlet-aggregator .kb-entity-header .kb-title {
-	color: #005095;
-	font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
-	font-size: 2.5em;
+	font-size: 1.8em;
 	font-weight: normal;
-	margin: 0.4em 0 0.4em 0;
-}
-
-.knowledge-base-portlet-display .kb-article-comments .lfr-panel-title,
-.knowledge-base-portlet-aggregator .kb-article-comments .lfr-panel-title { 
-  font-size: 85%;
-}
-
-.knowledge-base-portlet-display .kb-article-comments.kb-submit-buttons input,
-.knowledge-base-portlet-aggregator .kb-article-comments.kb-submit-buttons input {
-    font-size: 80%;
-}
-
-.knowledge-base-portlet-display .kb-article-comments .user-profile-image,
-.knowledge-base-portlet-aggregator .kb-article-comments .user-profile-image {
-    display: none;
-}
-
-.knowledge-base-portlet-display .kb-article-comments .user-details,
-.knowledge-base-portlet-aggregator .kb-article-comments .user-details {
-    width: 40em;
-}
-.knowledge-base-portlet-display .kb-article-comments .user-details .user-name,
-.knowledge-base-portlet-aggregator .kb-article-comments .user-details .user-name {
-    text-align: right;
-}
-
-
-
-/*---------------------------------------------------------------------
-=Portlet Knowledge Base Aggregator
-----------------------------------------------------------------------*/
-/* Remove unnecessary cruft */
-.knowledge-base-portlet-aggregator .search-results {
-    display: none;
-}
-
-.knowledge-base-portlet-aggregator a, .knowledge-base-portlet-aggregator .taglib-icon .taglib-text {
-    text-decoration: none;
-}
-
-.knowledge-base-portlet-aggregator .taglib-icon  .taglib-text:hover {
-    text-decoration: underline;
+	margin: 1em 0 0.4em 0;
 }
 
 /*----------------------------------------------------------------------
 =Custom Portlets
 ----------------------------------------------------------------------*/
-
-/* ----------------- Account Settings Portlet ----------------------- */
-.account-settings-portlet {
-    width: 500px;
-}
-
-.account-settings-portlet td {
-    padding: 15px 30px 0px 10px;
-    vertical-align: bottom;
-}
-
-.account-settings-portlet .tab-content {
-    position: absolute;
-}
-
-.account-settings-portlet #tab-content-container {
-    height: 250px;
-    padding: 10px;
-}
-
-.account-settings-portlet input[type="text"] {
-    width: 200px;
-}
-
-.account-settings-portlet .account-settings-form {
-    height: 25px;
-    text-align: center;
-}
-
-.account-settings-portlet .tab-selector {
-    height: 22px;
-    text-align: center;
-}
-
-.account-settings-portlet .tab-selector a {
-    float: left;
-    height: 100%;
-    margin: 4px;
-    width: 31%;
-    background-color: #06579c;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-    border: 1px solid #75A1C6;
-    border-bottom: 0;
-    font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
-    font-size: 15px;
-    font-weight: normal;
-    color: white;
-    text-decoration: none;
-}
-
-.account-settings-portlet .tab-selector a.selected {
-    background-color: white;
-    color: #06579C;
-    cursor: default;
-}
-
-/* --------------- Change Password Portlet ---------------------*/
-
-.change-password-portlet .change-password-form div {
-    margin-top: 10px;
-}
-
-.change-password-portlet .user-box-container {
-    margin-bottom: 12px;
-    font-size: 1.2em;
-}
-
-.change-password-portlet .user-box-container .user-box {
-    border: 1px solid lightgray;
-    padding: 6px;
-}
-
-.change-password-portlet .user-box-container .user-box .user-id {
-    font-weight: bold;
-}
-
-/* ---------------- ifeed portlet ------------------------- */
-
-.ifeed-portlet .ifeed-portlet-ldap-people .aui-combobox-content .aui-field-content {
-    display: block;
-}
-
-/* hide button */ 
-.ifeed-portlet .ifeed-portlet-ldap-people .aui-toolbar {
-    display: none;    
-}
-
-.ifeed-portlet .ifeed-portlet-filter-input input { 
-    width: 96%;
-    margin: 0px auto;
-}
-
-.ifeed-portlet-filter-result {
-    margin: 0px;
-    padding: 4px;
-    cursor: pointer;
-}
-
-.ifeed-portlet-filter-result-odd {
-    background-color: #fafafa;
-}
-
-.aui-autocomplete-selected .ifeed-portlet-filter-result-odd {
-    background-color: #DFE8F6;
-}
-
-/*------- Task List portlet -------*/
-
-.task-list-wrap {
-	margin: 5px;
-}
-
-.task-list-wrap ul.tasks {
-	list-style-type: none;
-}
-
-.task-list-wrap li.task-item {
-	padding: 3px 0;	
-}
-
-.task-list-wrap li.task-item {
-	background: transparent url(../images/prio/prio-LOW.gif) 100% 0 no-repeat;
-	background-image: none;
-	padding-right: 20px;
-}
-
-.task-list-wrap li.priority-high {
-	background-image: url(../images/prio/prio-HIGH.gif);
-}
-
-.task-list-wrap li.priority-medium {
-	background-image: url(../images/prio/prio-MEDIUM.gif);
-}
-
-.task-list-wrap li.priority-low {
-	background-image: url(../images/prio/prio-LOW.gif);
-}
-
-.task-list-wrap input.todo {
-	margin-right: 10px;
-}
-
-.task-list-wrap label.task-label {
-	color:#993333;
-	font-weight: bold;
-}
-
-.task-edit-controls {
-	margin-left: 20px;
-}
-
-.task-edit-controls ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-}
-
-.task-edit-controls ul li {
-	float: left;
-	/*
-	height: 16px;
-	line-height: 16px;
-	margin-right: 5px;
-	*/
-}
-
-.task-edit-controls ul li a {
-	height: 16px;
-	line-height: 16px;
-	margin-right: 5px;
-}
-
-.task-edit-controls li.edit-task,
-.task-edit-controls li.delete-task {
-	width: 16px;
-}
-
-.task-edit-controls li.edit-task a,
-.task-edit-controls li.delete-task a {
-	background: transparent url(../images/famfam/pencil.png) 0 0 no-repeat;
-	display: block;
-}
-
-.task-edit-controls li.edit-task a {
-	background-image: url(../images/famfam/pencil.png);
-}
-
-.task-edit-controls li.delete-task a {
-	background-image: url(../images/famfam/delete.png);
-}
-
-.task-edit-controls li.edit-task a span,
-.task-edit-controls li.delete-task a span {
-	font-size: 0;
-	text-indent: -9999em;
-}
-
-/*------- Booking Portlet (resebokning) -------*/
-
-.booking-wrap fieldset {
-	background: #f2efe9;
-	border: 1px solid #bfbab0;
-	display: block;
-	margin: 10px 0;
-	padding: 10px;
-}
-
-.booking-wrap legend {
-	color: #000;
-	margin-left: 10px;
-	font-weight: bold;
-}
-
-.booking-wrap fieldset ol {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-}
-
-.booking-wrap fieldset li {
-	list-style-type: none;
-}
-
-.booking-wrap fieldset.submit {
-	background: none;
-	border: none;
-	float: none;
-	text-align: center;
-	width: auto;
-}
-
-.booking-wrap label {
-	float: left;
-	margin-right: 10px;
-	width: 130px;
-}
-
-.booking-wrap span label {
-	float: none;
-	margin-right: auto;
-	width: auto;
-}
-
-.booking-wrap li .radio-group {
-	display: block;
-	margin-bottom: 10px; 
-}
-
-.booking-wrap fieldset .textarea,
-.booking-wrap fieldset
-.booking-wrap .text,
-.booking-wrap fieldset .time,
-.booking-wrap fieldset .radio,
-.booking-wrap fieldset .select {
-	border: 1px solid #ccc;
-	padding: 4px 2px;  
-}
-
-.booking-wrap fieldset .textarea {
-	height: 110px;
-}
-
-.booking-wrap fieldset .text,
-.booking-wrap fieldset .textarea {
-	width: 190px;
-}
-.booking-wrap fieldset .select {
-	max-width: 196px;
-}
-
-.booking-wrap .time {
-	margin: 0 0 3px;
-	width: 40px; 
-}
-
-/* Datepicker formatting */
-.booking-wrap  #ui-datepicker-div {
-	font-size: 10px;
-	width: 215px
-}
-
-.booking-wrap  fieldset.submit-ok {
-	padding: 1em;
-	width: 350px;
-}
-
-.booking-wrap  .ui-datepicker-next {
-	text-align: left;
-}
-
-.booking-wrap select.validation-error,
-.booking-wrap textarea.validation-error,
-.booking-wrap input.validation-error {
-	border: 1px solid red;
-}
-
-.booking-wrap .validation-error-message {
-	background: url('../images/exclamation.gif') no-repeat;
-	display: inline;
-	margin: 0.3em 0 0 .3em;
-	padding-left: 18px;
-}
-.booking-wrap span.comment {
-	color: grey;
-	font-size: 0.9em;
-}
-
-/*------- BFR portlet -------*/
-
-.bfr-wrap {
-	width: 100%;
-}
-
-.bfr-wrap h2 {
-    margin-top: 0px;
-}
-
-.bfr-wrap .aui-tabview-list {
-	border: none;
-	border-bottom: 5px solid #2c6fa7;
-	-moz-border-radius: 0;
-	-webkit-border-radius: 0;
-	border-radius: 0;
-	margin: 0;
-	padding: 0;
-}
-
-.bfr-wrap .aui-tab {
-	background: #d8d8d8;
-	border: 1px solid #a3a3a3;
-	border-width: 1px 1px 0 1px;
-	-moz-border-radius: 0;
-	-webkit-border-radius: 0;
-	border-radius: 0;
-	color: #333;
-	margin: 0 0.2em 0 0;
-}
-
-.bfr-wrap .aui-tab-active {
-	background: #2c6fa7;
-	border-color: #243356;
-	color: #fff;
-}
-
-.bfr-wrap .aui-tab-active:after {
-	border: 0;
-	bottom: 0;
-	content: '';
-	display: block;
-	height: 0;
-	margin: 0;
-	width: 0;
-	z-index: 0;
-}
-
-.bfr-wrap .aui-tabview-content-wrap {
-	background: #edf5ff;
-	border: 1px solid #808080;
-	border-top-color: #243356;
-}
-
-.bfr-wrap .aui-tabview-content-item {
-    padding: 10px;
-}
-
-.bfr-wrap .aui-tabview-content-wrap .imageview {
-    padding: 0px;
-}
-
-
-.bfr-wrap table {
-	/* Test uncommenting this code for BFR (not yet tested 2011-12-14) */
-	/*table-layout: auto !important;*/
-}
-
-.bfr-wrap .yui-dt tr th {
-	background: #eee;
-}
-
-.bfr-wrap .yui-dt-even td {
-    background-color: #fff;
-}
-.bfr-wrap .yui-dt-odd td {
-    background-color: #fafafa;
-}
-
-
-.bfr-wrap tbody td .yui-dt-liner:hover {
-    text-decoration: underline;
-}
-
-.bfr-wrap .aui-tabview-content-wrap .aui-tabview-content-item table td {
-    vertical-align: top; 
-}
-
-/* ---------------- RSS portlet ------------------------- */
-
-ul.list-news {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-}
-
-ul.list-news li {
-	border-bottom: 1px solid #EBF2F8;
-	padding: 5px 0;
-}
-
-.list-news .news-date {
-	color: #777;
-	display: block;
-	float: left;
-	width: 80px;
-}
-
-.list-news .news-block {
-	display: block;
-	margin: 0 0 0 80px;
-}
-
-.list-news .news-item-no-date .news-date {
-	display: none;
-}
-
-.list-news .news-item-no-date .news-block {
-	margin-left: 0;
-} 
-
-.list-news .news-title {
-	display: block;
-}
-
-a.news-title {
-    font-size: 1em;
-}
-
-
 
 /* ---------------- User Wizard portlet ------------------------- */
 
@@ -3097,7 +1068,7 @@ a.news-title {
 	-webkit-border-radius: 4px;
 	border-radius: 4px;	
 	/* Needs an absolute path */
-	behavior: url(/regionportalen-theme/htc/css3pie.htc);	
+	behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */	
     display: block;
 	font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
 	font-size: 16px;
@@ -3163,6 +1134,46 @@ a.news-title {
 	text-decoration: underline;
 }
 
+/* ---------------- RSS portlet ------------------------- */
+
+ul.list-news {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+ul.list-news li {
+	border-bottom: 1px solid #EBF2F8;
+	padding: 5px 0;
+}
+
+.list-news .news-date {
+	color: #777;
+	display: block;
+	float: left;
+	width: 80px;
+}
+
+.list-news .news-block {
+	display: block;
+	margin: 0 0 0 80px;
+}
+
+.list-news .news-item-no-date .news-date {
+	display: none;
+}
+
+.list-news .news-item-no-date .news-block {
+	margin-left: 0;
+} 
+
+.list-news .news-title {
+	display: block;
+}
+
+a.news-title {
+    font-size: 1em;
+}
 
 /* ---------------- calendar portlet (notes) ------------------------- */
 
@@ -3217,9 +1228,295 @@ ul.cal-item-list li{display:block}
 	width: 24%;
 }
 
+/*------- Notifications Bar ------*/
+
+.notifications-bar-portlet {}
+
+ul.notfications-bar-list {
+	background: #cad2dd;
+	border: 1px solid #b0b1b3;
+	behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
+	-moz-border-radius-topleft: 2px;
+	-moz-border-radius-bottomleft: 2px;
+	-webkit-border-radius: 2px 0 0 2px;
+	border-radius: 2px 0 0 2px;
+	list-style: none;
+	margin: 0;
+	padding: 0px 0;
+	position: relative; /* Position relative needed for css3pie.htc to work properly */
+	/*width: 42px;*/
+}
+
+ul.notfications-bar-list li {
+	border-bottom: 1px solid #b0b1b3;
+	border-top: 1px solid #e4edf9;
+}
+
+ul.notfications-bar-list li.first {
+	border-top: none;
+}
+
+ul.notfications-bar-list li.last {
+	border-bottom: none;
+}
+
+ul.notfications-bar-list li a {
+	background-color: transparent;
+	display: block;
+	height: 49px;
+	position: relative;
+	text-decoration: none;
+}
+
+ul.notfications-bar-list li a .count {
+	background: #fff;
+	
+	-moz-border-radius: 9px;
+	-webkit-border-radius: 9px;
+	border-radius: 9px;
+	behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
+
+	left: 0px;
+	padding: 2px;
+	position: absolute;
+	top: 0px;	
+}
+
+ul.notfications-bar-list li a .count span {
+	background: #444;
+	
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	border-radius: 7px;
+	behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
+	color: #fff;
+	display: block;
+	font-size: 11px;
+	font-weight: bold;
+	line-height: 1.0;
+	padding: 2px 5px 3px;
+	text-align: center;
+}
+
+ul.notfications-bar-list li a .count-highlight span {
+	background: #b00;	
+}
+
+ul.notfications-bar-list li a .title {
+	display: block;
+	font-size: 0;
+	text-indent: -9999em;
+}
+
+ul.notfications-bar-list li.active a,
+ul.notfications-bar-list li a:hover {
+	background-color: #e4edf9;
+}
+
+.notifications-bar-invoices a,
+.notifications-bar-usd a,
+.notifications-bar-todo a,
+.notifications-bar-documents a,
+.notifications-bar-email a {
+	background-image: url(../images/notifications/notification-icons-sprite.png);
+	background-position: 50% 0;
+	background-repeat: no-repeat;
+}
+
+.notifications-bar-invoices a {
+	background-position: 50% 7px;
+}
+.notifications-bar-usd a {
+	background-position: 50% -88px;
+}
+.notifications-bar-todo a {
+	background-position: 50% -193px;
+}
+.notifications-bar-documents a {
+	background-position: 50% -293px;
+}
+.notifications-bar-email a {
+	background-position: 50% -387px;
+}
+
+.notifications-overlay {
+}
+
+/* -- Overlay -- */
+
+.notifications-overlay .aui-overlay-content {
+	background: #e4edf9;
+	behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
+	-moz-border-radius: 3px 0 0 3px;
+	-webkit-border-radius: 3px 0 0 3px;
+	border-radius: 3px 0 0 3px;	
+	border: 1px solid #e4edf9;
+	-moz-box-shadow: 1px 1px 4px #777;
+	-webkit-box-shadow: 1px 1px 4px #777;
+	box-shadow: 1px 1px 4px #777;	
+	min-height: 40px;
+	position: relative;
+}
+
+.notifications-overlay h3 {
+	background: transparent url(../images/notifications/notifications-sep.png) bottom left repeat-x;
+	color: #005095;
+	padding: 0 0 5px 0;
+	margin: 0 0 5px 0;
+}
+
+/* -- Notification Items -- */
+
+.notifications-wrap {
+	padding: 0 3px;
+}
+
+ul.notifications-list {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+ul.notifications-list li {
+	background: transparent url(../images/notifications/notifications-sep.png) bottom left repeat-x;
+	margin: 3px 0;
+	padding: 3px 0;
+}
+
+ul.notifications-list li a,
+ul.notifications-list li a:visited {
+	color: #555;
+	text-decoration: none;
+}
+
+ul.notifications-list li a:hover {
+	color: #333;
+	text-decoration: underline;
+}
+
+ul.notifications-list .notification-types {
+	display: block;
+	float: left;
+	width: 40px;
+}
+
+ul.notifications-list .notification-summary {
+	display: block;
+	margin: 0 0 0 40px; 
+}
+
+ul.notifications-list .notification-type {
+	float: left;
+	font-size: 0;
+	display: block;
+	line-height: 20px;
+	height: 16px;
+	margin: 0 2px 2px 0;
+	position: relative;
+	text-align: center;
+	text-indent: -9999em;
+	width: 16px;
+}
+
+ul.notifications-list .notification-type-1 {
+	background: url(../images/icons/red16x16.png) 0 0 no-repeat;
+}
+
+ul.notifications-list .notification-type-2 {
+	background: url(../images/icons/yellow16x16.png) 0 0 no-repeat;
+}
+
+ul.notifications-list .notification-usd-type {
+	background: #eee;
+	border: 1px solid #ccc;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
+	font-size: inherit;
+	height: 20px;
+	text-indent: 0;
+	width: 14px;
+}
+
+ul.notifications-list .notification-usd-type-warning {
+	background: #f08080;
+	border-color: #ff0000;
+}
+
+/*------- Section Navigation (navigation stub) ------*/
+
+ul.section-navigation-list {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;	
+}
+
+ul.section-navigation-list li {
+	display: block;
+	float: left;
+	margin: 10px 30px 10px 0;
+	width: 300px;
+}
+
+ul.section-navigation-list li a {
+	background: url(../images/navigation/section-navigation-icons-sprite.png) 0 0 no-repeat;
+
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;	
+	
+	-webkit-box-shadow: 2px 2px 2px 2px transparent;
+	-moz-box-shadow: 2px 2px 2px 2px transparent;
+	box-shadow: 2px 2px 2px 2px transparent;
+	
+	display: block;
+	min-height: 60px;
+	padding: 10px;
+	padding-left: 80px;
+	text-decoration: none;
+}
+
+ul.section-navigation-list li.documents a { background-position: 0 -300px; }
+ul.section-navigation-list li.communication a { background-position: 0 -600px; }
+ul.section-navigation-list li.region-calendar a { background-position: 0 -900px; }
+ul.section-navigation-list li.sambo a { background-position: 0 -1200px; }
+ul.section-navigation-list li.travel-booking a { background-position: 0 -1500px; }
+ul.section-navigation-list li.heroma a { background-position: 0 -1800px;	}
+ul.section-navigation-list li.clarity a { background-position: 0 -2100px; }
+ul.section-navigation-list li.pivotaltracker a { background-position: 0 -2400px; }
+
+ul.section-navigation-list li a:hover {
+	-webkit-box-shadow: 2px 2px 2px 2px #e4edf9;
+	-moz-box-shadow: 2px 2px 2px 2px #e4edf9;
+	box-shadow: 2px 2px 2px 2px #e4edf9;
+	
+
+	-webkit-box-shadow: 2px 2px 2px 2px #aaaaaa;
+	-moz-box-shadow: 2px 2px 2px 2px #aaaaaa;
+	box-shadow: 2px 2px 2px 2px #aaaaaa;
+	
+}
+
+ul.section-navigation-list li a .title {
+	display: block;
+	color: #005095;
+	font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
+	font-size: 1.2em;
+}
+
+ul.section-navigation-list li a .description {
+	color: #333;
+	display: block;
+}
+
 /*----------------------------------------------------------------------
 =Articles
 ----------------------------------------------------------------------*/
+
+/*------- All articles -------*/
+
+.journal-content-article {}
 
 /*------- All articles -------*/
 
@@ -3229,7 +1526,13 @@ ul.cal-item-list li{display:block}
 
 .news-box-wrap {
 	border: 1px solid #2c6fa7;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
 	margin: 10px 0;
+	padding: 6px;
+	position: relative; /* Position relative needed for css3pie.htc to work properly */
 }
 
 .news-box {
@@ -3288,8 +1591,7 @@ ul.cal-item-list li{display:block}
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
-	/* Needs an absolute path */
-	behavior: url(/regionportalen-theme/htc/css3pie.htc);
+	behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
 	color: #fff;
 	display: block;
 	float: right;
@@ -3298,8 +1600,7 @@ ul.cal-item-list li{display:block}
 	text-align: center;
 	padding: 10px 15px;
 	margin: 0;
-	/* Position relative needed for css3pie.htc to work properly */
-	position: relative;
+	position: relative; /* Position relative needed for css3pie.htc to work properly */
 }
 
 .news-box-js .aui-carousel {
@@ -3359,7 +1660,7 @@ ul.news-box-menu li {
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
 	/* Needs an absolute path */
-	behavior: url(/regionportalen-theme/htc/css3pie.htc);
+	behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
 	cursor: pointer;	
 	float: left;
 	font-size: 0;
@@ -3383,113 +1684,115 @@ ul.news-box-menu li.aui-carousel-menu-active {
 	display: none;
 }
 
-/* Quick links (snabbnavigering) */
-#quick-links {
-    position: absolute;
-    border: rgb(235,242,247) solid 3px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    
-    background-color: #FFFFFF;
-    max-width: 92%;
-    right: 309px;
-    z-index:100;
-    padding-left: 6px;
-    padding-right: 6px;
-    padding-bottom: 20px;
+/*----------------------------------------------------------------------
+=Debugging
+----------------------------------------------------------------------*/
+
+/*------- YUI Console -------*/
+
+.yui3-separate-console{position:absolute;right:1em;top:1em;z-index:999;}
+
+.yui3-inline-console{display:-moz-inline-stack;display:inline-block;*display:inline;zoom:1;vertical-align:top;}
+
+.yui3-inline-console 
+.aui-console-content{position:relative;}
+
+.aui-console-content{background:#777;_background:#D8D8DA url(../images/console/bg.png) repeat-x 0 0;font:normal 13px/1.3 Arial,sans-serif;text-align:left;border:1px solid #777;border-radius:10px;-moz-border-radius:10px;-webkit-border-radius:10px;}
+
+.aui-console-hd,
+
+.aui-console-bd,
+
+.aui-console-ft{position:relative;}
+
+.aui-console-hd,
+
+.aui-console-controls{text-align:right;}
+
+.aui-console-hd{background:#D8D8DA url(../images/console/bg.png) repeat-x 0 0;padding:1ex;border:1px solid transparent;_border:0 none;border-top-right-radius:10px;border-top-left-radius:10px;-moz-border-radius-topright:10px;-moz-border-radius-topleft:10px;-webkit-border-top-right-radius:10px;-webkit-border-top-left-radius:10px;}
+
+.aui-console-bd{background:#fff;border-top:1px solid #777;border-bottom:1px solid #777;color:#000;font-size:11px;overflow:auto;overflow-x:auto;overflow-y:scroll;_width:100%;}
+
+.aui-console-ft{background:#D8D8DA url(../images/console/bg.png) repeat-x 0 0;border:1px solid transparent;_border:0 none;border-bottom-right-radius:10px;border-bottom-left-radius:10px;-moz-border-radius-bottomright:10px;-moz-border-radius-bottomleft:10px;-webkit-border-bottom-right-radius:10px;-webkit-border-bottom-left-radius:10px;}
+
+.aui-console-controls{padding:4px 1ex;zoom:1;}
+
+.aui-console-title{color:#000;display:inline;float:left;font-weight:bold;font-size:13px;height:24px;line-height:24px;margin:0;padding-left:1ex;}
+
+.aui-console-pause-label{float:left;}
+
+.aui-console-button{line-height:1.3;}
+
+.aui-console-collapsed 
+.aui-console-bd,
+
+.aui-console-collapsed 
+.aui-console-ft{display:none;}
+
+.aui-console-content
+.aui-console-collapsed{-webkit-border-radius:0;}
+
+.aui-console-collapsed 
+.aui-console-hd{border-radius:10px;-moz-border-radius:10px;-webkit-border-radius:0;}
+
+.aui-console-entry{border-bottom:1px solid #aaa;min-height:32px;_height:32px;}
+
+.aui-console-entry-meta{margin:0;overflow:hidden;}
+
+.aui-console-entry-content{margin:0;padding:0 1ex;white-space:pre-wrap;word-wrap:break-word;}
+
+.aui-console-entry-meta 
+.aui-console-entry-src{color:#000;font-style:italic;font-weight:bold;float:right;margin:2px 5px 0 0;}
+
+.aui-console-entry-meta 
+.aui-console-entry-time{color:#777;padding-left:1ex;}
+
+.aui-console-entry-warn 
+.aui-console-entry-meta 
+.aui-console-entry-time{color:#555;}
+
+.aui-console-entry-info 
+.aui-console-entry-meta 
+.aui-console-entry-cat,
+
+.aui-console-entry-warn 
+.aui-console-entry-meta 
+.aui-console-entry-cat,
+
+.aui-console-entry-error 
+.aui-console-entry-meta 
+.aui-console-entry-cat{display:none;}
+
+.aui-console-entry-warn{background:#aee url(../images/console/warn_error.png) no-repeat -15px 15px;}
+
+.aui-console-entry-error{background:#ffa url(../images/console/warn_error.png) no-repeat 5px -24px;color:#900;}
+
+.aui-console-entry-warn 
+.aui-console-entry-content,
+
+.aui-console-entry-error 
+.aui-console-entry-content{padding-left:24px;}
+
+.aui-console-entry-cat{text-transform:uppercase;padding:1px 4px;background-color:#ccc;}
+
+.aui-console-entry-info 
+.aui-console-entry-cat{background-color:#ac2;}
+
+.aui-console-entry-warn 
+.aui-console-entry-cat{background-color:#e81;}
+
+.aui-console-entry-error 
+.aui-console-entry-cat{background-color:#b00;color:#fff;}
+
+.aui-console-hidden{display:none;}
+
+/* Position the console so that it does not hide the sidebar */
+.yui3-separate-console{
+	right: 400px;
+	top: 100px;
 }
-
-#quick-links a {
-    text-decoration: none;
-    color: #000000;
-}
-
-#quick-links a:hover {
-    text-decoration: underline;
-}
-
-
-#quick-links  {
-    background: white; /* Old browsers */
-    background: -moz-linear-gradient(top,  rgba(235,242,247,1) 6%, rgba(255,255,255,1) 54%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(6%,rgba(235,242,247,1)), color-stop(54%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top,  rgba(235,242,247,1) 6%,rgba(255,255,255,1) 54%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top,  rgba(235,242,247,1) 6%,rgba(255,255,255,1) 54%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top,  rgba(235,242,247,1) 6%,rgba(255,255,255,1) 54%); /* IE10+ */
-    background: linear-gradient(top,  rgba(235,242,247,1) 6%,rgba(255,255,255,1) 54%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebf2f7', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
-    
-    width: 890px;
-}
-
-
-#quick-links .nav-item-box {
-    padding-left: 16px;
-    vertical-align: top;
-    width: 170px;
-    padding-bottom: 10px;
-}
-/*
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px; */
-    /* Needs an absolute path */
-/*    behavior: url(/regionportalen-theme/htc/css3pie.htc); */
-
-#quick-links table {
-    table-layout: auto;
-}
-
-#quick-links .quick-links-rows {
-    border-top: 2px solid rgb(235,242,247); 
-}
-
-#quick-links .quick-links-rows td {
-    padding-top: 10px;
-}
-
-#quick-links table ul {
-    list-style-image: url("../images/arrows/04_right.png");
-    margin: 0px;
-    margin-left: 16px;
-}
-
-#quick-links table ul ul {
-    margin: 0px 9px;
-    list-style-image: url("../images/arrows/04_right-modified.png");
-}
-
-
-
-#quick-links-header {
-    height: 30px;
-}
-
-#quick-links-header-text {
-    float: left;
-    padding: 6px 0 0 6px;
-    font-size: 14px;
-    font-weight: bold;
-}
-
-#quick-links-close {
-    float: right;
-    padding: 6px 6px 0 0;
-    cursor: pointer
-}
-
-#quick-links .nav-item-box > a {
-    font-weight: bold;
-}
-
 
 
 /*----------------------------------------------------------------------
 =Sandbox
 ----------------------------------------------------------------------*/
-
-.manage-layouts .aui-widget-bd {
-	height: 400px;
-	overflow-y: auto;	
-}

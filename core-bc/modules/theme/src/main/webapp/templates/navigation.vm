@@ -1,6 +1,9 @@
-##<nav class="sort-pages modify-pages" id="navigation">
-<nav id="navigation" class="clearfix">	
-	<ul class="nav-main clearfix">
+<nav class="sort-pages modify-pages" id="navigation">
+	<h1>
+		<span>#language("navigation")</span>
+	</h1>
+
+	<ul class="nav-list clearfix">
 		#foreach ($nav_item in $nav_items)
 			#if ($nav_item.isSelected())
 				<li class="selected">
@@ -8,33 +11,21 @@
 				<li>
 			#end
 				<a href="$nav_item.getURL()" $nav_item.getTarget()><span>$nav_item.icon() $nav_item.getName()</span></a>
+
+				#if ($nav_item.hasChildren())
+					<ul class="child-menu">
+						#foreach ($nav_child in $nav_item.getChildren())
+							#if ($nav_child.isSelected())
+								<li class="selected">
+							#else
+								<li>
+							#end
+								<a href="$nav_child.getURL()" $nav_child.getTarget()>$nav_child.getName()</a>
+							</li>
+						#end
+					</ul>
+				#end
 			</li>
 		#end
 	</ul>
-    #foreach ($nav_item in $nav_items)
-		#if ($nav_item.isSelected() && $nav_item.hasChildren())
-			<div class="nav-sub-wrap">
-				<div class="nav-sub-wrap-inner">
-    				<ul class="nav-sub clearfix">
-                        #foreach ($nav_child in $nav_item.getChildren())
-                            #if ($nav_child.isSelected())
-                                #set ($nav_child_class = "selected")
-                            #else
-                                #set ($nav_child_class = "")
-                            #end
-                            <li class="$nav_child_class">
-                                <a href="$nav_child.getURL()" $nav_child.getTarget() class="$nav_child_class">$nav_child.getName()</a>
-                            </li>
-                        #end
-    				</ul>
-				</div>
-			</div>
-        #end
-    #end
 </nav>
-#*
-<div style="background: #fff; text-align:right; padding: 5px 0; margin: 0 -40px">
-<div style="padding: 0 40px;">
-<a href="">G&ouml;m notifieringar</a>
-</div>
-*#
