@@ -7,14 +7,12 @@
 	</compatibility>
 	<theme id="regionportalen-theme" name="Regionportalen Tema">
 		<settings>
-			<setting key="bullet-style-options" value="1,2" />
-			<setting key="hide-sidebar-active" value="true" />
+			<setting key="show-breadcrumbs" value="true" />
 		</settings>
 	</theme>
-	<theme id="regionportalen-theme-no-hide" name="Regionportalen Tema (ej göm notifikationer)">
+	<theme id="regionportalen-theme-no-hide" name="Regionportalen Tema (inga breadcrumbs)">
 		<settings>
-			<setting key="bullet-style-options" value="1,2" />
-			<setting key="hide-sidebar-active" value="false" />
+			<setting key="show-breadcrumbs" value="false" />
 		</settings>
 	</theme>
 </look-and-feel>
