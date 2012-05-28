@@ -4,6 +4,19 @@
 
 #set($null = $some-never-used-variable)
 
+##
+## Theme settings
+##
+
+#set($show_breadcrumbs = false)
+
+#if ($theme.getSetting("show-breadcrumbs") == "true")
+    #set($show_breadcrumbs = true)
+#end
+
+#if($show_breadcrumbs)
+    #set($css_class = $css_class + " has-breadcrumbs")
+#end
 
 ##
 ## Services
@@ -13,15 +26,14 @@
 ## Dockbar
 ##
 
-#set($showDockbar = $is_signed_in)
-
-#* ------  ------------------------------------- *#
+#set($showDockbar = $permissionChecker.isOmniadmin())
 
 ##
 ## Phrases
 ##
 
 #set ($region_portal_name="Regionportalen")
+#set ($breadcrumbs_label="Du &auml;r h&auml;r")
 
 ##
 ## Top navigation
@@ -51,9 +63,17 @@
 ##
 
 #set($show_notifications_portlet = $is_signed_in)
+#set($show_notifications_portlet = false)
 
 #set ($notifications_portlet_stub_id = "notificationsbarstubportlet_WAR_notificationsbarstubportlet")
 #set ($notifications_portlet_prod_id = "notifications_WAR_notificationsportlet")
 
 #set ($notifications_portlet_id = $notifications_portlet_stub_id)
 #set ($notifications_portlet_id = $notifications_portlet_prod_id)
+
+##
+## Responsive design
+##
+
+#set($useResponsiveDesign = true)
+##set($useResponsiveDesign = false)

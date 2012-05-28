@@ -47,24 +47,24 @@ TODO
 /*------- html and body -------*/
 
 body {
-	background: #fff;
-	color: #333;
-	font-family: Arial, Verdana, Helvetica, sans-serif;
-	font-size: 12px;
-	margin: 0;
-	padding: 0;
+    background: #fff;
+    color: #333;
+    font-family: Arial, Verdana, Helvetica, sans-serif;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
 }
 
 /*------- wrapper -------*/
 
 #wrapper {
-	background: none;
-	margin: 0 auto;
-	width: 100%;
-	position: relative;
-	/*overflow: auto;*/
-	overflow-x: hidden;
-	overflow-y: hidden;
+    background: none;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    /*overflow: auto;*/
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .ie6 #wrapper {
@@ -73,76 +73,111 @@ body {
 #banner,
 #content,
 #footer {
-	margin: 0;
-	padding: 0 40px;
-	min-width: 960px;
+    margin: 0;
+    padding: 0 40px;
+    /*min-width: 960px;*/
 }
 
 /*------- banner (header) -------*/
 
 #heading {
-	margin: 10px 0;
+    margin: 10px 0;
 }
 
 .company-title {
-	float: left;
-	margin: 0;
-	width: 30%;
+    position: relative;
+}
+
+.company-title,
+#banner .company-title .logo {
+    display: block;
+    float: left;
+    margin: 0;
+    width: 159px;
+}
+
+/* Add width to cater for additional logo title */
+.company-title {
+    width: 220px;
 }
 
 .top-navigation {
-	float: right;
-	width: 60%;
+    float: none;
+    margin: 0 0 0 180px;
+    position: relative;
 }
 
 #banner .company-title .logo {
-	background: url(../images/rp-logo.png) top left no-repeat;
-	display: block;
-	float: left;
-	font-size: 0;
-	height: 23px;
-	text-indent: -9999em;
-	width: 162px;
+    background: url(../images/logo/rp-logo.png) 0 0 no-repeat;
+    font-size: 0;
+    height: 23px;
+    text-indent: -9999em;
 }
 
 #banner .company-title .server-node-info {
-	display: block;
-	float: left;
-	font-size: 14px;
-	text-transform: uppercase;
-	width: 30px;
+    display: block;
+    float: left;
+    font-size: 14px;
+    text-transform: uppercase;
+    width: 30px;
 }
 
 /*------- content -------*/
 
 #content {
-	min-height: 400px;
-	position: relative;
+    min-height: 400px;
+    position: relative;
 }
 
 /* Hide node info */
 #content>.portlet-msg-info {
-	display: none;
+    display: none;
 }
 
 #main-content {
-	margin: 15px 0;
-	margin-right: 50px;
+    margin: 15px 0;
+    margin-right: 50px;
+}
+
+.has-breadcrumbs #main-content {
+    margin-top: 5px;
 }
 
 /*- tools sidebar -*/
 
 #toolsSidebar {
-	position: absolute;
-	right: 0;
-	top: 10px;
-	width: 46px;
+    position: absolute;
+    right: 0;
+    top: 10px;
+    width: 46px;
+}
+
+/*- Systems help -*/
+
+a#sidebarHelpTrigger {
+    background: #2c6fa7 url(../images/icons/icon-system-help.png) center center no-repeat;
+    border: 1px solid #255d8c;
+    behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
+    -moz-border-radius-topleft: 2px;
+    -moz-border-radius-bottomleft: 2px;
+    -webkit-border-radius: 2px 0 0 2px;
+    border-radius: 2px 0 0 2px;
+    margin: 0 0 20px 0;
+    display: block;
+    font-size: 0;
+    height: 50px;
+    text-indent: -9999em;
+    position: relative; /* Position relative needed for css3pie.htc to work properly */
+}
+
+a#sidebarHelpTrigger:hover {
+    background-color: #255d8c;
 }
 
 /*- notifications -*/
 
 #notifications {
-	margin: 0 0 20px 0;
+    margin: 0 0 20px 0;
 }
 
 /*- tyckt till -*/
@@ -151,62 +186,64 @@ body {
 }
 
 #tycktillWrap a {
-	background: #2c6fa7 url(../images/tyck-till/tyck-till-text.png) center center no-repeat;
-	border: 1px solid #255d8c;
-	behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
-	-moz-border-radius-topleft: 2px;
-	-moz-border-radius-bottomleft: 2px;
-	-webkit-border-radius: 2px 0 0 2px;
-	border-radius: 2px 0 0 2px;
-	display: block;
-	font-size: 0;
-	height: 100px;
-	text-indent: -9999em;
-	position: relative; /* Position relative needed for css3pie.htc to work properly */
+    background: #2c6fa7 url(../images/tyck-till/tyck-till-text.png) center center no-repeat;
+    border: 1px solid #255d8c;
+    behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
+    -moz-border-radius-topleft: 2px;
+    -moz-border-radius-bottomleft: 2px;
+    -webkit-border-radius: 2px 0 0 2px;
+    border-radius: 2px 0 0 2px;
+    display: block;
+    font-size: 0;
+    height: 100px;
+    text-indent: -9999em;
+    position: relative; /* Position relative needed for css3pie.htc to work properly */
 }
 
 #tycktillWrap a:hover {
-	background-color: #255d8c;
+    background-color: #255d8c;
 }
 
 /*------- footer -------*/
 
 #footer {
-	padding: 0;
-	width: 100%;
+    padding: 0;
+    width: 100%;
 }
 
 .footer-inner {
-	background: #e4edf9;
-	color: #005095;
-	margin: 0 40px;
+    background: #e4edf9;
+    background: none;
+    border-top: 1px solid #ddd;
+    color: #005095;
+    margin: 0 40px;
 }
 
 .footer-content {
-	padding: 10px;
+    padding: 10px;
 }
 
 #footer .powered-by {
-	display: block;
-	float: left;
-	width: 200px;
+    display: block;
+    float: left;
+    width: 200px;
 }
 
 #footer a,
 #footer a:visited {
-	color: #005095;
-	text-decoration: none;
+    color: #005095;
+    text-decoration: none;
 }
 
 #footer a:hover {
-	text-decoration: underline;
+    text-decoration: underline;
 }
 
 #footer a.logo {
     background: url(../images/logo/vgr-logo-large-transparent.png) no-repeat scroll 0 0 transparent;
     display: block;
-	float: right;
-	font-size: 0;
+    float: right;
+    font-size: 0;
     height: 51px;
     width: 252px;
 }
@@ -254,39 +291,39 @@ body:before {
 /*------- Common elements -------*/
 
 h1, h2, h3 {
-	font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
-	font-weight: normal;
-	margin: 1em 0 0.4em 0;
+    font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
+    font-weight: normal;
+    margin: 1em 0 0.4em 0;
 }
 
 h1 {
-	color: #005095;
-	font-size: 2.5em;
-	margin: 0.4em 0 0.4em 0;
+    color: #005095;
+    font-size: 2.5em;
+    margin: 0.4em 0 0.4em 0;
 }
 
 h2 {
-	color: #444;
-	font-size: 1.8em;	
+    color: #444;
+    font-size: 1.8em;
 }
 
 h3 {
-	color: #666;
+    color: #666;
 }
 
 h4 {
-	font-size: 14px;
+    font-size: 14px;
 }
 
 a,
 a:visited {
-	color: #06579C;
-	text-decoration: underline;
+    color: #06579C;
+    text-decoration: underline;
 }
 
 a:hover {
-	color: #06579C;
-	text-decoration: none;
+    color: #06579C;
+    text-decoration: none;
 }
 
 
@@ -295,10 +332,9 @@ a:hover {
 #skip-to-content,
 #banner h2,
 #banner h3,
-#navigation h1,
-.site-breadcrumbs h1 {
-	clip: rect(0 0 0 0);
-	position: absolute;
+#navigation h1 {
+    clip: rect(0 0 0 0);
+    position: absolute;
 }
 
 
@@ -307,12 +343,12 @@ a:hover {
 ----------------------------------------------------------------------*/
 
 .clear {
-	clear: both;
+    clear: both;
 }
 
 .hidden {
-	display: none;
-	visibility: hidden;
+    display: none;
+    visibility: hidden;
 }
 
 .el-hide {
@@ -322,6 +358,12 @@ a:hover {
 .dummy-box {
     background: #ccc;
     height: 100px;
+    width: 100%;
+}
+
+.dummy-image {}
+
+.dummy-image-full {
     width: 100%;
 }
 
@@ -337,16 +379,16 @@ a:hover {
 .clearfix{display:block}
 
 .opens-new-window-accessible {
-	background: url(../images/icons/icon-popup.png) 0 0 no-repeat;
-	font-size: 0;
-	overflow: hidden;
-	text-indent: -5000px;
+    background: url(../images/icons/icon-popup.png) 0 0 no-repeat;
+    font-size: 0;
+    overflow: hidden;
+    text-indent: -5000px;
 }
 
 
 .iframe-wrap {
-	height: 100%;
-	width: 100%;
+    height: 100%;
+    width: 100%;
 }
 
 
@@ -358,42 +400,42 @@ a:hover {
 /*------- Top navigation -------*/
 
 ul.top-nav-list {
-	float: right;
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	position: relative;
+    float: right;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
 }
 
 ul.top-nav-list li {
-	display: block;
-	float: left;
-	margin: 0 8px;
+    display: block;
+    float: left;
+    margin: 0 8px;
 }
 
 .top-nav-list a {
-	display: block;
-	float: left;
-	font-size: 1.1em;
-	padding: 5px 5px;
-	text-decoration: none;
+    display: block;
+    float: left;
+    font-size: 1.1em;
+    padding: 5px 5px;
+    text-decoration: none;
 }
 
 .top-nav-settings a,
 .top-nav-user a,
 .top-nav-signout a,
 .top-nav-quick-access a {
-	background: transparent url(../images/navigation/topnav-icon-sprite.png) 0 0 no-repeat;
+    background: transparent url(../images/navigation/topnav-icon-sprite.png) 0 0 no-repeat;
 }
 
 .top-nav-settings a,
 .top-nav-user a,
 .top-nav-signout a {
-	padding-left: 18px;
+    padding-left: 18px;
 }
 
 .top-nav-quick-access a {
-	padding-right: 18px;
+    padding-right: 18px;
 }
 
 .top-nav-settings a { background-position: 0 -12px; }
@@ -407,125 +449,146 @@ ul.top-nav-list li {
 
 .top-nav-quick-access a.active,
 .top-nav-quick-access a:hover {
-	background-position: 100% -258px;
+    background-position: 100% -258px;
 }
 
 
 ul.top-nav-list li a.active,
 ul.top-nav-list li a:hover {
-	background-color: #e4edf9;
+    background-color: #e4edf9;
 }
 
 /*------- Main navigation -------*/
 
 #navigation {
-	background: #255d8c url(../images/navigation/nav-bg-normal.png) top left repeat-x;
-	-moz-border-radius: 6px;
-	-webkit-border-radius: 6px;
-	border-radius: 6px;
-	
-	-webkit-box-shadow: 2px 2px 2px 2px #255d8c;
-	-moz-box-shadow: 2px 2px 2px 2px #255d8c;
-	box-shadow: 2px 2px 2px 2px #255d8c;
-	
-	behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
-	clear: both;
-	margin: 0 auto 5px;
-	min-height: 2.2em;
-	padding: 0 6px;
-	position: relative; /* Position relative needed for css3pie.htc to work properly */
-	z-index: 10;
+    background: #255d8c url(../images/navigation/nav-bg-normal.png) top left repeat-x;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+
+    -webkit-box-shadow: 2px 2px 2px 2px #255d8c;
+    -moz-box-shadow: 2px 2px 2px 2px #255d8c;
+    box-shadow: 2px 2px 2px 2px #255d8c;
+
+    behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
+    clear: both;
+
+    cursor: pointer;
+
+    display: block;
+
+    margin: 0 auto 5px;
+    min-height: 2.2em;
+    padding: 0 6px;
+    position: relative; /* Position relative needed for css3pie.htc to work properly */
+    z-index: 10;
 }
 
+/*
+.ie7 #navigation {
+	box-shadow: 1px 1px 1px 1px #255d8c;
+}
+*/
+
 #navigation ul {
-	list-style: none;
-	margin: 0;
-	padding: 0 6px;
+    list-style: none;
+    margin: 0;
+    padding: 0 6px;
 }
 
 .ie7 #navigation ul {
-	padding: 2px;
+    padding: 0;
 }
 
 #navigation ul.nav-list li {
-	background: url(../images/navigation/nav-sep.png) top right repeat-y;
-	display: list-item;
-	float: left;
-	padding-right: 2px;
-	vertical-align: middle;
-	zoom: 1;
+    background: url(../images/navigation/nav-sep.png) top right repeat-y;
+    display: list-item;
+    float: left;
+    padding-right: 2px;
+    vertical-align: middle;
+    zoom: 1;
 }
 
 #navigation ul.nav-list li a {
-	background: transparent;
-	color: #fff;
-	display: block;
-	font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
-	font-size: 1.2em;
-	font-weight: normal;
-	line-height: 1.0;
-	margin: 0;
-	padding: 10px 14px;
-	text-decoration: none;
+    background: transparent;
+    color: #fff;
+    display: block;
+    font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
+    font-size: 1.2em;
+    font-weight: normal;
+    line-height: 1.0;
+    margin: 0;
+    padding: 10px 14px;
+    text-decoration: none;
 }
 
 #navigation ul.nav-list > li.selected > a,
 #navigation ul.nav-list > li.selected.hover > a,
-#navigation ul.nav-list > li.selected:hover > a {	
-	background: #54752f url(../images/navigation/nav-bg-active.png) top left repeat-x;
-	color: #fff;
+#navigation ul.nav-list > li.selected:hover > a {
+    background: #54752f url(../images/navigation/nav-bg-active.png) top left repeat-x;
+    color: #fff;
 }
 
 #navigation ul.nav-list li.hover > a,
 #navigation ul.nav-list li:hover > a {
-	background: #e4edf9;
-	color: #255d8c;
+    background: #e4edf9;
+    color: #255d8c;
 }
 
 #navigation ul.nav-list ul {
-	background: #e4edf9;
-	-moz-border-radius: 0 0 6px 6px;
-	-webkit-border-radius: 0 0 6px 6px;
-	border-radius: 0 0 6px 6px;
-	behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
-	left: 0;
-	padding: 5px 0;
-	position: absolute;
-	top: 100%;
-	visibility: hidden;
-	width: 200px;
-	z-index: 598;	
+    background: #e4edf9;
+    -moz-border-radius: 0 0 6px 6px;
+    -webkit-border-radius: 0 0 6px 6px;
+    border-radius: 0 0 6px 6px;
+    behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
+    left: 0;
+    padding: 5px 0;
+    position: absolute;
+    top: 100%;
+    visibility: hidden;
+    width: 200px;
+    z-index: 598;
 }
 
 #navigation  ul.nav-list ul li {
-	background: none;
-	border-bottom: 1px solid #ccc;
-	float: none;
-	padding: 0;
+    background: none;
+    border-bottom: 1px solid #ccc;
+    float: none;
+    padding: 0;
 }
 
 #navigation ul.nav-list ul li a {
-	background: #e4edf9;
-	color: #255d8c;
-	display: block;
-	font-size: 1.1em;
-	padding: 10px 5px;
-	text-decoration: none;
+    background: #e4edf9;
+    color: #255d8c;
+    display: block;
+    font-size: 1.1em;
+    padding: 10px 5px;
+    text-decoration: none;
 }
 
 #navigation ul.nav-list ul li a:hover {
-	background: #255d8c;
-	color: #e4edf9;
+    background: #255d8c;
+    color: #e4edf9;
 }
 
 #navigation  ul.nav-list li:hover > ul {
-	visibility: visible;
+    visibility: visible;
 }
 
 #navigation  ul.nav-list li:hover > ul li {}
 
 #navigation  ul.nav-list li:hover > ul li a {
-	
+
+}
+
+/*------- Navigation Menu Button (used with responsive design) -------*/
+
+#navigationTrigger {
+    display: none;
+}
+
+#navigationButtonMenu {
+    display: none;
 }
 
 /*------- Quick Access Navigation -------*/
@@ -534,51 +597,51 @@ ul.top-nav-list li a:hover {
 }
 
 .quick-access-overlay .aui-overlay-content {
-	background: #e4edf9;
-	behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
-	-moz-border-radius: 3px 0 0 3px;
-	-webkit-border-radius: 3px 0 0 3px;
-	border-radius: 3px 0 0 3px;	
-	border: 1px solid #e4edf9;
-	-moz-box-shadow: 1px 1px 4px #777;
-	-webkit-box-shadow: 1px 1px 4px #777;
-	box-shadow: 1px 1px 4px #777;	
-	position: relative;
+    background: #e4edf9;
+    behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
+    -moz-border-radius: 3px 0 0 3px;
+    -webkit-border-radius: 3px 0 0 3px;
+    border-radius: 3px 0 0 3px;
+    border: 1px solid #e4edf9;
+    -moz-box-shadow: 1px 1px 4px #777;
+    -webkit-box-shadow: 1px 1px 4px #777;
+    box-shadow: 1px 1px 4px #777;
+    position: relative;
 }
 
 .quick-access-nav-hd {
-	border-bottom: 1px solid #b0b1b3;
-	padding: 0 0 5px 0;
-	margin: 0 0 5px 0;
+    border-bottom: 1px solid #b0b1b3;
+    padding: 0 0 5px 0;
+    margin: 0 0 5px 0;
 }
 
 .quick-access-nav-hd h3 {
-	color: #005095;
-	float: left;
-	margin: 0 10px 0 0;
-	width: 130px;
+    color: #005095;
+    float: left;
+    margin: 0 10px 0 0;
+    width: 130px;
 }
 
 .quick-access-nav-hd .filter-wrap {
-	float: left;
-	width: 600px;
+    float: left;
+    width: 600px;
 }
 
 .quick-access-nav-hd .filter-wrap label,
 .quick-access-nav-hd .filter-wrap input,
 .quick-access-nav-hd .filter-wrap span.help-text {
-	display: inline;
-	padding-right: 10px;
+    display: inline;
+    padding-right: 10px;
 }
 
 ul.quick-access-nav-list {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 ul.quick-access-nav-list li.first-level {
-	min-height: 150px;
+    min-height: 150px;
     width: 220px;
     /*
     border: 1px solid #b0b1b3;
@@ -592,47 +655,154 @@ ul.quick-access-nav-list li.first-level {
 }
 
 .ie7 ul.quick-access-nav-list li.first-level {
-	display: inline;
-} 
+    display: inline;
+}
 
 ul.quick-access-nav-list li.first-level a {
-	color: #444;
-	font-size: 1.1em;
-	font-weight: bold;
-	text-decoration: none;
+    color: #444;
+    font-size: 1.1em;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+ul.quick-access-nav-list li.first-level>a,
+ul.quick-access-nav-list li.first-level>div>a {
+    font-weight: bold;
 }
 
 ul.quick-access-nav-list li.first-level a:hover {
-	text-decoration: underline;
+    text-decoration: underline;
 }
 
-ul.quick-access-nav-list ul.child-menu {}
+ul.quick-access-nav-list ul.child-menu {
+    margin-bottom: 0;
+    margin-top: 0;
+}
 
 ul.quick-access-nav-list ul.child-menu li {}
 
 ul.quick-access-nav-list ul.child-menu li a {
-	color: #333;
-	text-decoration: none;
+    color: #333;
+    text-decoration: none;
 }
 
 ul.quick-access-nav-list ul.child-menu li a:hover {
-	text-decoration: underline;
+    text-decoration: underline;
 }
-
-/*------- Sub navigation -------*/
-
 
 /* ---------- Breadcrumbs ---------- */
 
+#breadcrumbs {
+    border-bottom: 1px solid #ddd;
+    margin: 15px 50px 0 0;
+}
 
-/* ---------- Site breadcrumbs ---------- */
+#breadcrumbs .breadcrumbs-list-wrap {}
 
+#breadcrumbs .breadcrumbs-label {
+    float: left;
+    margin-right: 5px;
+    position: relative;
+}
+
+#breadcrumbs ul {
+    float: left;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+#breadcrumbs ul li {
+    display: block;
+    float: left;
+    margin: 0 5px;
+    position: relative;
+}
+
+#breadcrumbs ul li.first,
+#breadcrumbs ul li.last {
+    display: none;
+}
+
+#breadcrumbs h1 {
+    margin: 5px 0;
+}
 
 /*----------------------------------------------------------------------
 =Layout
 ----------------------------------------------------------------------*/
 
+/* ---------- RP columns (general) ---------- */
 
+.rp-columns {}
+
+.rp-columns .portlet-layout {
+    border-collapse: inherit;
+    display: block;
+}
+
+.rp-columns div.portlet-column {
+    display: block;
+    float: left;
+}
+
+.rp-columns div.aui-w70 { width: 69.9%; }
+.rp-columns div.aui-w50 { width: 49.9%; }
+.rp-columns div.aui-w30 { width: 29.9%; }
+
+.rp-columns .portlet-column-content {
+    padding: 5px 15px;
+}
+
+.rp-columns .portlet-column-content-first {
+    padding-left: 0;
+}
+
+.rp-columns .portlet-column-content-last  {
+    padding-right: 0;
+}
+
+/* ---------- RP columns Start Page ---------- */
+
+
+/* ---------- RP Columns Landing Page ---------- */
+
+.rp-columns-landing-page {
+    padding-top: 10px;
+}
+
+.rp-columns-landing-page .portlet-column-content {
+    border-right: 1px solid #ddd;
+}
+
+.rp-columns-landing-page .portlet-column-content-first {
+    padding-left: 0;
+}
+
+.rp-columns-landing-page .portlet-column-content-last  {
+    border-right: none;
+    padding-right: 0;
+}
+
+/* ---------- System Page ---------- */
+
+.rp-columns-system-page div.aui-w70 {
+    width: 100%;
+}
+
+.rp-columns-system-page div.aui-w30 {
+    display: none;
+}
+
+.controls-visible .rp-columns-system-page div.aui-w70 {
+    width: 69.9%;
+}
+
+.controls-visible .rp-columns-system-page div.aui-w30 {
+    display: block;
+    width: 29.9%;
+}
 
 /*----------------------------------------------------------------------
 =Forms
@@ -650,103 +820,103 @@ textarea,
 button,
 a.link-button,
 a:visited.link-button {
-	background-image: url(../images/forms/input_shadow.png);
-	background-repeat: no-repeat;
-	border: 1px solid;
-	border-color: #bfbfbf #dedede #dedede #bfbfbf;
-	font: 1em Arial, Helvetica, Verdana, sans-serif;
-	padding: 5px 1px;
+    background-image: url(../images/forms/input_shadow.png);
+    background-repeat: no-repeat;
+    border: 1px solid;
+    border-color: #bfbfbf #dedede #dedede #bfbfbf;
+    font: 1em Arial, Helvetica, Verdana, sans-serif;
+    padding: 5px 1px;
 }
 
 .form-general {
-	margin: 3px 6px 0;
+    margin: 3px 6px 0;
 }
 
 .form-general label {
-	display: block;
-	margin: 0 4px 0 0;
+    display: block;
+    margin: 0 4px 0 0;
 }
 
 .form-general input,
 .form-general select,
 .form-general textarea {
-	margin: 0;
+    margin: 0;
 }
 
 .form-general .alt {
-	display: inline;
-	margin: 0 3px 0 0;
+    display: inline;
+    margin: 0 3px 0 0;
 }
 
 .form-general .alt1 {
-	float: left;
-	width: 50%;
+    float: left;
+    width: 50%;
 }
 
 .form-general .alt2 {
-	float: right;
-	width: 50%;
+    float: right;
+    width: 50%;
 }
 
 .text, .radio,
 .checkbox, .select {
-	margin: 0 0 3px;
+    margin: 0 0 3px;
 }
 
 .text div,
 .radio div,
 .checkbox div,
 .select div {
-	margin-left: 20px;
+    margin-left: 20px;
 }
 
 .text input {
-	width: 27em;
+    width: 27em;
 }
 
 .text textarea {
-	height: 10em;
-	width: 27em;
+    height: 10em;
+    width: 27em;
 }
 
 .pwd input {
-	width: 6em;
+    width: 6em;
 }
 
 .form-general fieldset {
-	border: 1px solid #ccc;
-	margin: 1em 0;
-	padding: 5px 8px;
+    border: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 5px 8px;
 }
 
 .control-group {
-	margin: 1em 0;
+    margin: 1em 0;
 }
 
 .checkbox, .radio {
-	white-space: nowrap;
+    white-space: nowrap;
 }
 
 .checkbox input,
 .radio input {
-	vertical-align: middle;
+    vertical-align: middle;
 }
 
 .checkbox label,
 .radio label {
-	display: inline;
-	margin-left: 3px;
-	vertical-align: middle;
+    display: inline;
+    margin-left: 3px;
+    vertical-align: middle;
 }
 
 .alt label {
-	display: inline;
+    display: inline;
 }
 
 .submit-area {
-	clear: both;
-	margin: 1em 0 0.5em;
-	text-align: center;
+    clear: both;
+    margin: 1em 0 0.5em;
+    text-align: center;
 }
 
 .size-1 input { width: 50px; }
@@ -757,14 +927,130 @@ a:visited.link-button {
 /*------- aui forms -------*/
 
 .aui-fieldset-legend {
-	color: #333;
+    color: #333;
 }
 
 .aui-legend {
-	border: none;
+    border: none;
+}
+
+.manage-layouts .lfr-page-layouts .lfr-layout-template .aui-field-label {
+    max-width: 120px;
+    overflow: hidden;
+    max-height: 17px;
 }
 
 /*------- Buttons and Link buttons -------*/
+
+/*------- Buttons and Link buttons -------*/
+
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+button,
+a.link-button,
+a:link.link-button,
+a:visited.link-button {
+    background: #f5f5f5 url(../images/forms/button.png) repeat-x 0 0;
+    border-color: #dedede #bfbfbf #bfbfbf #dedede;
+    color: #34404f;
+    cursor: pointer;
+    font-weight: bold;
+    overflow: visible;
+    padding: 5px;
+    width: auto;
+}
+
+input[type="submit"]:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:focus,
+input[type="button"]:focus,
+input[type="reset"]:focus,
+button:hover,
+button:focus,
+a.link-button:hover {
+    background: #dff4ff;
+    border: 1px solid #a7cedf;
+    color: #369;
+}
+
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+button,
+.lfr-actions,
+.lfr-actions ul,
+a.link-button,
+a:link.link-button,
+a:visited.link-button {
+    background: #d4d4d4 url(../images/portlet/header_bg.png) repeat-x 0 0;
+    border: 1px solid;
+    border-color: #c8c9ca #9e9e9e #9e9e9e #c8c9Ca;
+    color: #34404F;
+    font-weight: bold;
+    text-shadow: 1px 1px #fff;
+}
+
+input[type="submit"]:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+button:hover,
+.lfr-actions:hover,
+.lfr-actions:hover ul,
+a.link-button:hover {
+    background: #b9ced9 url(../images/application/state_hover_bg.png) repeat-x 0 0;
+    border-color: #627782;
+    color: #369;
+}
+
+input[type="submit"]:focus,
+input[type="button"]:focus,
+input[type="reset"]:focus,
+button:focus,
+.lfr-actions:focus,
+.lfr-actions:focus ul,
+a.link-button:focus {
+    background: #ebebeb url(../images/application/state_active_bg.png) repeat-x 0 0;
+    border-color: #555;
+}
+
+/* -- IE6 chokes on attribute selectors in a chain, so we separate them into their own rule -- */
+
+.ie6 input.text,
+input.password,
+.ie6 input.submit,
+.ie6 input.file,
+.ie6 input.button,
+.ie6 button,
+.ie6 a.link-button {
+    background-image: url(../images/forms/input_shadow.png);
+    background-repeat: no-repeat;
+    border: 1px solid;
+    border-color: #bfbfbf #dedede #dedede #bfbfbf;
+    font: 1em Arial, Helvetica, Verdana, sans-serif;
+    padding: 5px 1px;
+}
+
+.ie6 input.submit,
+.ie6 input.button,
+.ie6 button,
+.ie6 .aui-button-disabled input.submit,
+.ie6 .aui-button-disabled input.button,
+.ie6 .aui-button-disabled button,
+.ie6 a.link-button {
+    background: #d4d4d4 url(../images/portlet/header_bg.png) repeat-x 0 0;
+    border-color: #dedede #bfbfbf #bfbfbf #dedede;
+    color: #34404f;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 5px;
+}
+
+a.link-button,
+a:link.link-button {
+    text-decoration: none;
+}
 
 
 /*----------------------------------------------------------------------
@@ -774,81 +1060,81 @@ a:visited.link-button {
 /*------- VGR tabs -------*/
 
 .vgr-tabs {
-	background: #2C6FA7;
-	-moz-border-radius: 0 0 4px 4px;
-	-webkit-border-radius: 0 0 4px 4px;
-	border-radius: 0 0 4px 4px;
-	behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
-	margin: 10px 0;
-	padding: 3px;
-	position: relative; /* Position relative needed for css3pie.htc to work properly */
+    background: #2C6FA7;
+    -moz-border-radius: 0 0 4px 4px;
+    -webkit-border-radius: 0 0 4px 4px;
+    border-radius: 0 0 4px 4px;
+    behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
+    margin: 10px 0;
+    padding: 3px;
+    position: relative; /* Position relative needed for css3pie.htc to work properly */
 }
 
 .vgr-tabs .aui-tabview-list {
-	background: none;
-	border: 0;
-	margin: 0;
-	padding: 4px 0 0 0;
+    background: none;
+    border: 0;
+    margin: 0;
+    padding: 4px 0 0 0;
 }
 
 .vgr-tabs .aui-tab {
-	background: none;
-	border: none;
-	margin: 0 1px 0 0;
+    background: none;
+    border: none;
+    margin: 0 1px 0 0;
 }
 
 .vgr-tabs .aui-tab-active {
-	background: #fff;
-	border-color: #fff;
+    background: #fff;
+    border-color: #fff;
 }
 
 .vgr-tabs .aui-tab-active:after {
-	border: none;
-	bottom: 0;
-	content: '';
-	left: 0;
-	margin-left: 0;
-	z-index: 0;
+    border: none;
+    bottom: 0;
+    content: '';
+    left: 0;
+    margin-left: 0;
+    z-index: 0;
 }
 
 .vgr-tabs .aui-tab-content {
-	padding: 0;
+    padding: 0;
 }
 
 .vgr-tabs .aui-tab a,
 .vgr-tabs .aui-tab a:link {
-	background: #06579C;
-	border: 1px solid #75A1C6;
-	border-bottom: 0;
-	-moz-border-radius: 4px 4px 0 0;
-	-webkit-border-radius: 4px 4px 0 0;
-	border-radius: 4px 4px 0 0;
-	color: #fff;
-	display: block;
-	font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
-	font-weight: bold;
-	padding: 3px 10px;
-	text-decoration: none;
-	text-shadow: none;
+    background: #06579C;
+    border: 1px solid #75A1C6;
+    border-bottom: 0;
+    -moz-border-radius: 4px 4px 0 0;
+    -webkit-border-radius: 4px 4px 0 0;
+    border-radius: 4px 4px 0 0;
+    color: #fff;
+    display: block;
+    font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
+    font-weight: bold;
+    padding: 3px 10px;
+    text-decoration: none;
+    text-shadow: none;
 }
 
 .vgr-tabs .aui-tab-active a,
 .vgr-tabs .aui-tab-active a:link,
 .vgr-tabs .aui-tab a:hover {
-	background: #fff;
-	border-color: #fff;
-	color: #06579C;
+    background: #fff;
+    border-color: #fff;
+    color: #06579C;
 }
 
 /* .vgr-tabs-content > .aui-tabview-content */
 .vgr-tabs .vgr-tabs-content-wrap {
-	background: #fff;
-	border: 0;
-	border-top: none;
-	-moz-border-radius: 0 0 4px 4px;
-	-webkit-border-radius: 0 0 4px 4px;
-	border-radius: 0 0 4px 4px;
-	padding: 10px;
+    background: #fff;
+    border: 0;
+    border-top: none;
+    -moz-border-radius: 0 0 4px 4px;
+    -webkit-border-radius: 0 0 4px 4px;
+    border-radius: 0 0 4px 4px;
+    padding: 10px;
 }
 
 /*------- Dialog (aui) -------*/
@@ -861,16 +1147,129 @@ a:visited.link-button {
 /*------- News list - used in news portlets -------*/
 
 .featured {
-	border-bottom: 1px solid #ddd;
-	margin-bottom: 0.5em;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 0.5em;
 }
 
 .list-news li {
-	margin-top: 0.5em;
+    margin-top: 0.5em;
 }
 
 .list-news li p {
-	margin-bottom: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+/*------- Dialog (aui) -------*/
+
+.notifications-overlay {
+}
+
+/* -- Overlay -- */
+
+.system-help-overlay .aui-overlay-content {
+    background: #e4edf9;
+    behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
+    -moz-border-radius: 3px 0 0 3px;
+    -webkit-border-radius: 3px 0 0 3px;
+    border-radius: 3px 0 0 3px;
+    border: 1px solid #e4edf9;
+    -moz-box-shadow: 1px 1px 4px #777;
+    -webkit-box-shadow: 1px 1px 4px #777;
+    box-shadow: 1px 1px 4px #777;
+    min-height: 40px;
+    position: relative;
+}
+
+.system-help-overlay .lfr-panel .lfr-panel-titlebar {
+    background: none;
+    padding-left: 0;
+}
+
+.system-help-overlay .lfr-panel-titlebar .lfr-panel-title {
+    background: transparent url(../images/notifications/notifications-sep.png) bottom left repeat-x;
+    color: #005095;
+    font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
+    font-size: 1.8em;
+    font-weight: normal;
+    padding: 0 0 5px 0;
+    margin: 0 0 5px 0;
+
+}
+
+.system-help-overlay .kb-title-wrapper {
+    padding: 2px 0;
+}
+
+.system-help-overlay a.taglib-icon .taglib-text {
+    text-decoration: none;
+}
+
+.system-help-overlay a.taglib-icon:hover .taglib-text {
+    text-decoration: underline;
+}
+
+.system-help-overlay .search-results {
+    display: none;
+}
+
+/*-------RP Dialog -------*/
+
+.rp-dialog .aui-dialog-hd {
+    background: #2C6FA7;
+    color: #fff;
+    font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
+    font-size: 26px;
+    font-weight: normal;
+    text-shadow: none;
+}
+
+.rp-dialog .aui-buttonitem-content {
+    background: none;
+    border: none;
+    height: 35px;
+    width: 34px;
+    padding: 0px;
+}
+
+.rp-dialog .aui-icon-closethick {
+    background: transparent url(../images/user-wizard/wizard-close-button-sprite.png) 0 0 no-repeat;
+    height: 32px;
+    width: 32px;
+}
+
+.rp-dialog .aui-state-hover .aui-icon-closethick {
+    background-position: 0 -50px;
+}
+
+.rp-dialog .aui-panel-hd-text {
+    line-height: 1.4;
+}
+
+/*------- Pagers -------*/
+
+.pager {
+    margin: 2px 0 0;
+}
+
+.pager a {
+    padding: 2px;
+    text-decoration: none;
+}
+
+.pager a:hover {
+    text-decoration: underline;
+}
+
+.pager .prev {
+    background: url(../images/icons/resultset_previous.png) no-repeat 0 50%;
+    float: left;
+    padding: 3px 6px 3px 20px;
+}
+
+.pager .next {
+    background: url(../images/icons/resultset_next.png) no-repeat 100% 50%;
+    float: right;
+    padding: 3px 20px 3px 6px;
 }
 
 
@@ -881,50 +1280,50 @@ a:visited.link-button {
 /*------- Portlet wrapper and icons -------*/
 
 .portlet {
-	background-color: transparent;
-	margin: 0 0 10px;
-	padding: 0;
-	text-align: left;
+    background-color: transparent;
+    margin: 0 0 10px;
+    padding: 0;
+    text-align: left;
 }
 
 .portlet .portlet-topper {
-	background: #255e8d url(../images/portlet/portlet-hd-bg-1.png) top left repeat-x;
-	behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
-	-moz-border-radius-topleft: 6px;
-	-moz-border-radius-topright: 6px;
-	-webkit-border-radius: 6px 6px 0 0;
-	border-radius: 6px 6px 0 0;	
-	position: relative; /* Position relative needed for css3pie.htc to work properly */
+    background: #255e8d url(../images/portlet/portlet-hd-bg-1.png) top left repeat-x;
+    behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
+    -moz-border-radius-topleft: 6px;
+    -moz-border-radius-topright: 6px;
+    -webkit-border-radius: 6px 6px 0 0;
+    border-radius: 6px 6px 0 0;
+    position: relative; /* Position relative needed for css3pie.htc to work properly */
 }
 
 .portlet .portlet-content {
-	background: #fff;
-	behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
-	border: 1px solid #2c6fa7;
-	border-width: 0 1px 1px 1px;
-	-moz-border-radius-bottomleft: 6px;
-	-moz-border-radius-bottomright: 6px;
-	-webkit-border-radius: 0 0 6px 6px;
-	border-radius:  0 0 6px 6px;	
-	padding: 12px;
-	position: relative; /* Position relative needed for css3pie.htc to work properly */	
+    background: #fff;
+    behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
+    border: 1px solid #2c6fa7;
+    border-width: 0 1px 1px 1px;
+    -moz-border-radius-bottomleft: 6px;
+    -moz-border-radius-bottomright: 6px;
+    -webkit-border-radius: 0 0 6px 6px;
+    border-radius:  0 0 6px 6px;
+    padding: 12px;
+    position: relative; /* Position relative needed for css3pie.htc to work properly */
 }
 
 .portlet-title {
-	color: #fff;
-	float: none;
-	font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
-	font-size: 1.1em;
-	font-weight: normal;
-	padding: 7px 10px;
+    color: #fff;
+    float: none;
+    font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
+    font-size: 1.1em;
+    font-weight: normal;
+    padding: 7px 10px;
 }
 
 .portlet-title .icon {
-	display: none;
+    display: none;
 }
 
 .portlet-icons {
-	float: none;
+    float: none;
 }
 
 .portlet-msg-info {
@@ -932,27 +1331,27 @@ a:visited.link-button {
 }
 
 .portlet-icons .portlet-close-icon {
-	border-width: 0;
+    border-width: 0;
 }
 
 .page-maximized .portlet-icons {
-	font-size: 11px;
+    font-size: 11px;
 }
 
 .portlet-icon-back {
 }
 
 .ie .portlet-title {
-	padding-bottom: 5px;
+    padding-bottom: 5px;
 }
 
 .ie6 .portlet-topper {
-	zoom: 1;
+    zoom: 1;
 }
 
 .lfr-actions.portlet-options .lfr-trigger strong a {
-	text-indent: -9999px;
-	text-decoration: none;
+    text-indent: -9999px;
+    text-decoration: none;
 }
 
 .portlet-minimize a,
@@ -961,522 +1360,45 @@ a:visited.link-button {
 .portlet-maximize a:hover,
 .portlet-close a,
 .portlet-close a:hover {
-	text-decoration: none;
+    text-decoration: none;
 }
 
-/*------- Portlet Dockbar -------*/
-
-
-/*------- Portlet Alerts -------*/
-
-
-/*------  Portlet Announcements --------*/
-
-
-/*------- Portlet Navigation ------*/
-
-/*------- Portlet Journal Content ------*/
-
-
-/*------- Portlet Knowledge Base Display/Knowledge Base Aggregator ------*/
-
-/*------- Portlet Knowledge Base Aggregator ------*/
-
-.knowledge-base-portlet-aggregator .lfr-panel .lfr-panel-titlebar {
-	background-position: 2px 63%;
-}
-
-.knowledge-base-portlet-aggregator .lfr-panel-titlebar .lfr-panel-title {
-	color: #444;
-	font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
-	font-size: 1.8em;
-	font-weight: normal;
-	margin: 1em 0 0.4em 0;
-}
-
-/*----------------------------------------------------------------------
-=Custom Portlets
-----------------------------------------------------------------------*/
-
-/* ---------------- User Wizard portlet ------------------------- */
-
-.user-wizard-portlet {}
-
-.user-wizard-portlet .portlet-borderless-container {
-	min-height: 0;
-}
-
-.controls-visible .user-wizard-portlet .portlet-borderless-container {
-	min-height: 2.5em;
-} 
-
-/*-------User Wizard Dialog -------*/
-
-.user-wizard-dialog .aui-dialog-hd {
-	background: #2C6FA7;
-	color: #fff;
-	font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
-	font-size: 26px;
-	font-weight: normal;
-	text-shadow: none;
-}
-
-.user-wizard-dialog .aui-buttonitem-content {
-	background: none;
-	border: none;
-	height: 35px;
-	width: 34px;
-	padding: 0px;
-}
-
-.user-wizard-dialog .aui-icon-closethick {
-	background: transparent url(../images/user-wizard/wizard-close-button-sprite.png) 0 0 no-repeat;
-	height: 32px;
-	width: 32px;
-}
-
-.user-wizard-dialog .aui-state-hover .aui-icon-closethick {
-	background-position: 0 -50px;
-}
-
-.user-wizard-dialog .aui-panel-hd-text {
-	line-height: 1.4;
-}
-
-.user-wizard-content-wrap {
-	padding: 10px 15px;
-}
-
-.user-wizard-dialog .user-wizard-intro {
-	font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
-	font-size: 18px;
-	margin: 0 0 10px 0;
-}
-
-.user-wizard-content-wrap {
-	color: #333;
-	/* Position relative and z-index needed for css3pie.htc to work properly
-	    http://css3pie.com/documentation/known-issues/#z-index
-	 */
-    position: relative; 
-    z-index: 100000;
-}
-
-.user-wizard-dialog .user-wizard-personalize-wrap {
-	background: #ddd;
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
-	border-radius: 4px;	
-	/* Needs an absolute path */
-	behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */	
-    display: block;
-	font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
-	font-size: 16px;
-    font-weight: normal;
-	margin: 10px 0;
-    padding: 15px;
-}
-
-.user-wizard-personalize-text {
-	background: transparent url(../images/user-wizard/wizard-personalization-matte-ddd.png) 0 50% no-repeat;
-	padding-left: 110px;
-	padding: 10px 0 10px 110px;
-}
-
-.user-wizard-profile-link-wrap {
-	text-align: right;
-}
-
-.user-wizard-profile-link-wrap a,
-.user-wizard-profile-link-wrap a:link,
-.user-wizard-profile-link-wrap a:hover {
-	background: transparent url(../images/user-wizard/link-icon-matte-ddd.png) 0 50% no-repeat;
-	color: #2c6fa7;
-	font-size: 14px;
-	padding-left: 14px;
-	text-decoration: none;
-}
-
-.user-wizard-profile-link-wrap a:hover span {
-	text-decoration: underline;
-}
-
-.user-wizard-control-wrap {
-	border: 1px solid #ccc;
-	border-width: 1px 0 1px 0;
-	margin-top: 10px;
-	padding: 10px;
-}
-
-.user-wizard-control-wrap a,
-.user-wizard-control-wrap a:link,
-.user-wizard-control-wrap a:hover {
-	color: #333;
-	display: block;
-	font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
-	font-size: 16px;
-    font-weight: normal;
-	line-height: 28px;
-	min-height: 28px;
-	padding-left: 40px;
-	text-decoration: none;
-}
-
-.user-wizard-control-wrap a {
-	background: transparent url(../images/user-wizard/wizard-checkbox-sprite.png) 0 0 no-repeat;
-}
-
-.user-wizard-control-wrap a.checked {
-	background-position: 0 -50px;
-}
-
-.user-wizard-control-wrap a:hover span {
-	text-decoration: underline;
-}
-
-/* ---------------- RSS portlet ------------------------- */
-
-ul.list-news {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-}
-
-ul.list-news li {
-	border-bottom: 1px solid #EBF2F8;
-	padding: 5px 0;
-}
-
-.list-news .news-date {
-	color: #777;
-	display: block;
-	float: left;
-	width: 80px;
-}
-
-.list-news .news-block {
-	display: block;
-	margin: 0 0 0 80px;
-}
-
-.list-news .news-item-no-date .news-date {
-	display: none;
-}
-
-.list-news .news-item-no-date .news-block {
-	margin-left: 0;
-} 
-
-.list-news .news-title {
-	display: block;
-}
-
-a.news-title {
-    font-size: 1em;
-}
-
-/* ---------------- calendar portlet (notes) ------------------------- */
-
-.calendar-wrap {}
-
-.cal-day-wrap {
-	margin: 10px 0;
-}
-
-h4.cal-date {
-	border-bottom: 1px solid #EBF2F8;
-	color: #005095;
-	font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
-	font-size: 16px;
-	font-weight: normal;
-}
-
-ul.cal-item-list {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-}
-
-ul.cal-item-list li {
-	border-bottom: 1px solid #EBF2F8;
-	margin: 0;
-	padding: 2px 2px;
-	clear: both;
-}
-
-/* Clearfix style clearing */
-ul.cal-item-list li:after{clear:both;content:'.';display:block;visibility:hidden;height:0}
-ul.cal-item-list li{display:inline-block}
-* html ul.cal-item-list li{height:1%}
-ul.cal-item-list li{display:block}
-
-.cal-item-time {
-	display: block;
-	float: left;
-	width: 19%;
-}
-
-.cal-item-title {
-	display: block;
-	float: left;
-	width: 55%;
-}
-
-.cal-item-type {
-	display: block;
-	float: right;
-	width: 24%;
-}
-
-/*------- Notifications Bar ------*/
-
-.notifications-bar-portlet {}
-
-ul.notfications-bar-list {
-	background: #cad2dd;
-	border: 1px solid #b0b1b3;
-	behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
-	-moz-border-radius-topleft: 2px;
-	-moz-border-radius-bottomleft: 2px;
-	-webkit-border-radius: 2px 0 0 2px;
-	border-radius: 2px 0 0 2px;
-	list-style: none;
-	margin: 0;
-	padding: 0px 0;
-	position: relative; /* Position relative needed for css3pie.htc to work properly */
-	/*width: 42px;*/
-}
-
-ul.notfications-bar-list li {
-	border-bottom: 1px solid #b0b1b3;
-	border-top: 1px solid #e4edf9;
-}
-
-ul.notfications-bar-list li.first {
-	border-top: none;
-}
-
-ul.notfications-bar-list li.last {
-	border-bottom: none;
-}
-
-ul.notfications-bar-list li a {
-	background-color: transparent;
-	display: block;
-	height: 49px;
-	position: relative;
-	text-decoration: none;
-}
-
-ul.notfications-bar-list li a .count {
-	background: #fff;
-	
-	-moz-border-radius: 9px;
-	-webkit-border-radius: 9px;
-	border-radius: 9px;
-	behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
-
-	left: 0px;
-	padding: 2px;
-	position: absolute;
-	top: 0px;	
-}
-
-ul.notfications-bar-list li a .count span {
-	background: #444;
-	
-	-moz-border-radius: 7px;
-	-webkit-border-radius: 7px;
-	border-radius: 7px;
-	behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
-	color: #fff;
-	display: block;
-	font-size: 11px;
-	font-weight: bold;
-	line-height: 1.0;
-	padding: 2px 5px 3px;
-	text-align: center;
-}
-
-ul.notfications-bar-list li a .count-highlight span {
-	background: #b00;	
-}
-
-ul.notfications-bar-list li a .title {
-	display: block;
-	font-size: 0;
-	text-indent: -9999em;
-}
-
-ul.notfications-bar-list li.active a,
-ul.notfications-bar-list li a:hover {
-	background-color: #e4edf9;
-}
-
-.notifications-bar-invoices a,
-.notifications-bar-usd a,
-.notifications-bar-todo a,
-.notifications-bar-documents a,
-.notifications-bar-email a {
-	background-image: url(../images/notifications/notification-icons-sprite.png);
-	background-position: 50% 0;
-	background-repeat: no-repeat;
-}
-
-.notifications-bar-invoices a {
-	background-position: 50% 7px;
-}
-.notifications-bar-usd a {
-	background-position: 50% -88px;
-}
-.notifications-bar-todo a {
-	background-position: 50% -193px;
-}
-.notifications-bar-documents a {
-	background-position: 50% -293px;
-}
-.notifications-bar-email a {
-	background-position: 50% -387px;
-}
-
-.notifications-overlay {
-}
-
-/* -- Overlay -- */
-
-.notifications-overlay .aui-overlay-content {
-	background: #e4edf9;
-	behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
-	-moz-border-radius: 3px 0 0 3px;
-	-webkit-border-radius: 3px 0 0 3px;
-	border-radius: 3px 0 0 3px;	
-	border: 1px solid #e4edf9;
-	-moz-box-shadow: 1px 1px 4px #777;
-	-webkit-box-shadow: 1px 1px 4px #777;
-	box-shadow: 1px 1px 4px #777;	
-	min-height: 40px;
-	position: relative;
-}
-
-.notifications-overlay h3 {
-	background: transparent url(../images/notifications/notifications-sep.png) bottom left repeat-x;
-	color: #005095;
-	padding: 0 0 5px 0;
-	margin: 0 0 5px 0;
-}
-
-/* -- Notification Items -- */
-
-.notifications-wrap {
-	padding: 0 3px;
-}
-
-ul.notifications-list {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-}
-
-ul.notifications-list li {
-	background: transparent url(../images/notifications/notifications-sep.png) bottom left repeat-x;
-	margin: 3px 0;
-	padding: 3px 0;
-}
-
-ul.notifications-list li a,
-ul.notifications-list li a:visited {
-	color: #555;
-	text-decoration: none;
-}
-
-ul.notifications-list li a:hover {
-	color: #333;
-	text-decoration: underline;
-}
-
-ul.notifications-list .notification-types {
-	display: block;
-	float: left;
-	width: 40px;
-}
-
-ul.notifications-list .notification-summary {
-	display: block;
-	margin: 0 0 0 40px; 
-}
-
-ul.notifications-list .notification-type {
-	float: left;
-	font-size: 0;
-	display: block;
-	line-height: 20px;
-	height: 16px;
-	margin: 0 2px 2px 0;
-	position: relative;
-	text-align: center;
-	text-indent: -9999em;
-	width: 16px;
-}
-
-ul.notifications-list .notification-type-1 {
-	background: url(../images/icons/red16x16.png) 0 0 no-repeat;
-}
-
-ul.notifications-list .notification-type-2 {
-	background: url(../images/icons/yellow16x16.png) 0 0 no-repeat;
-}
-
-ul.notifications-list .notification-usd-type {
-	background: #eee;
-	border: 1px solid #ccc;
-	-moz-border-radius: 6px;
-	-webkit-border-radius: 6px;
-	border-radius: 6px;
-	behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
-	font-size: inherit;
-	height: 20px;
-	text-indent: 0;
-	width: 14px;
-}
-
-ul.notifications-list .notification-usd-type-warning {
-	background: #f08080;
-	border-color: #ff0000;
-}
-
-/*------- Section Navigation (navigation stub) ------*/
+/*------- Navigation Portlet (Section Navigation) ------*/
 
 ul.section-navigation-list {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;	
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 ul.section-navigation-list li {
-	display: block;
-	float: left;
-	margin: 10px 30px 10px 0;
-	width: 300px;
+    display: block;
+    float: left;
+    margin: 10px 30px 10px 0;
+    width: 300px;
 }
 
 ul.section-navigation-list li a {
-	background: url(../images/navigation/section-navigation-icons-sprite.png) 0 0 no-repeat;
+    background: #fff url(../images/navigation/section-navigation-icons-sprite.png) 0 0 no-repeat;
 
-	-moz-border-radius: 6px;
-	-webkit-border-radius: 6px;
-	border-radius: 6px;	
-	
-	-webkit-box-shadow: 2px 2px 2px 2px transparent;
-	-moz-box-shadow: 2px 2px 2px 2px transparent;
-	box-shadow: 2px 2px 2px 2px transparent;
-	
-	display: block;
-	min-height: 60px;
-	padding: 10px;
-	padding-left: 80px;
-	text-decoration: none;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+
+    -webkit-box-shadow: 2px 2px 2px 2px #fff;
+    -moz-box-shadow: 2px 2px 2px 2px #fff;
+    box-shadow: 2px 2px 2px 2px #fff;
+    behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
+
+    display: block;
+    min-height: 60px;
+    padding: 10px;
+    padding-left: 80px;
+    position: relative; /* Position relative needed for css3pie.htc to work properly */
+    text-decoration: none;
 }
 
+/* Mitt jobb */
 ul.section-navigation-list li.documents a { background-position: 0 -300px; }
 ul.section-navigation-list li.communication a { background-position: 0 -600px; }
 ul.section-navigation-list li.region-calendar a { background-position: 0 -900px; }
@@ -1486,28 +1408,1187 @@ ul.section-navigation-list li.heroma a { background-position: 0 -1800px;	}
 ul.section-navigation-list li.clarity a { background-position: 0 -2100px; }
 ul.section-navigation-list li.pivotaltracker a { background-position: 0 -2400px; }
 
-ul.section-navigation-list li a:hover {
-	-webkit-box-shadow: 2px 2px 2px 2px #e4edf9;
-	-moz-box-shadow: 2px 2px 2px 2px #e4edf9;
-	box-shadow: 2px 2px 2px 2px #e4edf9;
-	
+/* Mitt jobb - dokumenthantering */
+ul.section-navigation-list li.alfresco a { background-position: 0 -2700px; }
+ul.section-navigation-list li.antura a { background-position: 0 -3000px; }
+ul.section-navigation-list li.barium a { background-position: 0 -3300px; }
+ul.section-navigation-list li.evernote a { background-position: 0 -3600px; }
 
-	-webkit-box-shadow: 2px 2px 2px 2px #aaaaaa;
-	-moz-box-shadow: 2px 2px 2px 2px #aaaaaa;
-	box-shadow: 2px 2px 2px 2px #aaaaaa;
-	
+/* Min profil */
+ul.section-navigation-list li.mina-kiv-uppgifter a { background-position: 0 -3900px; }
+ul.section-navigation-list li.mina-system a { background-position: 0 -4200px; }
+ul.section-navigation-list li.mina-inloggningar a { background-position: 0 -4500px; }
+ul.section-navigation-list li.mitt-losenord a { background-position: 0 -4800px; }
+
+/* Administration */
+ul.section-navigation-list li.kiv-admin a { background-position: 0 -5100px; }
+ul.section-navigation-list li.fakturaportalen a { background-position: 0 -5400px; }
+ul.section-navigation-list li.utdataplattformen a { background-position: 0 -5700px; }
+ul.section-navigation-list li.tycktill-admin a { background-position: 0 -6000px; }
+ul.section-navigation-list li.ehandel a { background-position: 0 -6300px; }
+ul.section-navigation-list li.debug a { background-position: 0 -6600px; }
+ul.section-navigation-list li.externa-anvandare a { background-position: 0 -6900px; }
+ul.section-navigation-list li.behorighetsblanketten a { background-position: 0 -7200px; }
+
+/* Hitta */
+ul.section-navigation-list li.hitta a { background-position: 0 -7500px; }
+ul.section-navigation-list li.sok-i-kiv a { background-position: 0 -7800px; }
+ul.section-navigation-list li.sok-i-hsa a { background-position: 0 -8100px; }
+
+
+ul.section-navigation-list li a:hover {
+    -webkit-box-shadow: 2px 2px 2px 2px #e4edf9;
+    -moz-box-shadow: 2px 2px 2px 2px #e4edf9;
+    box-shadow: 2px 2px 2px 2px #e4edf9;
+
+    -webkit-box-shadow: 2px 2px 2px 2px #aaaaaa;
+    -moz-box-shadow: 2px 2px 2px 2px #aaaaaa;
+    box-shadow: 2px 2px 2px 2px #aaaaaa;
+
 }
 
 ul.section-navigation-list li a .title {
-	display: block;
-	color: #005095;
-	font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
-	font-size: 1.2em;
+    display: block;
+    color: #005095;
+    font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
+    font-size: 1.2em;
 }
 
 ul.section-navigation-list li a .description {
-	color: #333;
-	display: block;
+    color: #333;
+    display: block;
+}
+
+/*------- Portlet Alerts -------*/
+
+/* Not actually styling of portlet alerts, but the y-padding set to 0 is needed since portlet alerts will be in this column */
+.controls-hidden .portlet-layout .hundred .portlet-column-content {
+    padding: 0 15px;
+}
+
+.portlet-alerts .portlet-body .entry-content {
+    padding: 2px;
+}
+
+.portlet-alerts .portlet-body .entry {
+    background-color: #f33;
+    border: 1px solid #faa;
+    color: white;
+    padding: 0px;
+    padding-left: 12px;
+}
+
+.portlet-alerts .portlet-body .read-entries .entry {
+    background-image: url("../images/warning-grey.png");
+}
+
+.portlet-alerts .entry-scope {
+    display: none;
+}
+
+/* hide controls */
+.portlet-alerts .entry .control-entry {
+    display: none;
+}
+.controls-hidden .portlet-alerts .edit-actions {
+    display: none;
+}
+
+.controls-hidden .portlet-alerts .portlet-borderless-container {
+    min-height: 0;
+}
+
+.controls-hidden .portlet-alerts .aui-tabview-list {
+    display: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+.portlet-alerts .portlet-body .entry .entry-title {
+    color: white;
+    padding: 2px 2px 2px 0px;
+    background-color: transparent;
+}
+
+.portlet-alerts .portlet-body .entry .entry-title .edit-actions table {
+    /* for some reason IE gets fixed table layout below, this doesn't work here 
+       the edi actions swells out to 100% width */
+    table-layout: auto !important;
+}
+
+
+.portlet-alerts .portlet-body .entry a {
+    color: white;
+}
+
+/* custom classed portlet alerts 
+   Used for system information instead of alerts 
+   Add class 'portlet-alerts-info'
+   */
+.portlet-alerts-info .portlet-body .entry {
+    background-color: #005690;
+    color: white;
+    background-image: none;
+    border: none;
+    padding-left: 35px;
+}
+
+
+.portlet-alerts-info .entry-scope {
+    display: none;
+}
+
+.portlet-alerts-info .portlet-body .entry .entry-title,.portlet-alerts-info .portlet-body .entry .entry-title a {
+    color: white;
+}
+
+.portlet-alerts-info .entry-title {
+    font-size: 27px;
+    text-align: center;
+    margin-top: 9px;
+}
+
+.portlet-alerts-info .entry-content {
+    text-align: center;
+}
+
+.portlet-alerts-info .edit-actions a {
+    font-size: 9px;
+}
+
+.portlet-alerts-info .control-entry  {
+    display: none;
+}
+
+
+/*------  Portlet Announcements --------*/
+
+.portlet-announcements .entry .entry-scope {
+    display: none;
+}
+
+.portlet-announcements .entry p {
+    background-color: #ffe;
+    border-top: 1px solid #bebebe;
+    padding-left: 6px;
+}
+
+/* hide controls */
+.portlet-announcements .entry .control-entry {
+    display: none;
+}
+.controls-hidden .portlet-announcements .edit-actions {
+    display: none;
+}
+.controls-hidden .portlet-announcements .aui-tabview-list {
+    display: none;
+}
+
+
+.portlet-announcements .entry-title, .portlet-alerts .entry-title {
+    background-color: #FFFFBB;
+    color: #333;
+    padding-left: 6px;
+
+}
+
+/*------- Portlet Knowledge Base Display/Knowledge Base Aggregator ------*/
+
+/* Remove unnecessary cruft */
+.knowledge-base-portlet-display .kb-article-tools td,.knowledge-base-portlet-aggregator .kb-article-tools td {
+    display: none;
+}
+/* we do like to display print though */
+.knowledge-base-portlet-display .kb-article-tools td+td+td+td,.knowledge-base-portlet-aggregator .kb-article-tools td+td+td+td {
+    display: table-cell;
+}
+
+/* Enhance readability, line lenght, line height and font-size */
+.knowledge-base-portlet-display .kb-entity-body,
+.knowledge-base-portlet-aggregator .kb-entity-body {
+    text-align: justify;
+
+    /*
+    line-height: 1.7;
+    font-size: 12pt;
+    */
+    width: 40em;
+}
+
+.knowledge-base-portlet-display .kb-entity-header {
+    border-bottom: none;
+    margin: 0;
+    padding: 0;
+}
+
+.knowledge-base-portlet-display .kb-entity-header .kb-title,
+.knowledge-base-portlet-aggregator .kb-entity-header .kb-title {
+    color: #444;
+    font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
+    font-size: 1.8em;
+    font-weight: normal;
+    margin: 1.0em 0 0.4em 0;
+}
+
+.knowledge-base-portlet-display .kb-article-comments .lfr-panel-title,
+.knowledge-base-portlet-aggregator .kb-article-comments .lfr-panel-title {
+    /*font-size: 85%;*/
+}
+
+.knowledge-base-portlet-display .kb-article-comments.kb-submit-buttons input,
+.knowledge-base-portlet-aggregator .kb-article-comments.kb-submit-buttons input {
+    /*font-size: 80%;*/
+}
+
+.knowledge-base-portlet-display .kb-article-comments .user-profile-image,
+.knowledge-base-portlet-aggregator .kb-article-comments .user-profile-image {
+    display: none;
+}
+
+.knowledge-base-portlet-display .kb-article-comments .user-details,
+.knowledge-base-portlet-aggregator .kb-article-comments .user-details {
+    width: 40em;
+}
+.knowledge-base-portlet-display .kb-article-comments .user-details .user-name,
+.knowledge-base-portlet-aggregator .kb-article-comments .user-details .user-name {
+    text-align: right;
+}
+
+/* -- In help/sidebar column -- */
+
+#column-sidebar .knowledge-base-portlet-display .kb-entity-header {
+    display: none;
+}
+
+#column-sidebar .knowledge-base-portlet-display .kb-entity-body {
+    font-size: 1.1em;
+    padding: 0;
+    line-height: 1.2em;
+    text-align: left;
+    width: 100%;
+}
+
+#column-sidebar .knowledge-base-portlet-display .kb-entity-header .kb-title {
+    display: none;
+}
+
+/*------- Portlet Knowledge Base Aggregator ------*/
+
+.knowledge-base-portlet-aggregator .lfr-panel .lfr-panel-titlebar {
+    background-position: 2px 63%;
+
+    background: none;
+    padding-left: 0;
+}
+
+.knowledge-base-portlet-aggregator .lfr-panel-titlebar .lfr-panel-title {
+    color: #444;
+    font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
+    font-size: 1.8em;
+    font-weight: normal;
+    margin: 1em 0 0.4em 0;
+}
+
+.knowledge-base-portlet-aggregator .search-results {
+    display: none;
+}
+
+.knowledge-base-portlet-aggregator .kb-title-wrapper {
+    padding: 2px 0;
+}
+
+.knowledge-base-portlet-aggregator a.taglib-icon .taglib-text {
+    text-decoration: none;
+}
+
+.knowledge-base-portlet-aggregator a.taglib-icon:hover .taglib-text {
+    text-decoration: underline;
+}
+
+/*----------------------------------------------------------------------
+=Custom Portlets
+----------------------------------------------------------------------*/
+
+/* ----------------- Account Settings Portlet ----------------------- */
+.account-settings-portlet {
+    width: 500px;
+}
+
+.account-settings-portlet td {
+    padding: 15px 30px 0px 10px;
+    vertical-align: bottom;
+}
+
+.account-settings-portlet .tab-content {
+    position: absolute;
+}
+
+.account-settings-portlet #tab-content-container {
+    height: 250px;
+    padding: 10px;
+}
+
+.account-settings-portlet input[type="text"] {
+    width: 200px;
+}
+
+.account-settings-portlet .account-settings-form {
+    height: 25px;
+    text-align: center;
+}
+
+.account-settings-portlet .tab-selector {
+    height: 22px;
+    text-align: center;
+}
+
+.account-settings-portlet .tab-selector a {
+    float: left;
+    height: 100%;
+    margin: 4px;
+    width: 31%;
+    background-color: #06579c;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border: 1px solid #75A1C6;
+    border-bottom: 0;
+    font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: normal;
+    color: white;
+    text-decoration: none;
+}
+
+.account-settings-portlet .tab-selector a.selected {
+    background-color: white;
+    color: #06579C;
+    cursor: default;
+}
+
+/* --------------- Change Password Portlet ---------------------*/
+
+.change-password-portlet .change-password-form div {
+    margin-top: 10px;
+}
+
+.change-password-portlet .user-box-container {
+    margin-bottom: 12px;
+    font-size: 1.2em;
+}
+
+.change-password-portlet .user-box-container .user-box {
+    border: 1px solid lightgray;
+    padding: 6px;
+}
+
+.change-password-portlet .user-box-container .user-box .user-id {
+    font-weight: bold;
+}
+
+/* ---------------- ifeed portlet ------------------------- */
+
+.ifeed-portlet .ifeed-portlet-ldap-people .aui-combobox-content .aui-field-content {
+    display: block;
+}
+
+/* hide button */
+.ifeed-portlet .ifeed-portlet-ldap-people .aui-toolbar {
+    display: none;
+}
+
+.ifeed-portlet .ifeed-portlet-filter-input input {
+    width: 96%;
+    margin: 0px auto;
+}
+
+.ifeed-portlet-filter-result {
+    margin: 0px;
+    padding: 4px;
+    cursor: pointer;
+}
+
+.ifeed-portlet-filter-result-odd {
+    background-color: #fafafa;
+}
+
+.aui-autocomplete-selected .ifeed-portlet-filter-result-odd {
+    background-color: #DFE8F6;
+}
+
+/*------- Booking Portlet (resebokning) -------*/
+
+.booking-wrap fieldset {
+    background: #f2efe9;
+    border: 1px solid #bfbab0;
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+.booking-wrap legend {
+    color: #000;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.booking-wrap fieldset ol {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.booking-wrap fieldset li {
+    list-style-type: none;
+}
+
+.booking-wrap fieldset.submit {
+    background: none;
+    border: none;
+    float: none;
+    text-align: center;
+    width: auto;
+}
+
+.booking-wrap label {
+    float: left;
+    margin-right: 10px;
+    width: 130px;
+}
+
+.booking-wrap span label {
+    float: none;
+    margin-right: auto;
+    width: auto;
+}
+
+.booking-wrap li .radio-group {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.booking-wrap fieldset .textarea,
+.booking-wrap fieldset
+.booking-wrap .text,
+.booking-wrap fieldset .time,
+.booking-wrap fieldset .radio,
+.booking-wrap fieldset .select {
+    border: 1px solid #ccc;
+    padding: 4px 2px;
+}
+
+.booking-wrap fieldset .textarea {
+    height: 110px;
+}
+
+.booking-wrap fieldset .text,
+.booking-wrap fieldset .textarea {
+    width: 190px;
+}
+.booking-wrap fieldset .select {
+    max-width: 196px;
+}
+
+.booking-wrap .time {
+    margin: 0 0 3px;
+    width: 40px;
+}
+
+/* Datepicker formatting */
+.booking-wrap  #ui-datepicker-div {
+    font-size: 10px;
+    width: 215px
+}
+
+.booking-wrap  fieldset.submit-ok {
+    padding: 1em;
+    width: 350px;
+}
+
+.booking-wrap  .ui-datepicker-next {
+    text-align: left;
+}
+
+.booking-wrap select.validation-error,
+.booking-wrap textarea.validation-error,
+.booking-wrap input.validation-error {
+    border: 1px solid red;
+}
+
+.booking-wrap .validation-error-message {
+    background: url(../images/exclamation.gif) no-repeat;
+    display: inline;
+    margin: 0.3em 0 0 .3em;
+    padding-left: 18px;
+}
+.booking-wrap span.comment {
+    color: grey;
+    font-size: 0.9em;
+}
+
+/*------- BFR portlet -------*/
+
+.bfr-wrap {
+    width: 100%;
+}
+
+.bfr-wrap h2 {
+    margin-top: 0px;
+}
+
+.bfr-wrap .aui-tabview-list {
+    border: none;
+    border-bottom: 5px solid #2c6fa7;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.bfr-wrap .aui-tab {
+    background: #d8d8d8;
+    border: 1px solid #a3a3a3;
+    border-width: 1px 1px 0 1px;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    color: #333;
+    margin: 0 0.2em 0 0;
+}
+
+.bfr-wrap .aui-tab-active {
+    background: #2c6fa7;
+    border-color: #243356;
+    color: #fff;
+}
+
+.bfr-wrap .aui-tab-active:after {
+    border: 0;
+    bottom: 0;
+    content: '';
+    display: block;
+    height: 0;
+    margin: 0;
+    width: 0;
+    z-index: 0;
+}
+
+.bfr-wrap .aui-tabview-content-wrap {
+    background: #edf5ff;
+    border: 1px solid #808080;
+    border-top-color: #243356;
+}
+
+.bfr-wrap .aui-tabview-content-item {
+    padding: 10px;
+}
+
+.bfr-wrap .aui-tabview-content-wrap .imageview {
+    padding: 0px;
+}
+
+
+.bfr-wrap table {
+    /* Test uncommenting this code for BFR (not yet tested 2011-12-14) */
+    /*table-layout: auto !important;*/
+}
+
+.bfr-wrap .yui-dt tr th {
+    background: #eee;
+}
+
+.bfr-wrap .yui-dt-even td {
+    background-color: #fff;
+}
+.bfr-wrap .yui-dt-odd td {
+    background-color: #fafafa;
+}
+
+
+.bfr-wrap tbody td .yui-dt-liner:hover {
+    text-decoration: underline;
+}
+
+.bfr-wrap .aui-tabview-content-wrap .aui-tabview-content-item table td {
+    vertical-align: top;
+}
+
+/* ---------------- User Wizard portlet ------------------------- */
+
+.user-wizard-portlet {}
+
+.user-wizard-portlet .portlet-borderless-container {
+    min-height: 0;
+}
+
+.controls-visible .user-wizard-portlet .portlet-borderless-container {
+    min-height: 2.5em;
+}
+
+/*-------User Wizard Dialog -------*/
+
+.user-wizard-dialog .aui-dialog-hd {
+    background: #2C6FA7;
+    color: #fff;
+    font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
+    font-size: 26px;
+    font-weight: normal;
+    text-shadow: none;
+}
+
+.user-wizard-dialog .aui-buttonitem-content {
+    background: none;
+    border: none;
+    height: 35px;
+    width: 34px;
+    padding: 0px;
+}
+
+.user-wizard-dialog .aui-icon-closethick {
+    background: transparent url(../images/user-wizard/wizard-close-button-sprite.png) 0 0 no-repeat;
+    height: 32px;
+    width: 32px;
+}
+
+.user-wizard-dialog .aui-state-hover .aui-icon-closethick {
+    background-position: 0 -50px;
+}
+
+.user-wizard-dialog .aui-panel-hd-text {
+    line-height: 1.4;
+}
+
+.user-wizard-content-wrap {
+    padding: 10px 15px;
+}
+
+.user-wizard-dialog .user-wizard-intro {
+    font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
+    font-size: 18px;
+    margin: 0 0 10px 0;
+}
+
+.user-wizard-content-wrap {
+    color: #333;
+    /* Position relative and z-index needed for css3pie.htc to work properly
+         http://css3pie.com/documentation/known-issues/#z-index
+      */
+    position: relative;
+    z-index: 100000;
+}
+
+.user-wizard-dialog .user-wizard-personalize-wrap {
+    background: #ddd;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    /* Needs an absolute path */
+    behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
+    display: block;
+    font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    margin: 10px 0;
+    padding: 15px;
+}
+
+.user-wizard-personalize-text {
+    background: transparent url(../images/user-wizard/wizard-personalization-matte-ddd.png) 0 50% no-repeat;
+    padding-left: 110px;
+    padding: 10px 0 10px 110px;
+}
+
+.user-wizard-profile-link-wrap {
+    text-align: right;
+}
+
+.user-wizard-profile-link-wrap a,
+.user-wizard-profile-link-wrap a:link,
+.user-wizard-profile-link-wrap a:hover {
+    background: transparent url(../images/user-wizard/link-icon-matte-ddd.png) 0 50% no-repeat;
+    color: #2c6fa7;
+    font-size: 14px;
+    padding-left: 14px;
+    text-decoration: none;
+}
+
+.user-wizard-profile-link-wrap a:hover span {
+    text-decoration: underline;
+}
+
+.user-wizard-control-wrap {
+    border: 1px solid #ccc;
+    border-width: 1px 0 1px 0;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.user-wizard-control-wrap a,
+.user-wizard-control-wrap a:link,
+.user-wizard-control-wrap a:hover {
+    color: #333;
+    display: block;
+    font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 28px;
+    min-height: 28px;
+    padding-left: 40px;
+    text-decoration: none;
+}
+
+.user-wizard-control-wrap a {
+    background: transparent url(../images/user-wizard/wizard-checkbox-sprite.png) 0 0 no-repeat;
+}
+
+.user-wizard-control-wrap a.checked {
+    background-position: 0 -50px;
+}
+
+.user-wizard-control-wrap a:hover span {
+    text-decoration: underline;
+}
+
+/* ---------------- RSS portlet ------------------------- */
+
+ul.list-news {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul.list-news li {
+    border-bottom: 1px solid #EBF2F8;
+    padding: 5px 0;
+}
+
+.list-news .news-date {
+    color: #777;
+    display: block;
+    float: left;
+    width: 80px;
+}
+
+.list-news .news-block {
+    display: block;
+    margin: 0 0 0 80px;
+}
+
+.list-news .news-item-no-date .news-date {
+    display: none;
+}
+
+.list-news .news-item-no-date .news-block {
+    margin-left: 0;
+}
+
+.list-news .news-title {
+    display: block;
+}
+
+a.news-title {
+    font-size: 1em;
+}
+
+/* ---------------- Calendar Portlet (notes) ------------------------- */
+
+.calendar-wrap {}
+
+.cal-day-wrap {
+    margin: 10px 0;
+}
+
+h4.cal-date {
+    border-bottom: 1px solid #EBF2F8;
+    color: #005095;
+    font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+ul.cal-item-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul.cal-item-list li {
+    border-bottom: 1px solid #EBF2F8;
+    margin: 0;
+    padding: 2px 2px;
+    clear: both;
+}
+
+/* Clearfix style clearing */
+ul.cal-item-list li:after{clear:both;content:'.';display:block;visibility:hidden;height:0}
+ul.cal-item-list li{display:inline-block}
+* html ul.cal-item-list li{height:1%}
+ul.cal-item-list li{display:block}
+
+.cal-item-time {
+    display: block;
+    float: left;
+    width: 19%;
+}
+
+.cal-item-title {
+    display: block;
+    float: left;
+    width: 55%;
+}
+
+.cal-item-type {
+    display: block;
+    float: right;
+    width: 24%;
+}
+
+/*------- Notifications Bar ------*/
+
+.notifications-bar-portlet {}
+
+ul.notfications-bar-list {
+    background: #cad2dd;
+    border: 1px solid #b0b1b3;
+    behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
+    -moz-border-radius-topleft: 2px;
+    -moz-border-radius-bottomleft: 2px;
+    -webkit-border-radius: 2px 0 0 2px;
+    border-radius: 2px 0 0 2px;
+    list-style: none;
+    margin: 0;
+    padding: 0px 0;
+    position: relative; /* Position relative needed for css3pie.htc to work properly */
+    /*width: 42px;*/
+}
+
+ul.notfications-bar-list li {
+    border-bottom: 1px solid #b0b1b3;
+    border-top: 1px solid #e4edf9;
+}
+
+ul.notfications-bar-list li.first {
+    border-top: none;
+}
+
+ul.notfications-bar-list li.last {
+    border-bottom: none;
+}
+
+ul.notfications-bar-list li a {
+    background-color: transparent;
+    display: block;
+    height: 49px;
+    position: relative;
+    text-decoration: none;
+}
+
+ul.notfications-bar-list li a .count {
+    background: #fff;
+
+    -moz-border-radius: 9px;
+    -webkit-border-radius: 9px;
+    border-radius: 9px;
+    behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
+
+    left: 0px;
+    padding: 2px;
+    position: absolute;
+    top: 0px;
+}
+
+ul.notfications-bar-list li a .count span {
+    background: #444;
+
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    border-radius: 7px;
+    behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
+    color: #fff;
+    display: block;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 1.0;
+    padding: 2px 5px 3px;
+    text-align: center;
+}
+
+ul.notfications-bar-list li a .count-highlight span {
+    background: #b00;
+}
+
+ul.notfications-bar-list li a .title {
+    display: block;
+    font-size: 0;
+    text-indent: -9999em;
+}
+
+ul.notfications-bar-list li.active a,
+ul.notfications-bar-list li a:hover {
+    background-color: #e4edf9;
+}
+
+.notifications-bar-invoices a,
+.notifications-bar-usd a,
+.notifications-bar-todo a,
+.notifications-bar-documents a,
+.notifications-bar-email a {
+    background-image: url(../images/notifications/notification-icons-sprite.png);
+    background-position: 50% 0;
+    background-repeat: no-repeat;
+}
+
+.notifications-bar-invoices a {
+    background-position: 50% 7px;
+}
+.notifications-bar-usd a {
+    background-position: 50% -88px;
+}
+.notifications-bar-todo a {
+    background-position: 50% -193px;
+}
+.notifications-bar-documents a {
+    background-position: 50% -293px;
+}
+.notifications-bar-email a {
+    background-position: 50% -387px;
+}
+
+.notifications-overlay {
+}
+
+/* -- Overlay -- */
+
+.notifications-overlay .aui-overlay-content {
+    background: #e4edf9;
+    behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
+    -moz-border-radius: 3px 0 0 3px;
+    -webkit-border-radius: 3px 0 0 3px;
+    border-radius: 3px 0 0 3px;
+    border: 1px solid #e4edf9;
+    -moz-box-shadow: 1px 1px 4px #777;
+    -webkit-box-shadow: 1px 1px 4px #777;
+    box-shadow: 1px 1px 4px #777;
+    min-height: 40px;
+    position: relative;
+}
+
+.notifications-overlay h3 {
+    background: transparent url(../images/notifications/notifications-sep.png) bottom left repeat-x;
+    color: #005095;
+    padding: 0 0 5px 0;
+    margin: 0 0 5px 0;
+}
+
+/* -- Notification Items -- */
+
+.notifications-wrap {
+    padding: 0 3px;
+}
+
+ul.notifications-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul.notifications-list li {
+    background: transparent url(../images/notifications/notifications-sep.png) bottom left repeat-x;
+    margin: 3px 0;
+    padding: 3px 0;
+}
+
+ul.notifications-list li a,
+ul.notifications-list li a:visited {
+    color: #555;
+    text-decoration: none;
+}
+
+ul.notifications-list li a:hover {
+    color: #333;
+    text-decoration: underline;
+}
+
+ul.notifications-list .notification-types {
+    display: block;
+    float: left;
+    width: 40px;
+}
+
+ul.notifications-list .notification-summary {
+    display: block;
+    margin: 0 0 0 40px;
+}
+
+ul.notifications-list .notification-type {
+    float: left;
+    font-size: 0;
+    display: block;
+    line-height: 20px;
+    height: 16px;
+    margin: 0 2px 2px 0;
+    position: relative;
+    text-align: center;
+    text-indent: -9999em;
+    width: 16px;
+}
+
+ul.notifications-list .notification-type-1 {
+    background: url(../images/icons/red16x16.png) 0 0 no-repeat;
+}
+
+ul.notifications-list .notification-type-2 {
+    background: url(../images/icons/yellow16x16.png) 0 0 no-repeat;
+}
+
+ul.notifications-list .notification-usd-type {
+    background: #eee;
+    border: 1px solid #ccc;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
+    font-size: inherit;
+    height: 20px;
+    text-indent: 0;
+    width: 14px;
+}
+
+ul.notifications-list .notification-usd-type-warning {
+    background: #f08080;
+    border-color: #ff0000;
+}
+
+/* ----------------- VAP Search Portlet ----------------------- */
+
+.vap-search-wrap {
+    background: #e9f3ff;
+
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+
+    behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
+    margin: 10px 0;
+    padding: 20px;
+    position: relative; /* Position relative needed for css3pie.htc to work properly */
+}
+
+.vap-search-wrap input[type="text"],
+.vap-search-wrap input[type="submit"] {
+    display: block;
+    float: left;
+    font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
+    position: relative;
+}
+
+.vap-search-wrap input[type="text"] {
+    background: #fff;
+    border: 2px solid #ccc;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
+    font-size: 16px;
+    margin-right: 10px;
+    padding: 7px;
+    width: 75%;
+}
+
+.vap-search-wrap input[type="submit"] {
+    background: #255d8c;
+    border: 1px solid #255d8c;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-box-shadow: 2px 2px 2px 2px #255d8c;
+    -moz-box-shadow: 2px 2px 2px 2px #255d8c;
+    box-shadow: 2px 2px 2px 2px #255d8c;
+    behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
+    color: #fff;
+    font-size: 16px;
+    font-weight: normal;
+    padding: 6px 15px;
+    text-shadow: none;
+}
+
+
+/* ----------------- VAP Search Results Portlet ----------------------- */
+
+/*- Search Results -*/
+
+ul.vap-search-results {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+li.vap-search-result-item {
+    background: #fff;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
+    padding: 10px;
+    position: relative;
+}
+
+li.vap-search-result-item .hd,
+li.vap-search-result-item .bd,
+li.vap-search-result-item .ft {
+    margin: 5px 0;
+}
+
+li.vap-search-result-item .hd h3 {
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+
+li.vap-search-result-item .hd h3 a {
+    color: #666;
+    text-decoration: none;
+}
+
+li.vap-search-result-item .hd-controls {
+    float: right;
+    display: none;
+    position: relative;
+    margin-right: 10px;
+}
+
+li.vap-search-result-item .bd a {
+    color: #333;
+    text-decoration: none;
+}
+
+li.vap-search-result-item-hover .hd-controls {
+    display: block;
+}
+
+/*- Search Results hover -*/
+
+li.vap-search-result-item-hover {
+    background: #e9f3ff;
+}
+
+li.vap-search-result-item-hover .bd a {
+    color: #333;
+}
+
+li.vap-search-result-item-hover .bd a:hover {
+    color: #333;
+    text-decoration: none;
+}
+
+li.vap-search-result-item-hover .hd h3 a {
+    color: #005095;
+}
+
+li.vap-search-result-item-hover .hd h3 a:hover {
+    color: #005095;
+    text-decoration: none;
 }
 
 /*----------------------------------------------------------------------
@@ -1525,94 +2606,94 @@ ul.section-navigation-list li a .description {
 /*------- News Box -------*/
 
 .news-box-wrap {
-	border: 1px solid #2c6fa7;
-	-moz-border-radius: 6px;
-	-webkit-border-radius: 6px;
-	border-radius: 6px;
-	behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
-	margin: 10px 0;
-	padding: 6px;
-	position: relative; /* Position relative needed for css3pie.htc to work properly */
+    border: 1px solid #2c6fa7;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
+    margin: 10px 0;
+    padding: 6px;
+    position: relative; /* Position relative needed for css3pie.htc to work properly */
 }
 
 .news-box {
-	position: relative;
+    position: relative;
 }
 
 .news-box a,
 .news-box a:link,
 .news-box a:hover {
-	text-decoration: none;	
+    text-decoration: none;
 }
 
 .news-box a.news-box-link {
-	background: #fff;
-	cursor: pointer;
-	display: block;
-	height: 220px;
-	margin: 0;
-	overflow: hidden;
-	padding: 0;
-	width: 100%;
+    background: #fff;
+    cursor: pointer;
+    display: block;
+    height: 220px;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    width: 100%;
 }
 
 .news-box .news-box-link-content {
-	padding: 10px;
+    padding: 10px;
 }
 
 
 .news-box-image-wrap {
-	float: left;
-	width: 30%;
+    float: left;
+    width: 30%;
 }
 
 .news-box a h1 {
-	color: #2c6fa7;
-	font-size: 26px;
-	margin: 5px 0;
-	padding: 0;
+    color: #2c6fa7;
+    font-size: 26px;
+    margin: 5px 0;
+    padding: 0;
 }
 
 .news-box-description-wrap {
-	background: url(../images/bg/bg_fff.gif) repeat 0 0;
-	float: right;
-	width: 69%;
+    background: url(../images/bg/bg_fff.gif) repeat 0 0;
+    float: right;
+    width: 69%;
 }
 
 .news-box a h2 {
-	color: #555;
-	font-size: 18px;
-	margin: 5px 0;
-	padding: 0;
+    color: #555;
+    font-size: 18px;
+    margin: 5px 0;
+    padding: 0;
 }
 
 .news-box .span-btn {
-	background: #317cbb;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;
-	behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
-	color: #fff;
-	display: block;
-	float: right;
-	font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
-	font-size: 24px;
-	text-align: center;
-	padding: 10px 15px;
-	margin: 0;
-	position: relative; /* Position relative needed for css3pie.htc to work properly */
+    background: #317cbb;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
+    color: #fff;
+    display: block;
+    float: right;
+    font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
+    font-size: 24px;
+    text-align: center;
+    padding: 10px 15px;
+    margin: 0;
+    position: relative; /* Position relative needed for css3pie.htc to work properly */
 }
 
 .news-box-js .aui-carousel {
-	margin: 0;
-	overflow: hidden;
-	padding: 0;
-	position: absolute;
-	top: 0;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    top: 0;
 }
 
 .news-box-js .aui-carousel-item {
-	opacity: 0;
+    opacity: 0;
 }
 
 .news-box .aui-carousel menu {
@@ -1622,66 +2703,66 @@ ul.section-navigation-list li a .description {
     padding: 3px;
     position: absolute;
     right: 0px;
-	width: 100%;
+    width: 100%;
     z-index: 4;
 }
 
 .news-box-js .aui-carousel-menu-item {
-	border: 1px solid transparent;
+    border: 1px solid transparent;
 }
 
 .news-box-js .aui-carousel-menu-active {
-	border: 1px solid #474A4B;
+    border: 1px solid #474A4B;
 }
 
 .news-box-js .aui-carousel-menu-pause,
 .news-box-js .aui-carousel-menu-play,
 .news-box-js .aui-carousel-menu-prev,
 .news-box-js .aui-carousel-menu-next {
-	/*display: none;*/
+    /*display: none;*/
 }
 
 
 .news-box-menu-wrap {
-	background: #2c6fa7;
-	padding: 10px;
+    background: #2c6fa7;
+    padding: 10px;
 }
 
 ul.news-box-menu {
-	float: right;
-	margin: 0;
-	padding: 0;
-	position: relative;
+    float: right;
+    margin: 0;
+    padding: 0;
+    position: relative;
 }
 
 ul.news-box-menu li {
-	background: #80a9ca;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;
-	/* Needs an absolute path */
-	behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
-	cursor: pointer;	
-	float: left;
-	font-size: 0;
-	height: 10px;
-	width: 10px;
-	list-style-type: none;
-	margin: 0 3px;
-	padding: 0;
-	/* Position relative needed for css3pie.htc to work properly */
-	position: relative;
-	text-indent: -9999em;
+    background: #80a9ca;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    /* Needs an absolute path */
+    behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
+    cursor: pointer;
+    float: left;
+    font-size: 0;
+    height: 10px;
+    width: 10px;
+    list-style-type: none;
+    margin: 0 3px;
+    padding: 0;
+    /* Position relative needed for css3pie.htc to work properly */
+    position: relative;
+    text-indent: -9999em;
 }
 
 ul.news-box-menu li.aui-carousel-menu-active {
-	background: #fff;
+    background: #fff;
 }
 
 .news-box-menu .aui-carousel-menu-pause,
 .news-box-menu .aui-carousel-menu-prev,
 .news-box-menu .aui-carousel-menu-next {
-	display: none;
+    display: none;
 }
 
 /*----------------------------------------------------------------------
@@ -1788,11 +2869,53 @@ ul.news-box-menu li.aui-carousel-menu-active {
 
 /* Position the console so that it does not hide the sidebar */
 .yui3-separate-console{
-	right: 400px;
-	top: 100px;
+    right: 400px;
+    top: 100px;
 }
 
 
 /*----------------------------------------------------------------------
 =Sandbox
 ----------------------------------------------------------------------*/
+
+/*------- VAP -------*/
+
+ul.vap-search-results .hd-controls .flag,
+ul.vap-search-results .hd-controls .link-btn-save {
+    display: block;
+    float: left;
+    position: relative;
+    margin: 0 5px 0 0;
+}
+
+ul.vap-search-results .hd-controls .link-btn-save {
+    background: #f5f5f5 url(../images/forms/button.png) repeat-x 0 0;
+    border: 1px solid;
+    border-color: #dedede #bfbfbf #bfbfbf #dedede;
+    color: #34404f;
+    cursor: pointer;
+    font-weight: bold;
+    overflow: visible;
+    padding: 5px;
+    text-decoration: none;
+    width: auto;
+
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+
+    behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
+}
+
+.aui-vap-bookmark-button-overlay .aui-overlay-content {
+    background: #fff;
+
+    /* behavior: url(/rp-new-theme/htc/css3pie.htc); */ /* Needs an absolute path */
+    /*
+     border: 1px solid #e4edf9;
+     -moz-box-shadow: 1px 1px 4px #777;
+     -webkit-box-shadow: 1px 1px 4px #777;
+     box-shadow: 1px 1px 4px #777;
+     */
+    position: relative;
+}
