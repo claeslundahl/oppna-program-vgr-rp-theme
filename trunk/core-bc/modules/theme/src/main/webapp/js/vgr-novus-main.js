@@ -11,11 +11,15 @@ AUI().add('vgr-novus-main',function(A) {
             return Array.prototype.slice.call(arguments).join(SPACE);
         },
         
+        CSS_RP_DIALOG = 'rp-dialog',
+        
         ANIM_EASING = A.Easing.easeOut,
         ANIM_DURATION = 0.6,
         COOKIE_HIDE_SIDEBAR = 'hideSidebar',
         WIDTH_MAIN_CONTENT_STANDARD = '80%',
         WIDTH_MAIN_CONTENT_MAXIMIZED = '100%',
+        
+        CUSTOM_LINK_CLICK_EVENT = 'event-kb-aggregator-link-click',
         
         DOCKBAR_NODE = 'dockbarNode',
         HEADER_NODE = 'headerNode',
@@ -89,6 +93,11 @@ AUI().add('vgr-novus-main',function(A) {
                         var instance = this;
                         
                         instance.messages = {};
+                        
+                        A.publish( CUSTOM_LINK_CLICK_EVENT, {
+                        	defaultFn: function(e) {},
+                        	broadcast: 1
+                        });                        
                     },
                     
                     renderUI: function() {
@@ -109,7 +118,7 @@ AUI().add('vgr-novus-main',function(A) {
                         var kbAggregatorTitleLinks = A.all('.knowledge-base-portlet-aggregator .kb-results-body .kb-title a');
                         
                         if(kbAggregatorTitleLinks) {
-                        	kbAggregatorTitleLinks.on('click', instance._onKBAggregatorTitleLinksClick, instance);	
+                        	kbAggregatorTitleLinks.on('click', instance._onKBAggregatorTitleLinksClick, instance);
                         }
                     },
                     
@@ -201,13 +210,20 @@ AUI().add('vgr-novus-main',function(A) {
                                 }
                             }
                                     
-                        } 
+                        }
                         
                         //open in modal window instead
                         var currentTitleNode = currentTarget.one('.taglib-text');
                         var currentTitle = currentTitleNode.html();
-                    
-                        url = url.replace('/group/', '/widget/group/');
+                        
+                        var isPrivateLayout = themeDisplay.isPrivateLayout() == 'true';
+                        
+                        if(isPrivateLayout) {
+                        	url = url.replace('/group/', '/widget/group/');
+                        }
+                        else {
+                        	url = url.replace('/web/', '/widget/web/');	
+                        }
                     
                         var dialogHeight = 500;
                         var dialogWidth = 700;
@@ -224,12 +240,15 @@ AUI().add('vgr-novus-main',function(A) {
                             bodyContent: bodyContent,
                             centered: true,
                             constrain2view: true,
+                            cssClass: CSS_RP_DIALOG,
                             destroyOnClose: true,
                             height: dialogHeight,
                             modal: true,
                             width: dialogWidth,
                             title: currentTitle
                         }).render();
+                        
+                        A.fire(CUSTOM_LINK_CLICK_EVENT, {currentTarget: currentTarget});
                     },
 
                     _onQuickNavigationClick: function(e) {
@@ -258,6 +277,7 @@ AUI().add('vgr-novus-main',function(A) {
             'aui-tooltip',
             'anim',
             'cookie',
+            'event-custom',
             'event-resize',
             'substitute'
       ]

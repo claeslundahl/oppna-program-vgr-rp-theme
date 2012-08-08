@@ -2,17 +2,34 @@
 <!DOCTYPE look-and-feel PUBLIC "-//Liferay//DTD Look and Feel 6.0.0//EN" "http://www.liferay.com/dtd/liferay-look-and-feel_6_0_0.dtd">
 
 <look-and-feel>
-	<compatibility>
-		<version>6.0.11+</version>
-	</compatibility>
-	<theme id="regionportalen-theme" name="Regionportalen Tema">
-		<settings>
-			<setting key="show-breadcrumbs" value="true" />
-		</settings>
-	</theme>
-	<theme id="regionportalen-theme-no-hide" name="Regionportalen Tema (inga breadcrumbs)">
-		<settings>
-			<setting key="show-breadcrumbs" value="false" />
-		</settings>
-	</theme>
+  <compatibility>
+    <version>6.0.11+</version>
+  </compatibility>
+  <theme id="rp-new" name="RP New" />
+
+  <theme id="rp-new" name="RP New">
+    <settings>
+      <setting key="show-breadcrumbs" value="true" />
+    </settings>
+  </theme>
+  <theme id="rp-new-no-breadcrumbs" name="RP New (no breadcrumbs)">
+    <settings>
+      <setting key="show-breadcrumbs" value="false" />
+    </settings>
+  </theme>
+
+  <theme id="rp-new-navportlet" name="RP New (Nav Portlet)">
+    <settings>
+      <setting key="use-rp-nav-portlet" value="true" />
+      <setting key="show-breadcrumbs" value="true" />
+    </settings>
+  </theme>
+
+  <theme id="rp-new-navportlet-no-breadcrumbs" name="RP New (Nav Portlet no Breadcrumbs)">
+    <settings>
+      <setting key="use-rp-nav-portlet" value="true" />
+      <setting key="show-breadcrumbs" value="false" />
+    </settings>
+  </theme>
+
 </look-and-feel>
