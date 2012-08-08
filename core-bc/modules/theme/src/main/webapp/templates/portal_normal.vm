@@ -6,11 +6,19 @@
 
 <head>
 	<title>$the_title - $company_name</title>
+	
+	#if($useResponsiveDesign)
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	#end
 
 	$theme.include($top_head_include)
+	
+	#if($useResponsiveDesign)
+		<link rel="stylesheet" type="text/css" href="$css_folder/responsive.css" />
+	#end
 </head>
 
-<body class="$css_class">
+<body class="$css_class $css_rp_admin">
 
 #if($showDockbar)
 	<div id="dockbarWrap">
@@ -18,11 +26,15 @@
 	</div>
 #end
 
+
 <div id="wrapper">
 	<a href="#main-content" id="skip-to-content">#language("skip-to-content")</a>
 
 	<header id="banner" role="banner">
 		<hgroup id="heading" class="clearfix">
+			#if($useResponsiveDesign)
+				<a href="navigationTrigger" id="navigationTrigger"><span>Meny</span></a>
+			#end
 			<h1 class="company-title">
 				<a class="logo" href="$company_url" title="#language("go-to") $company_name">
 					<span>$company_name</span>
@@ -31,10 +43,6 @@
 			#parse ("$full_templates_path/top_navigation.vm")
 
 		</hgroup>
-
-		#if(!$is_signed_in)
-			<a href="$sign_in_url" id="sign-in" rel="nofollow">$sign_in_text</a>
-		#end
 
 		#if ($update_available_url)
 			<div class="popup-alert-notice">
@@ -49,12 +57,27 @@
 
 	<div id="content">
 		#if ($selectable)
+		
+			#if($show_breadcrumbs)
+				<nav class="site-breadcrumbs aui-helper-hidden clearfix" id="breadcrumbs">
+					<div class="breadcrumbs-list-wrap clearfix">
+						<div class="breadcrumbs-label">
+							$breadcrumbs_label:
+						</div>
+						#breadcrumbs()
+					</div>
+					<h1>$the_title</h1>
+				</nav>
+			#end
+		
 			$theme.include($content_include)
 			<div id="toolsSidebar" class="tools-sidebar">
 				#if($show_notifications_portlet)
 					#parse ("$full_templates_path/notifications.vm")
 				#end
-				#parse ("$full_templates_path/tyck-till-content.vm")
+				#if($is_signed_in)
+					#parse ("$full_templates_path/tyck-till-content.vm")
+				#end
 			</div>
 		#else
 			$portletDisplay.recycle()
@@ -75,10 +98,20 @@
 
 $theme.include($bottom_include)
 
+#*
+## This script appears to be problematic with the current theme.
+<!--[if lt IE 9]>
+	<script src="$javascript_folder/css3-mediaqueries.js"></script>
+<![endif]-->
+*#
+
 #js ("$javascript_folder/rp-tyck-till.js")
 #js ("$javascript_folder/rp-quick-access-nav.js")
+#js ("$javascript_folder/rp-system-help.js")
+#js ("$javascript_folder/rp-navigation-button.js")
 #js ("$javascript_folder/vgr-novus-main.js")
-#js ("$javascript_folder/vgr-novus-instance.js")
+#js ("$javascript_folder/rp-new-theme.js")
+#js ("$javascript_folder/rp-footer-plugin.js")
 #js ("$javascript_folder/theme-main.js")
 
 </html>

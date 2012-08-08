@@ -32,11 +32,11 @@ AUI().add('rp-tyck-till',function(A) {
                 ATTRS: {
                 	
     				dialogHeight: {
-    					value: 650
+    					value: 670
     				},
     				
     				dialogWidth: {
-    					value: 650
+    					value: 670
     				},
                     
                     trigger: {

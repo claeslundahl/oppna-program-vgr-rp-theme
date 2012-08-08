@@ -1,28 +1,20 @@
 AUI().add('rp-quick-access-nav',function(A) {
     var Lang = A.Lang,
-        isArray = Lang.isArray,
-        isFunction = Lang.isFunction,
-        isNull = Lang.isNull,
-        isObject = Lang.isObject,
-        isString = Lang.isString,
-        isUndefined = Lang.isUndefined,
-        getClassName = A.ClassNameManager.getClassName,
-        concat = function() {
-            return Array.prototype.slice.call(arguments).join(SPACE);
-        },
         
         FILTER_INPUT_ID = 'filterInputId',
         
+        MAIN_NAV_LIST = 'mainNavList',
+        
         NAME = 'rp-quick-access-nav',
         NS = 'rp-quick-access-nav',
+        
+        QUICK_ACCESS_NAV_LIST_WRAP = 'quickAccessNavListWrap',
         
         TRIGGER = 'trigger',
         
         CSS_ACTIVE = 'active',
         CSS_HIDDEN = 'aui-helper-hidden',
-        CSS_QUICK_ACCESS_NAV_LIST = 'quick-access-nav-list',
-        CSS_QUICK_ACCESS_NAV_OVERLAY = 'quick-access-overlay',
-        CSS_QUICK_ACCESS_NAV_PROTOTYPE = 'quick-access-nav-prototype'
+        CSS_QUICK_ACCESS_NAV_OVERLAY = 'quick-access-overlay'
     ;
         
     var QuickAccessNav = A.Component.create(
@@ -31,8 +23,16 @@ AUI().add('rp-quick-access-nav',function(A) {
                 	filterInputId: {
                 		value: '#quickAccessFilterInput'
                 	},
+                	mainNavList: {
+                		value: '#navigation > ul',
+                		setter: A.one
+                	},
                 	trigger: {
                 		value: '#topNavigation .top-nav-quick-access a',
+                		setter: A.one
+                	},
+                	quickAccessNavListWrap: {
+                		value: '.quick-access-nav-list-wrap',
                 		setter: A.one
                 	}
                 },
@@ -59,6 +59,8 @@ AUI().add('rp-quick-access-nav',function(A) {
                     renderUI: function() {
                         var instance = this;
                         
+                        //instance._initConsole();
+                        
                         var trigger = instance.get(TRIGGER);
                         
                         var triggerListNode = trigger.ancestor('li');
@@ -66,6 +68,8 @@ AUI().add('rp-quick-access-nav',function(A) {
                         if(triggerListNode) {
                         	triggerListNode.show();	
                         }
+                        
+                        instance._createQuickAccessMenu();
                         
                         instance._initOverlay(trigger);
                     },
@@ -78,19 +82,88 @@ AUI().add('rp-quick-access-nav',function(A) {
                         }, instance);
                     },
                     
+                    _createQuickAccessMenu: function() {
+                    	var instance = this;
+                    	
+                    	var quickAccessWrap = instance.get(QUICK_ACCESS_NAV_LIST_WRAP);
+                    	var mainNavList = instance.get(MAIN_NAV_LIST);
+                    	
+                    	var quickAccessNavNode = mainNavList.cloneNode(true);
+                    	
+                    	// Set correct class name for main list
+                    	quickAccessNavNode.removeAttribute('class', '');
+                    	quickAccessNavNode.addClass('quick-access-nav-list clearfix');
+                    	
+                    	// Remove all classes from list items
+                    	quickAccessNavNode.all('li').removeAttribute('class', '');
+                    	
+                    	// Set first level nodes
+                    	var firstLevelNodes = quickAccessNavNode.all('>li'); 
+                    	firstLevelNodes.addClass('first-level');
+                    	
+                    	// Loop all first level nodes and remove the ones that don't have any child list/s
+                    	firstLevelNodes.each(function(node, index, list) {
+                    		var childListNodes = node.all('ul');
+                    		
+                    		if(childListNodes.size() <= 0) {
+                    			node.remove();
+                    			node.destroy();
+                    		}
+                    	});
+                    	
+                    	// Remove all fourth level lists (third level sublist)
+                    	var fourthLevelLists = quickAccessNavNode.all('ul.nav-list-sub-3');
+                    	fourthLevelLists.remove();
+                    	
+                    	// Remove classes from child menus
+                    	quickAccessNavNode.all('ul').removeAttribute('class', '');
+                    	
+                    	// Set child menu class
+                    	quickAccessNavNode.all('ul').addClass('child-menu');
+                    	
+                    	// Set second level classes
+                    	quickAccessNavNode.all('li.first-level > ul > li').addClass('second-level');
+                    	
+                    	// Set third level classes
+                    	quickAccessNavNode.all('li.second-level > ul > li').addClass('third-level');
+                    	
+                    	// Remove all spans inside a tags
+                    	quickAccessNavNode.all('a > span').each(function(node, index, list) {
+                    		var text = node.html();
+                    		var link = node.ancestor('a');
+                    		node.remove();
+                    		node.destroy();
+                    		link.html(text);
+                    	});
+                    	
+                    	quickAccessWrap.append(quickAccessNavNode);
+                    },
+                    
                     _getOverlayBodyContent: function() {
                     	var instance = this;
                     	
                     	return instance.overlayPanel.getStdModNode(A.WidgetStdMod.BODY);
                     },
                     
+                    _initConsole: function() {
+                    	var instance = this;
+                    	
+                    	var consoleSettings = {
+                			useBrowserConsole: true,
+	            	        newestOnTop: true,
+	            	        visible: true
+                    	};
+                    	
+                    	var console =  new A.Console(consoleSettings).render();
+                    },                    
+                    
                     _initLiveSearch: function() {
                     	var instance = this;
                     	
-                    	var bodyContentNode = instance._getOverlayBodyContent();
+                    	var quickAccessWrap = instance.get(QUICK_ACCESS_NAV_LIST_WRAP);
+                    	var filterInput = quickAccessWrap.one(instance.get(FILTER_INPUT_ID));
+                    	filterNodes = quickAccessWrap.all('ul a');
                     	
-                    	var filterInput = bodyContentNode.one(instance.get(FILTER_INPUT_ID));
-                    	var filterNodes = bodyContentNode.all('.' + CSS_QUICK_ACCESS_NAV_LIST + ' a');
                     	
                     	instance.liveSearch = new A.LiveSearch({
                     		input: filterInput,
@@ -108,8 +181,20 @@ AUI().add('rp-quick-access-nav',function(A) {
                     			
                     			if(!isFirstLevel) {
                     				var firstLevelNode = node.ancestor('.first-level');
-                    				firstLevelNode.show().setAttribute('nodeStatus', 'show');
+                    				if(firstLevelNode) {
+                    					firstLevelNode.show().setAttribute('nodeStatus', 'show');	
+                    				}
+                    				
+                    				var isSecondLevel = listNode.hasClass('second-level');
+                    				
+                    				if(!isSecondLevel) {
+                        				var secondLevelNode = node.ancestor('.second-level');
+                        				if(secondLevelNode) {
+                        					secondLevelNode.show().setAttribute('nodeStatus', 'show');	
+                        				}
+                    				}
                     			}
+                    			
                     			
                     			listNode.show().setAttribute('nodeStatus', 'show');
                     		},
@@ -121,8 +206,9 @@ AUI().add('rp-quick-access-nav',function(A) {
                     				var hideNode = true;
                     				
                     				var isFirstLevel = listNode.hasClass('first-level');
+                    				var isSecondLevel = listNode.hasClass('second-level');
                     				
-                        			if(isFirstLevel) {
+                        			if(isFirstLevel || isSecondLevel) {
                         				var hasVisibleChildren = (node.all('li.:not(.' + CSS_HIDDEN + ')').size() > 0);
                         				hideNode = !hasVisibleChildren;
                         			}
@@ -139,8 +225,7 @@ AUI().add('rp-quick-access-nav',function(A) {
                     _initOverlay: function(trigger) {
                     	var instance = this;
                     	
-                    	var listNode = trigger.ancestor('li');
-                    	var markupPrototypeNode = listNode.one('.' + CSS_QUICK_ACCESS_NAV_PROTOTYPE);
+                    	var markupPrototypeNode = instance.get(QUICK_ACCESS_NAV_LIST_WRAP);
 
                     	var bodyContent = markupPrototypeNode.html();
 
@@ -231,6 +316,7 @@ AUI().add('rp-quick-access-nav',function(A) {
             'aui-live-search',
             'aui-loading-mask',
             'aui-overlay',
+            'console',
             'node-event-simulate',
             'substitute'
       ]

@@ -9,24 +9,37 @@
 ##
 
 #set($show_breadcrumbs = false)
+#set($use_rp_navigation_portlet = false)
 
 #if ($theme.getSetting("show-breadcrumbs") == "true")
-    #set($show_breadcrumbs = true)
+	#set($show_breadcrumbs = true)
 #end
 
 #if($show_breadcrumbs)
-    #set($css_class = $css_class + " has-breadcrumbs")
+	#set($css_class = $css_class + " has-breadcrumbs")
 #end
+
+#if ($theme.getSetting("use-rp-nav-portlet") == "true")
+	#set($use_rp_navigation_portlet = true)
+#end
+
 
 ##
 ## Services
 ##
 
 ##
+## RP Navigation Portlet
+##
+
+#set ($rp_navigation_portlet_id = "rpnavigationportlet_WAR_rpnavigationportlet")
+
+##
 ## Dockbar
 ##
 
 #set($showDockbar = $permissionChecker.isOmniadmin())
+##set($showDockbar = true)
 
 ##
 ## Phrases
@@ -63,7 +76,7 @@
 ##
 
 #set($show_notifications_portlet = $is_signed_in)
-#set($show_notifications_portlet = false)
+##set($show_notifications_portlet = false)
 
 #set ($notifications_portlet_stub_id = "notificationsbarstubportlet_WAR_notificationsbarstubportlet")
 #set ($notifications_portlet_prod_id = "notifications_WAR_notificationsportlet")
@@ -77,3 +90,19 @@
 
 #set($useResponsiveDesign = true)
 ##set($useResponsiveDesign = false)
+
+##
+## RP Admin
+##
+
+#set($css_rp_admin = "")
+
+#set($is_rp_admin = $permissionChecker.isOmniadmin())
+#if($is_rp_admin)
+	#set($css_rp_admin = "rp-admin")
+#end
+
+##
+## RP Admin
+##
+#set($show_sign_in_link = true)

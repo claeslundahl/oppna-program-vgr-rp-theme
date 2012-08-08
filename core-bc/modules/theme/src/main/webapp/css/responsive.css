@@ -1,0 +1,308 @@
+/* Test ----------- */
+@media only screen
+and (max-width : 600px) {
+	
+	/* ---------- Base blocks ---------- */
+	
+	#banner,
+	#content,
+	#footer {
+		padding: 0 10px;
+	}
+	
+	#banner {
+		background: #255d8c url(../images/bg/header-bg-small.png) 0 0 repeat-x;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		position: relative;
+	}
+	
+	#main-content {
+		margin-right: 0;
+	}
+	
+	/* -- Logo -- */
+	
+	.company-title,
+	#banner .company-title .logo {
+		display: block;
+		float: none;	
+		margin: 0 auto;
+	}
+	
+	#banner .company-title .logo {
+		background: url(../images/logo/rp-logo-white.png) 0 0 no-repeat;
+	}
+	
+	#banner .company-title .server-node-info {
+		display: none;
+	}
+	
+	/* -- Tools Sidebar -- */
+	#toolsSidebar {
+		display: none;
+	}
+	
+	/* ---------- Layouts ---------- */
+
+	.rp-columns div.aui-w70,
+	.rp-columns div.aui-w50,
+	.rp-columns div.aui-w30,
+	.rp-columns div.aui-w25  {
+		width: 100%;
+	}
+	
+	.rp-columns .portlet-column-content {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	
+	.rp-columns div.rp-sidebar {
+		display: none;
+	}
+	
+	.rp-columns-landing-page .portlet-column-content {
+		border-right: none;
+	}
+	
+	/* ---------- Navigation ---------- */
+	
+	
+	/* -- Top Navigation -- */
+	
+	.top-navigation {
+		/*float: right;*/
+		position: absolute;
+		right: 10px;
+		top: 10px;
+		margin: 0;
+	}
+
+	ul.top-nav-list li.top-nav-quick-settings,
+	ul.top-nav-list li.top-nav-quick-access,
+	ul.top-nav-list li.top-nav-user {
+		display: none;
+	}
+
+	ul.top-nav-list li.top-nav-settings a {
+		text-indent: -9999em;
+		font-size: 0;
+		height: 12px;
+	}
+	
+	.top-nav-list a {
+		color: #fff;
+	}
+	
+	.top-nav-list a {
+		background: none;
+		padding: 0;
+		text-decoration: underline;
+	}
+	
+	ul.top-nav-list li a.active,
+	ul.top-nav-list li a:hover {
+		background: none;
+		text-decoration: none;
+	}
+	
+	/* -- Breadcrumbs -- */
+	
+	#breadcrumbs {
+		margin-right: 0;
+	}
+	
+	/* -- Main Navigation -- */
+
+	#navigation {
+		display: none;
+	}	
+	
+	/* -- Navigation Menu Button -- */
+	
+	#navigationTrigger {
+		background: #255d8c;
+		border-radius: 6px;
+		-moz-border-radius: 6px;
+		-webkit-border-radius: 6px;
+		border: 2px solid #eee;
+	
+		behavior: url(/rp-new-theme/htc/css3pie.htc); /* Needs an absolute path */
+				
+		color: #fff;
+		display: block;
+		float: left;
+		font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
+		font-size: 1.3em;
+		font-weight: normal;
+		line-height: 1.0;
+		margin: 0 6px;
+		padding: 6px 10px;
+		position: relative;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+	
+	#navigationButtonMenu {
+		background: #255d8c;
+		border-top: 1px solid #1a4263;
+		display: block;
+		margin: 0 -10px;
+		overflow: hidden;
+		position: absolute;
+		z-index: 5000;
+		width: 100%;
+	}
+	
+	#navigationButtonMenu ul {
+		border-top: 1px solid #2d72ac;
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+	}
+	
+	#navigationButtonMenu ul li {
+		border-bottom: 1px solid #1a4263;
+		margin: 0;
+		padding: 0;
+	}
+	
+	#navigationButtonMenu ul li a {
+		border-bottom: 1px solid #2d72ac;
+		color: #fff;
+		display: block;
+		font-family: Ubuntu, Arial, Verdana, Helvetica, sans-serif;
+		font-size: 1.2em;
+		font-weight: normal;
+		padding: 10px;
+		text-decoration: none;
+	}
+	
+	#navigationButtonMenu ul li.last,	
+	#navigationButtonMenu ul li.last a {
+		border-bottom: none;
+	}
+	
+	#navigationButtonMenu ul li a:hover {
+		background: #2d72ac;
+	}
+	
+	/* -- Section Navigation -- */
+	
+	ul.section-navigation-list li {
+		float: none;
+		margin: 10px 0;
+		width: 100%;
+	}
+	
+	/*------- VAP Navigation -------*/
+	
+	.vap-navigation-wrap {
+		border: none;
+	}
+	
+	.vap-navigation-wrap h1 {
+		float: none;
+		font-size: 1.5em;
+		margin: 0 0 5px 0;
+		max-width: 100%;
+	}
+	
+	ul.vap-navigation {
+		border: 1px solid #E4EDF9;
+		border-width: 1px 0;
+		float: none;
+		padding: 5px;
+		position: relative;
+		top: 0;
+		left: 0;
+		max-width: 100%;
+	}
+	
+	ul.vap-navigation li {
+		float: none;
+		margin: 5px 0;
+	}
+	
+	ul.vap-navigation li a {
+		-moz-border-radius: 0;
+		-webkit-border-radius: 0;
+		border-radius: 0;
+		padding: 5px;
+	}
+	
+	
+	
+	/*------- VAP Intro -------*/
+	.vap-intro-wrap .vap-intro {
+		float: none;
+		width: 100%;
+	}
+	
+	.vap-intro-wrap .vap-help {
+		display: none;
+		float: none;
+	}
+	
+	
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen
+and (min-width : 321px) {
+/* Styles */
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen
+and (max-width : 320px) {
+/* Styles */
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px) {
+/* Styles */
+	
+	/*
+	body {
+		background: green;		
+	}
+	*/
+}
+
+/* iPads (landscape) ----------- */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : landscape) {
+/* Styles */
+}
+
+/* iPads (portrait) ----------- */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : portrait) {
+/* Styles */
+}
+
+/* Desktops and laptops ----------- */
+@media only screen
+and (min-width : 1224px) {
+/* Styles */
+}
+
+/* Large screens ----------- */
+@media only screen
+and (min-width : 1824px) {
+/* Styles */
+}
+
+/* iPhone 4 ----------- */
+@media
+only screen and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5) {
+/* Styles */
+}
