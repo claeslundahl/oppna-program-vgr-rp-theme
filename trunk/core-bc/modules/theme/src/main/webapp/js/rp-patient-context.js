@@ -38,7 +38,7 @@ function pollForNewPatient(url) {
                 }
             },
             failure:function () {
-                pollForNewPatient(url); // On timeout e.g.
+                // We stop polling
             }
         }
     });
